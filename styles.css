@@ -1,0 +1,175 @@
+html {
+  font-family: sans-serif, Arial, Helvetica;
+  scroll-padding-top: 80px; /* Abstand zur sticky navbar */
+}
+
+body {
+    background-color:rgb(255, 255, 255);
+    font-family: sans-serif;
+}
+
+header {
+    background: #014425;
+    background: radial-gradient(circle,rgba(1, 68, 37, 1) 0%, rgba(139, 207, 122, 1) 100%);
+    color: #ffffff;
+    /* height: 250px;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    /* 
+    padding:1em;
+    border: 1px solid black;
+    flex-basis: 100%; 
+    text-align: center;
+    */
+}
+
+header img,
+header svg {
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4)); /* Schatteneffekt */
+    max-width: 200px;
+    max-height: 200px;
+    height: auto;
+    width: auto;
+}
+
+header h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+    
+}
+
+main {
+  border: 3px solid #8bcf7a !important; /* Blattgrüner Rand (aus Ihrem Header-Grün) */   
+}
+
+.navbar .btn { /* Stil für die Navigations-Buttons **NICHT IN NUTZUNG**/
+  margin-right: 10px;
+  border-radius: 5px;
+  border-color: #ffffff;
+  font-weight: 700; /* Etwas fetterer Text */
+  transition: all 0.3s ease; /* Sanfter Übergang bei Hover */
+  /* background-color: #02a5e0; */
+}
+
+footer {
+  background: #014425;
+  background: radial-gradient(circle,rgba(1, 68, 37, 1) 0%, rgba(139, 207, 122, 1) 100%);
+  color: #ffffff;
+  padding: 1em;
+}
+
+/* Einfacher Table-CSS-Stil */
+
+/*table {
+  border-collapse: collapse;
+  border: 2px solid rgb(200,200,200);
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+}
+td, th {
+  border: 1px solid rgb(190,190,190);
+  padding: 10px 20px;
+}
+th {
+  background-color: rgb(235,235,235);
+}
+td {
+  text-align: center;
+}
+tr:nth-child(even) td {
+  background-color: rgb(250,250,250);
+}
+tr:nth-child(odd) td {
+  background-color: rgb(245,245,245);
+}
+caption {
+  padding: 10px;
+}
+*/
+
+/* Stylen von Struktur-Tags von Tabellen */
+caption {
+  padding: 10px;
+
+}
+tbody {
+  font-size: 95%;
+  font-style: italic;
+}
+
+tfoot {
+  font-weight: bold;
+}
+
+.box {
+  margin: 30px;
+  width: 100px;
+  height: 100px;
+  background-color: rebeccapurple;
+  transform: rotate(0.6turn); /* Start-Drehung */
+}
+.box:hover { /* Lässt den Kasten drehen, per Maus-Hover */
+  transform: rotate(1turn);
+  transition: transform 1s; /* Animationsdauer 1 Sekunde */
+
+}
+
+/* p * {  Alle Elemente innerhalb von <p>
+  color: darkblue;
+} */
+
+::selection { /* Markierter Text */
+  background-color: rgb(246, 250, 2); 
+}
+
+/* Überschreibe die Bootstrap table-success Klasse für ein helleres Grün, "thead.table-success th" war nötig, damit das Überschreiben funktionierte */
+thead.table-success th {
+    background-color: #037841 !important; /* Eigene Farbe */
+    color: #ffffff !important; /* Optional: Textfarbe anpassen, falls nötig */
+}
+
+#localMenu 
+{ /* Navbar Links abstand erhöhen (id="localMenu") */
+ gap: 0.5rem;
+}
+
+[dir="rtl"] header {
+  direction: rtl;
+}
+
+[dir="rtl"] header .navbar-nav {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+h2 {
+  margin-top: 30px; /* Einheitlicher Abstand nach oben für alle h2-Überschriften */
+  margin-bottom: 20px;
+}
+
+hr {
+  border: none; /* Entfernt Standard-Grenze */
+  border-top: 2px solid #0e9104; /* Dunkelgrüne Linie */
+  margin: 20px 0; /* Abstand oben und unten */
+}
+
+/* Beispielt für Gesamte Seite! 
+[dir="rtl"] #localMenu 
+{ /* Rechts-nach-Links Schriftkultur Wählt das #localMenu-Element aus, wenn die Schriftrichtung rtl (Right-to-Left) ist */
+ /* justify-content: flex-end; /* justify-content: flex-end; richtet die Inhalte am Ende aus (rechtsbündig für RTL-Sprachen wie Arabisch oder Hebräisch)*/
+/*}
+[dir="ltr"] #localMenu {
+        justify-content: flex-start;
+} 
+      /*
+      1. Automatisches Setzen durch den Browser
+Der Browser setzt dir automatisch basierend auf das lang-Attribut:
+
+lang="de" (Deutsch) → Browser setzt automatisch dir="ltr" (Left-to-Right)
+lang="ar" (Arabisch) → Browser würde dir="rtl" setzen (Right-to-Left)
+2. Manuelles Setzen möglich
+Du könntest es aber auch explizit hinzufügen:
+  <html lang="de" dir="ltr">
+      */
