@@ -135,6 +135,7 @@ function renderTable(rows) {
 
     // 3. Spalte: CO2
     const tdCo2 = document.createElement("td");
+    tdCo2.classList.add("text-end"); // Bootstrap Klasse für rechtsbündig
     // Zahl hübsch formatieren (1 Nachkommastelle)
     tdCo2.textContent = rows[i].co2.toFixed(1);
 

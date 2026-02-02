@@ -163,16 +163,15 @@
           <button id="btnSortCompany" class="btn btn-outline-secondary">Unternehmen sortieren</button>
           <button id="btnSortCo2" class="btn btn-outline-secondary">CO₂ sortieren</button>
         </div>
-        <table id="co2Table" class="table table-sm table-bordered table-striped table-hover
-                                    border-success border border-2 caption"> <!-- Bootstrap Table Klassen -->
+        <table id="co2Table" class="table table-striped table-hover border-success"> <!-- Bootstrap Table Klassen -->
           <caption>
-            Die Daten sind fiktiv. Sortieren per Klick auf die Buttons.  
+            Hinweis: Die Daten sind fiktiv. Sortieren per Klick auf die Spaltenüberschrift.
           </caption>        
         <thead class="table-success"> <!-- Bootstrap Tabellenkopf Klasse mit Grüner Farbe -->
           <tr>
-            <th onclick="sortTable('country')" scope="col">Land</th> <!-- Besser EventListener mit JS??-->
-            <th onclick="sortTable('company')" scope="col">Unternehmen</th>
-            <th onclick="sortTable('co2')" scope="col">CO2-Emissionen</th>
+            <th onclick="sortTable('country')" scope="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Klick für Länder Sortieren">Land</th> <!-- Besser EventListener mit JS??-->
+            <th onclick="sortTable('company')" scope="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Klick für Unternehmen Sortieren">Unternehmen</th>
+            <th class="text-end" onclick="sortTable('co2')" scope="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Klick für CO2 Sortieren">CO2-Emissionen</th>
           </tr>
         </thead>
         <!-- Dieser Bereich wird per JS gefüllt -->

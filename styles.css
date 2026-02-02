@@ -53,6 +53,13 @@ main {
   /* background-color: #02a5e0; */
 }
 
+/* Nur Links werden gehövert */
+.navbar a:hover {
+  color: #ffffff; /* Dunkelgrüner Text bei Hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Leichter Schatteneffekt */
+  font-size: 1.2rem; /* Leicht vergrößerter Text bei Hover */
+} 
+
 footer {
   background: #014425;
   background: radial-gradient(circle,rgba(1, 68, 37, 1) 0%, rgba(139, 207, 122, 1) 100%);
@@ -98,10 +105,6 @@ tbody {
   font-size: 95%;
   font-style: italic;
   table-hover-color: rgb(211, 211, 211);
-}
-
-tfoot {
-  font-weight: bold;
 }
 
 .box {
