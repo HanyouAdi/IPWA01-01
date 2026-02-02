@@ -10,18 +10,22 @@
   <!--Keywords for search engines-->
 
   <!-- Bootstrap JS (CDN) -> muss durch VUE ersetzt werden?! -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+        crossorigin="anonymous">
   <!-- Bootstrap JS (CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous">
+  </script>
 
   <!--Link to an external CSS file-->
   <link rel="stylesheet" href="styles.css">
 
   <!--Link to an external JavaScript file; defer attribute makes sure the script is executed after the HTML is fully parsed-->
-  <script src="script.js" defer></script>
+  <script src="script.js" defer>
+  </script>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50"> <!-- Bootstrap ScrollSpy Attribute -->
@@ -45,7 +49,6 @@
     </div>
   </header>
 
-
   <!-- Navigation Bar: Ziel der Organisation / Was zeigt eine CO₂-Bilanz? /  Filter / CO₂-Tabelle / Ausblick PCF! / Weitere Infos-->
   <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top"> 
     <div class="container-fluid">
@@ -59,34 +62,34 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-     <div class="collapse nav-pills navbar-collapse justify-content-center" id="navbarNav"> 
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <!-- Smooth Scroll zu Abschnitt "Ziel der Organisation" 
-          <button class="btn btn-outline-light" onclick="document.getElementById('section1').scrollIntoView({behavior: 'smooth'})">Ziel der Organisation</button>
-          -->
-          <a class="nav-link active" href="#section1">Das Ziel von Earth's Breath</a>
-        </li>
-        <li class="nav-item">
-          <!-- 
-            <a class="btn btn-outline-light" href="#section2">Was zeigt eine CO₂-Bilanz?</a>
-          -->
-          <a class="nav-link" href="#section2">Was zeigt eine CO₂-Bilanz?</a>
+      <div class="collapse nav-pills navbar-collapse justify-content-center" id="navbarNav"> 
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <!-- Smooth Scroll zu Abschnitt "Ziel der Organisation" 
+            <button class="btn btn-outline-light" onclick="document.getElementById('section1').scrollIntoView({behavior: 'smooth'})">Ziel der Organisation</button>
+            -->
+            <a class="nav-link active" href="#section1">Das Ziel von Earth's Breath</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#section3">Filtermenü</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#section4">CO₂-Emissionstabelle</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#section5">Ausblick PCF!</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#section6">Weitere Infos</a>
-          </li>
+            <!-- 
+              <a class="btn btn-outline-light" href="#section2">Was zeigt eine CO₂-Bilanz?</a>
+            -->
+            <a class="nav-link" href="#section2">Was zeigt eine CO₂-Bilanz?</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#section3">Filtermenü</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#section4">CO₂-Emissionstabelle</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#section5">Ausblick PCF!</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#section6">Weitere Infos</a>
+            </li>
         </ul>
-        </div>
+      </div>
     </div>
   </nav>
 
@@ -234,319 +237,6 @@
             <td>ElbeLogistik Industrie AG</td>
             <td>22.890</td>
           </tr>
-          <tr>
-            <td>Australien</td>
-            <td>Pacific Renewable Infrastructure</td>
-            <td>26.540</td>
-          </tr>
-          <tr>
-            <td>Kanada</td>
-            <td>Green Resource Group</td>
-            <td>39.750</td>
-          </tr>
-          <tr>
-            <td>Schweden</td>
-            <td>Nordic Future AB</td>
-            <td>9.650</td>
-          </tr>
-          <tr>
-            <td>Frankreich</td>
-            <td>Atlantique Transport Industriel</td>
-            <td>33.640</td>
-          </tr>
-          <tr>
-            <td>Vietnam</td>
-            <td>Siam Industrial Dynamics</td>
-            <td>24.860</td>
-          </tr>
-          <tr>
-            <td>Luxemburg</td>
-            <td>LuxGreen Financial Services SA</td>
-            <td>7.880</td>
-          </tr>
-          <tr>
-            <td>Deutschland</td>
-            <td>Nordstahl Produktion GmbH</td>
-            <td>34.900</td>
-          </tr>
-          <tr>
-            <td>Chile</td>
-            <td>Andes Copper Solutions</td>
-            <td>23.980</td>
-          </tr>
-          <tr>
-            <td>Kanada</td>
-            <td>Evergreen Forest Products</td>
-            <td>22.480</td>
-          </tr>
-          <tr>
-            <td>China</td>
-            <td>Golden River Electronics</td>
-            <td>72.450</td>
-          </tr>
-          <tr>
-            <td>Griechenland</td>
-            <td>Feta Industrial Solutions</td>
-            <td>19.680</td>
-          </tr>
-          <tr>
-            <td>Norwegen</td>
-            <td>FjordRenew</td>
-            <td>6.980</td>
-          </tr>
-          <tr>
-            <td>Deutschland</td>
-            <td>Delta Circular</td>
-            <td>11.200</td>
-          </tr>
-          <tr>
-            <td>USA</td>
-            <td>Sunbelt Logistics Group</td>
-            <td>38.750</td>
-          </tr>
-          <tr>
-            <td>Frankreich</td>
-            <td>NordEst Matériaux Durables</td>
-            <td>18.920</td>
-          </tr>
-          <tr>
-            <td>Australien</td>
-            <td>Southern Minerals Group</td>
-            <td>62.980</td>
-          </tr>
-          <tr>
-            <td>Indien</td>
-            <td>Bharat Heavy Systems Ltd.</td>
-            <td>62.300</td>
-          </tr>
-          <tr>
-            <td>Estland</td>
-            <td>Nordic Digital Manufacturing OÜ</td>
-            <td>8.320</td>
-          </tr>
-          <tr>
-            <td>Kanada</td>
-            <td>Pacific Rail Logistics</td>
-            <td>31.900</td>
-          </tr>
-          <tr>
-            <td>Japan</td>
-            <td>Sakura Energy Systems</td>
-            <td>22.780</td>
-          </tr>
-          <tr>
-            <td>Deutschland</td>
-            <td>GreenGrid Systems GmbH</td>
-            <td>14.620</td>
-          </tr>
-          <tr>
-            <td>Australien</td>
-            <td>BlueGum Industrial Logistics</td>
-            <td>41.110</td>
-          </tr>
-          <tr>
-            <td>Ungarn</td>
-            <td>DanubeTech Kft.</td>
-            <td>20.140</td>
-          </tr>
-          <tr>
-            <td>China</td>
-            <td>Eastern Horizon Logistics</td>
-            <td>64.700</td>
-          </tr>
-          <tr>
-            <td>Kanada</td>
-            <td>MapleCore Resources Inc.</td>
-            <td>29.840</td>
-          </tr>
-          <tr>
-            <td>Brasilien</td>
-            <td>Amazônia Processos Industriais</td>
-            <td>48.200</td>
-          </tr>
-          <tr>
-            <td>Frankreich</td>
-            <td>HexaTech Production SA</td>
-            <td>29.780</td>
-          </tr>
-          <tr>
-            <td>USA</td>
-            <td>IronPeak Industrial Systems Inc.</td>
-            <td>52.400</td>
-          </tr>
-          <tr>
-            <td>Türkei</td>
-            <td>Anatolia Steel Works</td>
-            <td>33.120</td>
-          </tr>
-          <tr>
-            <td>Slowenien</td>
-            <td>Alpine Circular Solutions d.o.o.</td>
-            <td>9.450</td>
-          </tr>
-          <tr>
-            <td>Kanada</td>
-            <td>NorthStar Materials Corp.</td>
-            <td>28.940</td>
-          </tr>
-          <tr>
-            <td>Polen</td>
-            <td>Vistula Manufacturing</td>
-            <td>27.300</td>
-          </tr>
-          <tr>
-            <td>Australien</td>
-            <td>Outback Resource Engineering</td>
-            <td>58.300</td>
-          </tr>
-          <tr>
-            <td>Frankreich</td>
-            <td>Lumière Industrie Énergie</td>
-            <td>24.350</td>
-          </tr>
-          <tr>
-            <td>China</td>
-            <td>Pearl Delta Manufacturing Group</td>
-            <td>96.880</td>
-          </tr>
-          <tr>
-            <td>Finnland</td>
-            <td>Arctic BioTech</td>
-            <td>7.450</td>
-          </tr>
-          <tr>
-            <td>USA</td>
-            <td>Midwest Chemical Solutions</td>
-            <td>61.300</td>
-          </tr>
-          <tr>
-            <td>Irland</td>
-            <td>Emerald Data Services Ltd.</td>
-            <td>25.900</td>
-          </tr>
-          <tr>
-            <td>Griechenland</td>
-            <td>Hellas Energy Systems</td>
-            <td>14.350</td>
-          </tr>
-          <tr>
-            <td>Belgien</td>
-            <td>EcoForge NV</td>
-            <td>16.950</td>
-          </tr>
-          <tr>
-            <td>USA</td>
-            <td>Pacific Alloy Manufacturing</td>
-            <td>47.980</td>
-          </tr>
-          <tr>
-            <td>Vietnam</td>
-            <td>Mekong Manufacturing Corp.</td>
-            <td>22.300</td>
-          </tr>
-          <tr>
-            <td>Deutschland</td>
-            <td>Bavaria Precision Manufacturing</td>
-            <td>19.750</td>
-          </tr>
-          <tr>
-            <td>Ägypten</td>
-            <td>NileTech Manufacturing</td>
-            <td>28.560</td>
-          </tr>
-          <tr>
-            <td>Dänemark</td>
-            <td>WindCore Danmark</td>
-            <td>9.120</td>
-          </tr>
-          <tr>
-            <td>Kanada</td>
-            <td>Great Lakes Steel Ltd.</td>
-            <td>41.250</td>
-          </tr>
-          <tr>
-            <td>China</td>
-            <td>Jade Dragon Heavy Industries</td>
-            <td>128.600</td>
-          </tr>
-          <tr>
-            <td>Kroatien</td>
-            <td>Adriatic EcoIndustries</td>
-            <td>11.890</td>
-          </tr>
-          <tr>
-            <td>Marokko</td>
-            <td>Atlas Green Works</td>
-            <td>15.890</td>
-          </tr>
-          <tr>
-            <td>Litauen</td>
-            <td>Baltic Future Systems</td>
-            <td>10.540</td>
-          </tr>
-          <tr>
-            <td>Deutschland</td>
-            <td>GreenTech Solutions GmbH</td>
-            <td>12.450</td>
-          </tr>
-          <tr>
-            <td>Argentinien</td>
-            <td>PampaAgro Industrial SA</td>
-            <td>26.750</td>
-          </tr>
-          <tr>
-            <td>Norwegen</td>
-            <td>Atlantic Renewables</td>
-            <td>13.770</td>
-          </tr>
-          <tr>
-            <td>Südafrika</td>
-            <td>Ubuntu Industrial Holdings</td>
-            <td>37.400</td>
-          </tr>
-          <tr>
-            <td>Spanien</td>
-            <td>VerdeLogística SA</td>
-            <td>19.430</td>
-          </tr>
-          <tr>
-            <td>Österreich</td>
-            <td>AlpenWert Energie GmbH</td>
-            <td>8.740</td>
-          </tr>
-          <tr>
-            <td>Tschechien</td>
-            <td>Bohemia Industrial Group</td>
-            <td>21.850</td>
-          </tr>
-          <tr>
-            <td>Mexiko</td>
-            <td>Azteca Manufacturing Group</td>
-            <td>31.670</td>
-          </tr>
-          <tr>
-            <td>Dänemark</td>
-            <td>Kiwi Sustainable Industries</td>
-            <td>9.980</td>
-          </tr>
-          <tr>
-            <td>Vereinigtes Königreich</td>
-            <td>CarbonEdge Industries PLC</td>
-            <td>34.500</td>
-          </tr>
-          <tr>
-            <td>Südkorea</td>
-            <td>HanSeong Advanced Materials</td>
-            <td>41.900</td>
-          </tr>
-          <tr>
-            <td>Vereinigtes Königreich</td>
-            <td>StraitTech Global</td>
-            <td>17.420</td>
-          </tr>
-
-
-
         </tbody>
         <caption>
           <!-- Tabellenunterschrift -->
@@ -609,6 +299,7 @@
   <footer class="container-fluid text-center py-3 mt-4">
     <section>
       <p>&copy; 2026 Earth's Breath Non-Profit Organisation</p>
+      <a href="pages/aboutUs.html">Über uns</a>
       <a href="pages/impressum.html">Impressum</a>
       <a href="pages/datenschutz.html">Datenschutz</a>
       <a href="#top">Zurück nach oben</a>
