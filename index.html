@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Earth's Breath Transparenzportal für den CO₂-Footprint</title>
   <link rel="icon" type="image/x-icon" href="/Fallstudie_Aufg1/img/favicon/favicon.ico">
-  <meta name="description" content="CO₂ Fußabdruck von Firmen">
-  <!--Description of the webpage for search engines-->
+  <meta name="description" content="CO₂ Fußabdruck von Firmen"> <!--Description of the webpage for search engines-->
   <meta name="keywords" content="Fußabdruck, CO2, CO₂, Umwelt, CCF, PCF, Emissionen">
   <!--Keywords for search engines-->
 
@@ -27,11 +26,14 @@
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50"> <!-- Bootstrap ScrollSpy Attribute -->
 
- <header class="container-fluid py-2"> <!-- Bootstrap Container-fluid für volle Breite, py-3 für vertikales Padding, mb-3 für unteren Margin -->
-    <div class="container-responsive row justify-content-center align-items-center"> <!-- Container, damit header am Rest der Seite links anliegt und Row damit beide Elemente in einer Reihe sind und nicht untereinander -->
+ <header id="top" class="container-fluid py-2"> <!-- Bootstrap Container-fluid für volle Breite, py-3 für vertikales Padding, mb-3 für unteren Margin -->
+    <div class="container row justify-content-center align-items-center"> <!-- Container, damit header am Rest der Seite links anliegt und Row damit beide Elemente in einer Reihe sind und nicht untereinander -->
        <!-- Bootstrap row with centered content für Logo & Text -->
       <div class="col-auto me-3">
-        <img class="img-fluid" src="img/Logo_ohne_background-kleiner.PNG" alt="Organisation Logo"> 
+        <img 
+            class="img-fluid" 
+            src="img/Logo_ohne_background-kleiner.PNG" 
+            alt="Organisation Logo"> 
         <!-- Bootstrap img-fluid Klasse für responsive Bilder -->
       </div>
       <div class="col-auto">
@@ -98,7 +100,7 @@
         amet, <br />
         consectetur adipisicing elit. Atque natus sapiente soluta <br />
         ad iure sunt laudantium aperiam vero laborum facilis ipsum quod,
-        <br />
+        <br/>
         minus esse? Vero ducimus deserunt id? Atque quam aspernatur dolor modi
         blanditiis odio, nostrum expedita soluta nisi sapiente perspiciatis
         consequuntur pariatur enim ducimus, odit eaque vero! Iure, ducimus.
@@ -140,7 +142,6 @@
                 autocomplete="off"
               >
             </div>
-
             <div class="col-12 col-md-3 d-grid">
               <button id="resetBtn" class="btn btn-outline-secondary text-dark" type="button">
                 Filter zurücksetzen
@@ -151,22 +152,56 @@
       </section>
     </section>
 
-    <!-- Emissionstabelle-->
+    <!-- Emissionstabelle 1 -->
+    <details id="emissionTableDetails" open>
+      <h2>CO₂-Emissionstabelle (dynamisch mit JS generiert)</h2>
+      <section class="table-responsive"> <!-- Bootstrap Klasse für responsive Tabellen, muss außerhalb der Table sein https://getbootstrap.com/docs/5.3/content/tables/#responsive-tables -->
+        <div class="controls">
+          <button id="btnSortCountry">Land sortieren</button>
+          <button id="btnSortCompany">Unternehmen sortieren</button>
+          <button id="btnSortCo2">CO₂ sortieren</button>
+        </div>
+        <table id="co2Table" class="table table-sm table-bordered table-striped table-hover
+                                    border-success border border-2 caption-top"> <!-- Bootstrap Table Klassen -->
+          <caption>
+            Die Daten sind fiktiv. Sortieren per Klick auf die Buttons.  
+          </caption>        
+        <thead class="table-success"> <!-- Bootstrap Tabellenkopf Klasse mit Grüner Farbe -->
+          <tr>
+            <th scope="col">Land</th> <!-- scope="col" Accessibility-Attribut für <th> Screenreader-->
+            <th scope="col">Unternehmen</th>
+            <th scope="col">CO2-Emissionen</th>
+          </tr>
+        </thead>
+        <!-- Dieser Bereich wird per JS gefüllt -->
+        <tbody id="co2Tbody">
+          <!-- anfangs leer -->
+        </tbody>
+      </table>
+    </section>
+    </details>
+
+    <!-- Emissionstabelle 2 -->
     <section id="section4" class="table-responsive">
+      <h2>CO₂-Emissionstabelle</h2>
       <table class="table table-bordered table-striped table-hover"> <!-- Bootstrap Table Klassen -->
-        <h2>CO₂-Emissionstabelle</h2>
+        <button id="toggleBtn" class="btn btn-outline-secondary">
+          Tabelle ein-/ausklappen
+        </button> 
         <!-- Tabellenüberschrift -->
         <thead class="table-success"> <!-- Bootstrap Tabellenkopf Klasse mit Grüner Farbe -->
           <!-- Tabellenkopf -->
           <tr> <!-- Spaltenüberschriften -->
-            <th data-bs-toggle="tooltip" data-bs-placement="top" title="Per Klick nach Länder Sortieren">Land</th> <!-- Tooltip anzeigen oben-->
-            <th data-bs-toggle="tooltip" data-bs-placement="top" title="Per Klick nach Unternehmen Sortieren">
-              Unternehmen</th>
-            <th data-bs-toggle="tooltip" data-bs-placement="top" title="Per Klick nach CCF Sortieren">CCF (in Tonnen
+            <th scope="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Klick für Länder Sortieren">
+              Land</th> <!-- Tooltip anzeigen oben-->
+            <th scope="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Klick für Unternehmen Sortieren">
+              Unternehmen
+            </th>
+            <th scope="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Klick für CCF Sortieren">CCF (in Tonnen
               CO₂)</th>
           </tr>
         </thead>
-        <tbody  class="table-group-divider">
+        <tbody>
           <tr>
             <!-- Tabellenzeilen -->
             <td>Deutschland</td>

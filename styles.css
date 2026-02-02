@@ -1,5 +1,5 @@
 html {
-  font-family: sans-serif, Arial, Helvetica;
+  font-family: Arial, Helvetica, sans-serif;
   scroll-padding-top: 80px; /* Abstand zur sticky navbar */
 }
 
@@ -36,7 +36,7 @@ header svg {
 header h1 {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-start; /* Linksbündig */
     
 }
 
@@ -97,6 +97,7 @@ caption {
 tbody {
   font-size: 95%;
   font-style: italic;
+  table-hover-color: rgb(211, 211, 211);
 }
 
 tfoot {
@@ -153,6 +154,10 @@ hr {
   border: none; /* Entfernt Standard-Grenze */
   border-top: 2px solid #0e9104; /* Dunkelgrüne Linie */
   margin: 20px 0; /* Abstand oben und unten */
+}
+
+details summary {
+  cursor: pointer; /* Zeigt an, dass das Element anklickbar ist */
 }
 
 /* Beispielt für Gesamte Seite! 
