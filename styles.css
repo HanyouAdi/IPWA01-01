@@ -60,6 +60,11 @@ main {
   font-size: 1.2rem; /* Leicht vergrößerter Text bei Hover */
 } 
 
+table {
+  width: 70% !important; /* Tabellenbreite auf 70% setzen */
+  margin: auto; /* Zentriert die Tabelle horizontal */
+}
+
 footer {
   background: #014425;
   background: radial-gradient(circle,rgba(1, 68, 37, 1) 0%, rgba(139, 207, 122, 1) 100%);
