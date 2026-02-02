@@ -9,7 +9,7 @@
   <meta name="keywords" content="Fußabdruck, CO2, CO₂, Umwelt, CCF, PCF, Emissionen">
   <!--Keywords for search engines-->
 
-  <!-- Bootstrap JS (CDN) -> muss durch VUE ersetzt werden?! -->
+  <!-- Bootstrap JS (CDN) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
         rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
@@ -31,20 +31,22 @@
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50"> <!-- Bootstrap ScrollSpy Attribute -->
 
  <header id="top" class="container-fluid py-2"> <!-- Bootstrap Container-fluid für volle Breite, py-3 für vertikales Padding, mb-3 für unteren Margin -->
-    <div class="container row justify-content-center align-items-center"> <!-- Container, damit header am Rest der Seite links anliegt und Row damit beide Elemente in einer Reihe sind und nicht untereinander -->
-       <!-- Bootstrap row with centered content für Logo & Text -->
-      <div class="col-auto me-3">
+    <div class="container"> <!-- Container, damit header am Rest der Seite links anliegt -->
+      <!-- Bootstrap d-flex mit align-items-center für Logo & Überschrift in einer Zeile -->
+      <div class="d-flex align-items-center gap-3">
+        
         <img 
             class="img-fluid" 
             src="img/Logo_ohne_background-kleiner.PNG" 
-            alt="Organisation Logo"> 
-        <!-- Bootstrap img-fluid Klasse für responsive Bilder -->
-      </div>
-      <div class="col-auto">
+            alt="NPO Logo"
+            style="max-width: 180px;"> 
+            <!-- Bootstrap img-fluid Klasse für responsive Bilder -->
+        
         <h1>
           Earth's Breath <br>
           Transparenzportal für den CO₂-Footprint
         </h1>
+        
       </div>
     </div>
   </header>
@@ -98,12 +100,10 @@
     <section id="section1">
       <h2 class="mt-3">Das Ziel von Earth's Breath Non-Profit Organisation</h2>
       <p>
-        In dieser Fallstudie untersuchen wir den CO2 Fußabdruck verschiedener
+        In dieser Fallstudie visualisieren wir den CO2 Fußabdruck verschiedener
         Firmen und deren Auswirkungen auf die Umwelt. Lorem ipsum dolor sit
-        amet, <br />
-        consectetur adipisicing elit. Atque natus sapiente soluta <br />
+        amet, consectetur adipisicing elit. Atque natus sapiente soluta 
         ad iure sunt laudantium aperiam vero laborum facilis ipsum quod,
-        <br/>
         minus esse? Vero ducimus deserunt id? Atque quam aspernatur dolor modi
         blanditiis odio, nostrum expedita soluta nisi sapiente perspiciatis
         consequuntur pariatur enim ducimus, odit eaque vero! Iure, ducimus.
@@ -114,7 +114,7 @@
     <section id="section2">
       <h2>Was zeigt eine CO₂-Bilanz?</h2>
       <p>
-        In dieser Fallstudie untersuchen wir den CO2 Fußabdruck verschiedener
+        In dieser Fallstudie visualisieren wir den CO2 Fußabdruck verschiedener
         Firmen und deren Auswirkungen auf die Umwelt.
       </p>
     </section>
@@ -145,8 +145,8 @@
                 autocomplete="off"
               >
             </div>
-            <div class="col-12 col-md-3 d-grid">
-              <button id="resetBtn" class="btn btn-outline-secondary text-dark" type="button">
+            <div class="col-12 col-md-3 d-flex">
+              <button id="resetBtn" class="btn btn-outline-secondary" type="button">
                 Filter zurücksetzen
               </button>
             </div>
@@ -156,22 +156,21 @@
     </section>
 
     <!-- Emissionstabelle 1 -->
-    <details id="emissionTableDetails" open>
       <h2>CO₂-Emissionstabelle (dynamisch mit JS generiert)</h2>
       <section class="table-responsive"> <!-- Bootstrap Klasse für responsive Tabellen, muss außerhalb der Table sein https://getbootstrap.com/docs/5.3/content/tables/#responsive-tables -->
-        <div class="controls">
-          <button id="btnSortCountry">Land sortieren</button>
-          <button id="btnSortCompany">Unternehmen sortieren</button>
-          <button id="btnSortCo2">CO₂ sortieren</button>
+        <div class="controls d-flex gap-2 mb-3">
+          <button id="btnSortCountry" class="btn btn-outline-secondary">Land sortieren</button>
+          <button id="btnSortCompany" class="btn btn-outline-secondary">Unternehmen sortieren</button>
+          <button id="btnSortCo2" class="btn btn-outline-secondary">CO₂ sortieren</button>
         </div>
         <table id="co2Table" class="table table-sm table-bordered table-striped table-hover
-                                    border-success border border-2 caption-top"> <!-- Bootstrap Table Klassen -->
+                                    border-success border border-2 caption"> <!-- Bootstrap Table Klassen -->
           <caption>
             Die Daten sind fiktiv. Sortieren per Klick auf die Buttons.  
           </caption>        
         <thead class="table-success"> <!-- Bootstrap Tabellenkopf Klasse mit Grüner Farbe -->
           <tr>
-            <th onclick="sortTable('country')" scope="col">Land</th> <!-- scope="col" Accessibility-Attribut für <th> Screenreader-->
+            <th onclick="sortTable('country')" scope="col">Land</th> <!-- Besser EventListener mit JS??-->
             <th onclick="sortTable('company')" scope="col">Unternehmen</th>
             <th onclick="sortTable('co2')" scope="col">CO2-Emissionen</th>
           </tr>
@@ -227,16 +226,6 @@
             <td>Frontier Data Centers LLC</td>
             <td>44.120</td>
           </tr>
-          <tr>
-            <td>Litauen</td>
-            <td>Baltic Industrial Services SIA</td>
-            <td>12.980</td>
-          </tr>
-          <tr>
-            <td>Deutschland</td>
-            <td>ElbeLogistik Industrie AG</td>
-            <td>22.890</td>
-          </tr>
         </tbody>
         <caption>
           <!-- Tabellenunterschrift -->
@@ -281,7 +270,8 @@
           amet? Est natus voluptatum veritatis iusto architecto inventore quo, deserunt, impedit possimus sit qui,
           sapiente pariatur asperiores rem odit expedita nam fugit voluptates vero tenetur? Temporibus minima
           praesentium possimus porro mollitia inventore. Alias, aspernatur quas. Commodi quis blanditiis sit, temporibus
-          ex magnam architecto corporis, repudiandae doloremque, eos fugiat eveniet et hic ab unde id?</p>
+          ex magnam architecto corporis, repudiandae doloremque, eos fugiat eveniet et hic ab unde id?
+        </p>
       </section>
 
       <hr> <!-- Horizontale Linie zur Trennung der Abschnitte -->
@@ -296,20 +286,19 @@
       </section>
   </main>
 
-  <footer class="container-fluid text-center py-3 mt-4">
-    <section>
+  <footer class="container-fluid text-center py-3 mt-4>">
       <p>&copy; 2026 Earth's Breath Non-Profit Organisation</p>
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
       <a href="pages/aboutUs.html">Über uns</a>
       <a href="pages/impressum.html">Impressum</a>
       <a href="pages/datenschutz.html">Datenschutz</a>
       <a href="#top">Zurück nach oben</a>
+    </div>
       <!-- 
             Button "Back-to-Top /  
             Hinweis Fallstudie für den Kurs "IPWA01-01":
               Rechtliche Hinweise: Diese Webseite ist ein Studienprojekt. Alle dargestellten Emissionswerte sind frei erfunden und dienen ausschließlich der Demonstration von Web-Technologien. 
           -->
-    </section>
   </footer>
 </body>
-
 </html>
