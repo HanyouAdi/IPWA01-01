@@ -27,7 +27,8 @@
   <script src="script.js" defer></script>
 </head>
 
-<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50"> <!-- Bootstrap ScrollSpy Attribute -->
+<body data-bs-spy="scroll" data-bs-target="#inhaltsNav" data-bs-offset="120"> <!-- Bootstrap ScrollSpy Attribute -->
+<!-- Verbesserung: Skip-Link für Tastatur-/Screenreader-Nutzer ergänzen, z.B. <a href="#main" class="visually-hidden-focusable">Zum Inhalt</a> -->
 
  <header id="top" class="container-fluid py-2"> <!-- Bootstrap Container-fluid für volle Breite, py-3 für vertikales Padding, mb-3 für unteren Margin -->
     <div class="container"> <!-- Container, damit header am Rest der Seite links anliegt -->
@@ -38,8 +39,9 @@
             class="img-fluid" 
             src="img/Logo_ohne_background-kleiner.PNG" 
             alt="NPO Logo"
-            style="max-width: 180px;"> 
+          style="max-width: 180px;"> 
             <!-- Bootstrap img-fluid Klasse für responsive Bilder -->
+          <!-- Verbesserung: Inline-Style in CSS-Klasse auslagern -->
         
         <h1>
           Earth's Breath <br>
@@ -51,66 +53,63 @@
   </header>
 
   <!-- Navigation Bar: Ziel der Organisation / Was zeigt eine CO₂-Bilanz? /  Filter / CO₂-Tabelle / Ausblick PCF! / Weitere Infos-->
-  <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top"> 
-    <div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top navbar-sticky" aria-label="Hauptnavigation"> 
+  <!-- Bootstrap Navbar Klassen für responsive Navigation, sticky-top für klebende Navbar, aria-label gibt einem Element 
+   einen zugänglichen Namen für Screenreader -->
 
-      <button id="collapse-menue" class="navbar-toggler" type="button" 
-              data-bs-toggle="collapse" 
-              data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation">
+    <div class="container">
+      <a class="navbar-brand" href="#top">Earth’s Breath</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+        aria-controls="mainNav" aria-expanded="false" aria-label="Navigation umschalten">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse nav-pills navbar-collapse justify-content-center" id="navbarNav"> 
-        <ul class="navbar-nav">
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <!-- Smooth Scroll zu Abschnitt "Ziel der Organisation" 
-            <button class="btn btn-outline-light" onclick="document.getElementById('section1').scrollIntoView({behavior: 'smooth'})">Ziel der Organisation</button>
-            -->
-            <a class="nav-link active" href="#section1">Das Ziel von Earth's Breath</a>
+            <a class="nav-link" href="index.html" aria-current="page"></a> <!-- Verbesserung: Aktuellen Menüpunkt mit aria-current="page" kennzeichnen -->
           </li>
           <li class="nav-item">
-            <!-- 
-              <a class="btn btn-outline-light" href="#section2">Was zeigt eine CO₂-Bilanz?</a>
-            -->
-            <a class="nav-link" href="#section2">Was zeigt eine CO₂-Bilanz?</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#section3">Filtermenü</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#section4">CO₂-Emissionstabelle</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#section5">Ausblick PCF!</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#section6">Weitere Infos</a>
-            </li>
+            <a class="nav-link" href="pages/ccf-table.html">CCF-Tabelle</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/aboutUs.html">Über uns</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/impressum.html">Impressum</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/datenschutz.html">Datenschutz</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
   <!-- Landing Page der Seite "Ziel der Organisation: Transparenz schaffen und ...."-->
-  <main class="container my-4">
+  <div class="container my-4">
+    <!-- Verbesserung: main ein id geben (z.B. id="main") für Skip-Link und bessere Semantik -->
+    <div class="row g-4">
+      <main id="main" class="col-12 col-md-10" aria-label="Hauptinhalt">
     <section id="section1">
       <h2 class="mt-3">Das Ziel von Earth's Breath Non-Profit Organisation</h2>
       <p>
-        In dieser Fallstudie visualisieren wir den CO₂-Fußabdruck verschiedener
-        Firmen aus verschiedenen Ländern. Lorem ipsum dolor sit
-        amet, consectetur adipisicing elit. Atque natus sapiente soluta 
-        ad iure sunt laudantium aperiam vero laborum facilis ipsum quod,
-        minus esse? Vero ducimus deserunt id? Atque quam aspernatur dolor modi
-        blanditiis odio, nostrum expedita soluta nisi sapiente perspiciatis
-        consequuntur pariatur enim ducimus, odit eaque vero! Iure, ducimus.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat assumenda vero porro quaerat nisi laborum quam cumque molestias ipsum distinctio consectetur nobis, dolor cupiditate expedita odio quidem, soluta eligendi consequuntur et perferendis ipsam minima temporibus aperiam qui. Autem architecto ex libero, dolores numquam provident obcaecati error cum officia rem dignissimos in id ipsam quia nisi rerum veniam perspiciatis quas placeat. Sunt ea aspernatur accusamus beatae, doloremque quibusdam perspiciatis repellat. Blanditiis aspernatur illum vero, asperiores voluptatibus neque consectetur eveniet reiciendis explicabo pariatur rem, repellat quibusdam officia. Quas, quibusdam. Ut nisi asperiores adipisci, facilis tempora alias quisquam officiis voluptas vitae quaerat eaque id quo suscipit? Eius nemo, possimus perspiciatis animi repudiandae id sed ipsa voluptatibus saepe repellat corrupti, commodi architecto dolore eveniet harum fugiat nulla velit. Rerum aliquid iusto, consequuntur nisi eum dolorum sequi a ratione dignissimos. Temporibus itaque, doloribus doloremque esse corrupti qui consectetur enim eaque nobis sapiente obcaecati nulla? Nesciunt, esse eveniet provident, libero fugiat consequuntur delectus obcaecati sunt reiciendis soluta natus ipsa quisquam minima aut numquam tempore temporibus non veritatis. Ullam alias tenetur dolorum, et error temporibus reprehenderit esse explicabo suscipit molestiae nostrum accusantium! Illum maxime dolore quo magnam dignissimos provident repudiandae asperiores saepe et incidunt, animi tenetur earum commodi, quod expedita sequi necessitatibus beatae nisi aliquam voluptate nam nulla. Eum, obcaecati beatae nemo veniam pariatur illo dolorum itaque minima fugiat, similique quod repudiandae ab perspiciatis, aspernatur in laborum consequuntur. Deserunt architecto modi, pariatur et neque illum aliquid illo quibusdam ratione perferendis, fugiat unde dolorem distinctio quae accusamus? Voluptatibus nobis enim voluptates maiores eveniet molestias, placeat error atque temporibus! Perferendis assumenda dignissimos repudiandae laboriosam veritatis odio sit? Nisi dignissimos, voluptatem explicabo quas nostrum repellat sunt modi ex autem possimus dolore debitis, eius numquam, eaque distinctio adipisci nulla reprehenderit fugit vero. Ipsam veniam similique, delectus repellat enim facilis nulla eum cupiditate deleniti nihil sapiente, omnis iusto recusandae. Beatae neque in repellendus eum sed itaque corrupti facilis error. Itaque tenetur dolor velit quas adipisci error iste animi optio ex saepe ratione quasi sapiente quisquam voluptatum accusantium accusamus, suscipit nemo incidunt ut veniam pariatur cumque minus similique temporibus. Esse fuga expedita dicta perferendis similique quia veniam. Odit dolores sunt ratione. Consequuntur in fuga odit libero assumenda porro maxime, repellat aliquam quam recusandae ullam soluta, deleniti eius odio, dolore modi fugit. Suscipit ipsum aliquid reprehenderit unde fuga numquam illo enim natus. Quibusdam officia est laudantium quasi provident at sit, culpa, eum itaque sint dolorem praesentium hic facilis rerum soluta unde, magnam veritatis vel debitis! Quisquam explicabo nostrum at aut vel, maxime sed facilis veniam fugit praesentium neque tenetur libero consequatur amet suscipit ab! Libero illo, consequatur consequuntur quisquam consectetur rem ullam nobis tempora sequi sunt ipsa ab. Vel fugiat repellat id velit amet!
       </p>
     </section>
-<hr> <!-- Horizontale Linie zur Trennung der Abschnitte -->
+
+<div class="section-separator" aria-hidden="true"></div>
 
     <section id="section2">
+      <h2>Was ist der Company Carbon Footprint?</h2>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quibusdam repellendus in unde pariatur quae placeat? Accusantium architecto laudantium labore voluptatum dolorem aspernatur unde culpa. Pariatur labore possimus commodi, est voluptas, sequi numquam expedita, impedit omnis repellendus quae voluptate laudantium excepturi ipsa. Impedit sed incidunt pariatur modi. Est culpa laborum sequi debitis voluptatem doloribus eaque veniam accusantium odio autem magni ipsam beatae ea quas eum delectus corporis consequuntur qui tempore, sint iure incidunt! Adipisci asperiores optio debitis molestiae rem nostrum repellat consequuntur excepturi id, eos eum, cupiditate laboriosam velit voluptates. Eaque doloribus, odio optio error, accusantium voluptas et maxime, illo fuga vero velit minima cupiditate enim hic! Tenetur ipsa voluptates, obcaecati animi corporis ea sunt laudantium ratione tempore possimus rem quae et amet temporibus ad non quam natus ipsam veritatis? Incidunt aliquid possimus expedita, officiis eos nostrum obcaecati asperiores nam numquam tempore. Quod dolores assumenda consectetur mollitia nam earum maiores quaerat ea quos. Suscipit illum, fugiat vel laborum blanditiis odit corrupti sit quae, numquam nisi rerum explicabo. Laudantium repellendus dolorum accusantium nesciunt perferendis rerum dicta cumque incidunt nobis minus ullam vero, iste autem fugiat amet vitae praesentium est nulla qui ad in! Illum, atque autem laborum natus animi veniam quisquam dolore aperiam maxime rerum quibusdam ratione! Perferendis non dolores commodi distinctio qui tempore doloremque ducimus aperiam sint vel ratione quam impedit veniam praesentium debitis recusandae fuga consequuntur alias quasi, delectus nesciunt ex numquam unde maiores! Dolorum placeat deleniti quibusdam neque eum pariatur, incidunt hic dolorem quod accusamus! Molestiae corporis recusandae eos quo explicabo deleniti sed impedit earum laudantium dignissimos excepturi blanditiis dicta reiciendis tenetur, et ab necessitatibus. Pariatur est dignissimos facilis possimus, expedita ea itaque tempore ipsam minus vero asperiores rem. Impedit reiciendis nemo laboriosam. Ullam nam exercitationem veniam nihil eum omnis consectetur. Pariatur quae quod neque nihil cupiditate consectetur?
+      </p>
+    </section>
+
+    <div class="section-separator" aria-hidden="true"></div>
+
+    <section id="section3">
       <h2>Was zeigt eine CO₂-Bilanz?</h2>
       <p>
         In dieser Fallstudie visualisieren wir den CO2-Fußabdruck verschiedener
@@ -118,142 +117,21 @@
       </p>
     </section>
 
-    <hr> <!-- Horizontale Linie zur Trennung der Abschnitte -->
-    
-    <!-- Filter Menü-->
-    <section id="section3">
-      <section id="filter" class="card mb-4">
-        <div class="card-body">
-          <h2 class="h5 mb-3">Filter-Menü:</h2>
-
-          <div class="row g-3 align-items-end">
-            <div class="col-12 col-md-4">
-              <label for="countryFilter" class="form-label">Land:</label>
-              <select id="countryFilter" class="form-select">
-                <option value="">Alle Länder</option>
-              </select>
-            </div>
-
-            <div class="col-12 col-md-5">
-              <label for="companyFilter" class="form-label">Unternehmen:</label>
-              <input
-                id="companyFilter"
-                class="form-control"
-                type="text"
-                placeholder="z.B. Green, Energy (Groß-/Kleinschreibung egal)"
-                autocomplete="off"
-              >
-            </div>
-            <div class="col-12 col-md-3 d-flex">
-              <button id="resetBtn" class="btn btn-outline-secondary" type="button">
-                Filter zurücksetzen
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-    </section>
-
-    <!-- Emissionstabelle 1 -->
-      <h2>CO₂-Emissionstabelle (dynamisch mit JS generiert)</h2>
-      <section class="table-responsive"> <!-- Bootstrap Klasse für responsive Tabellen, muss außerhalb der Table sein https://getbootstrap.com/docs/5.3/content/tables/#responsive-tables -->
-        <div class="controls d-flex gap-2 mb-3">
-          <button id="btnSortCountry" class="btn btn-outline-secondary">Land sortieren</button>
-          <button id="btnSortCompany" class="btn btn-outline-secondary">Unternehmen sortieren</button>
-          <button id="btnSortCo2" class="btn btn-outline-secondary">CO₂ sortieren</button>
-        </div>
-        <table id="co2Table" class="table table-striped table-hover border-success"> <!-- Bootstrap Table Klassen -->
-          <caption>
-            Hinweis: Die Daten sind fiktiv. Sortieren per Klick auf die Spaltenüberschrift.
-          </caption>        
-        <thead class="table-success"> <!-- Bootstrap Tabellenkopf Klasse mit Grüner Farbe -->
-          <tr>
-            <th onclick="sortTable('country')" scope="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Klick für Länder Sortieren">Land</th> <!-- Besser EventListener mit JS??-->
-            <th onclick="sortTable('company')" scope="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Klick für Unternehmen Sortieren">Unternehmen</th>
-            <th class="text-end" onclick="sortTable('co2')" scope="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Klick für CO2 Sortieren">CO2-Emissionen</th>
-          </tr>
-        </thead>
-        <!-- Dieser Bereich wird per JS gefüllt -->
-        <tbody id="co2Tbody">
-          <!-- anfangs leer -->
-        </tbody>
-      </table>
-    </section>
-    </details>
-
-    <!-- Emissionstabelle 2 -->
-    <section id="section4" class="table-responsive">
-      <h2>CO₂-Emissionstabelle</h2>
-      <table class="table table-bordered table-striped table-hover"> <!-- Bootstrap Table Klassen -->
-        <button id="toggleBtn" class="btn btn-outline-secondary">
-          Tabelle ein-/ausklappen
-        </button> 
-        <!-- Tabellenüberschrift -->
-        <thead class="table-success"> <!-- Bootstrap Tabellenkopf Klasse mit Grüner Farbe -->
-          <!-- Tabellenkopf -->
-          <tr> <!-- Spaltenüberschriften -->
-            <th scope="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Klick für Länder Sortieren">
-              Land</th> <!-- Tooltip anzeigen oben-->
-            <th scope="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Klick für Unternehmen Sortieren">
-              Unternehmen
-            </th>
-            <th scope="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Klick für CCF Sortieren">CCF (in Tonnen
-              CO₂)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <!-- Tabellenzeilen -->
-            <td>Deutschland</td>
-            <!-- Zelleninhalte -->
-            <td>Firma A</td>
-            <td>5000</td>
-          </tr>
-          <tr>
-            <td>China</td>
-            <td>RedSun Industrial Components</td>
-            <td>89.300</td>
-          </tr>
-          <tr>
-            <td>Österreich</td>
-            <td>Green Systems AG</td>
-            <td>10.630</td>
-          </tr>
-          <tr>
-            <td>USA</td>
-            <td>Frontier Data Centers LLC</td>
-            <td>44.120</td>
-          </tr>
-        </tbody>
-        <caption>
-          <!-- Tabellenunterschrift -->
-          Hinweis: Die Daten sind fiktiv. Sortieren per Klick auf die
-          Spaltenüberschrift.
-        </caption>
-      </table>
-    </section>
-    <!-- Emissionstabelle Ende-->
-
-    <hr> <!-- Horizontale Linie zur Trennung der Abschnitte -->
+    <div class="section-separator" aria-hidden="true"></div>
 
     <!-- Ausblick / Nächste Ziele der Earth's Breath NPO: -->
-    <section id="section5" class="container">
-      <h2>Ausblick / Nächste Ziele der Earth's Breath NPO:</h2>
-      <h3>Von CCP zu PCF in der Gesamten Wertschöpfungskette!</h3>
+    <section id="section4">
+      <h2>Kommende Projekte:</h2>
+      <h3>Von CCP zum PCF - Der Fußabdruck der Gesamten Wertschöpfungskette!</h3>
       <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere, laboriosam adipisci facilis ratione quisquam
-        nemo nisi illum voluptate modi! Vero optio debitis suscipit dolorum? Voluptas, excepturi magni? Debitis impedit,
-        maiores numquam unde placeat consequuntur officiis dicta molestias sit itaque modi iure maxime distinctio
-        blanditiis eius fugiat ex accusamus deserunt a quo alias? Animi laboriosam perferendis illo laudantium dicta
-        debitis ratione fugit, eveniet nulla labore fuga quia corporis expedita magni sunt quasi at molestiae ex
-        accusantium doloremque in dignissimos iste. Sit, veniam iste perferendis impedit ducimus distinctio, voluptatum
-        quo delectus adipisci quae itaque aperiam animi? Ad eligendi animi similique recusandae earum?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, ea. Voluptates optio nobis vitae facilis neque quibusdam iure nihil suscipit! Eligendi obcaecati iusto maiores neque harum beatae explicabo repudiandae impedit deserunt sequi atque amet eos perferendis molestiae ab, officia consequuntur, facilis quaerat illum alias. Repellendus perspiciatis debitis esse officia architecto sed, labore ratione ex voluptatum quod facilis laborum quae, autem eaque, eligendi ipsum nesciunt cupiditate eius ipsam! Atque perspiciatis doloribus eos possimus officiis tenetur quod neque repellat minus delectus aliquid recusandae repudiandae beatae doloremque perferendis, corrupti eveniet alias aut fuga ut quam debitis voluptate at odit! Harum animi modi fugiat eligendi? Placeat ipsam facere aut nulla delectus natus, cumque fuga deserunt aliquam dicta impedit, ducimus nobis veritatis doloremque doloribus eveniet nostrum ullam, reprehenderit libero consequatur ex laudantium quidem? Delectus illo, nemo voluptates recusandae voluptate eaque quaerat velit illum praesentium dolor accusantium culpa debitis consequuntur quod vitae commodi quisquam numquam voluptas unde aperiam dolorum vel eveniet quis corrupti. Mollitia perferendis, error animi dignissimos rerum voluptates deleniti quo atque nemo unde, maxime iusto eveniet molestias iste quas voluptas expedita at nesciunt, consequatur saepe id ratione in? Eum quidem temporibus facilis, cumque, nam explicabo eveniet illum cupiditate commodi iure ipsam incidunt ex, tenetur nisi veritatis porro voluptas. Odio veniam sequi ullam distinctio error obcaecati mollitia quia dolorem numquam veritatis. Sed atque consectetur rem commodi neque nostrum voluptate saepe voluptas, deserunt ipsum cum nesciunt incidunt sapiente aut temporibus dicta. Facere quas sed inventore dolorem saepe in praesentium, repudiandae iusto placeat! Id similique quibusdam nemo ratione minima cumque vitae error quia, magnam culpa ipsum doloribus praesentium nihil? Perspiciatis et optio quaerat assumenda consequatur consectetur excepturi incidunt molestiae in deleniti. Vel deserunt quod, est nesciunt facilis vitae minus dolor porro, quibusdam perferendis nisi nam? Natus repellendus, architecto quasi necessitatibus ipsa at aliquam iure recusandae nobis ipsam veritatis tempore, nulla dolorum. Aliquam doloremque eius quia temporibus pariatur ad aut dolor, recusandae fugiat illum, nam ut facere. Dicta molestias, at maxime nemo necessitatibus, voluptatem ipsum, suscipit nisi cupiditate quia dolor hic totam unde sapiente excepturi laboriosam assumenda. A, illum aut? Necessitatibus praesentium nemo minima quia delectus nihil non eveniet unde harum facere? Inventore dolorum alias, distinctio libero quis totam in eaque. Consequuntur distinctio minima aliquid, eos asperiores porro minus mollitia, quasi neque dolore, possimus quas esse ipsa eveniet culpa sit quae adipisci natus? Esse facere deserunt suscipit repudiandae velit mollitia voluptatibus. Modi beatae provident facilis tempora, molestias quaerat.
       </p>
     </section>
-<hr> <!-- Horizontale Linie zur Trennung der Abschnitte -->
+
+<div class="section-separator" aria-hidden="true"></div>
 
       <!-- Weitere Infos: -->
-      <section id="section6" class="container">
+      <section id="section5">
         <h2>Weiter Informationen:</h2>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum suscipit, numquam aliquid veritatis
           similique saepe enim dolorem temporibus atque, assumenda animi. Sed quia, provident id dolore, blanditiis
@@ -271,23 +149,41 @@
           ex magnam architecto corporis, repudiandae doloremque, eos fugiat eveniet et hic ab unde id?
         </p>
       </section>
+      </main>
 
-      <hr> <!-- Horizontale Linie zur Trennung der Abschnitte -->
+      <aside class="col-md-2 d-none d-md-block" aria-label="Inhaltsverzeichnis"> 
+      <!-- Bootstrap Klassen: col-md-3 für 3 Spalten auf md+ Bildschirmen, d-none d-md-block um die Sidebar auf kleinen Bildschirmen auszublenden -->
+      <!-- Verbesserung: Auf kleinen Screens könnte ein Button/Accordion für die Inhaltsnavigation angeboten werden -->
+        <nav id="inhaltsNav" class="position-sticky sidebar-sticky">
+          <div class="inhalts-nav">
+            <h2 class="h6 text-uppercase border-bottom text-muted mb-3">Inhalt</h2>
+            <ul class="nav nav-pills flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="#section1">Unser Ziel</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#section2">Was ist der CCP?</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#section3">Was zeigt eine CO₂-Bilanz?</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#section4">Kommende Projekte</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#section5">Weitere Infos</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </aside>
+    </div>
+  </div>
+ 
 
-      <section id="tests" class="container">
-        <h2>Tests:</h2>
-
-        <!-- Example button -->
-        <button id="button1">Press me</button>
-
-        <div class="box">Hallo</div>
-      </section>
-  </main>
-
-  <footer class="container-fluid text-center py-3 mt-4>">
+  <footer class="container-fluid text-center mt-4">
       <p>&copy; 2026 Earth's Breath Non-Profit Organisation</p>
     <div class="d-flex justify-content-center gap-3 flex-wrap">
-      <a href="pages/aboutUs.html">Über uns</a>
       <a href="pages/impressum.html">Impressum</a>
       <a href="pages/datenschutz.html">Datenschutz</a>
       <a href="#top">Zurück nach oben</a>

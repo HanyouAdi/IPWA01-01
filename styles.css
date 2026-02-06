@@ -1,11 +1,13 @@
 html {
   font-family: Arial, Helvetica, sans-serif;
   scroll-padding-top: 80px; /* Abstand zur sticky navbar */
+  scroll-behavior: smooth; /* Sanftes Scrollen bei Anker-Links */
 }
 
 body {
   background-color: rgb(255, 255, 255);
   font-family: sans-serif;
+  position: relative; /* Für Bootstrap ScrollSpy */
 }
 
 header {
@@ -16,16 +18,6 @@ header {
     rgba(139, 207, 122, 1) 100%
   );
   color: #ffffff;
-  /* height: 250px;
-    overflow: visible;
-    display: flex;
-    align-items: center;
-    /* 
-    padding:1em;
-    border: 1px solid black;
-    flex-basis: 100%; 
-    text-align: center;
-    */
 }
 
 header img,
@@ -45,16 +37,43 @@ header h1 {
 
 main {
   border: 3px solid #8bcf7a !important; /* Blattgrüner Rand (aus Ihrem Header-Grün) */
+  border-radius: 10px;
 }
 
-::selection {
-  /* Markierter Text */
+/*::selection {
+  Markierter Text 
   background-color: rgb(246, 250, 2);
-}
+}*/
 
 #localMenu {
   /* Navbar Links abstand erhöhen (id="localMenu") */
   gap: 0.5rem;
+}
+
+#inhaltsNav .inhalts-nav { /* Stil für die Inhaltsnavigation (id="inhaltsNav", Nav-Rechts) */
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border: 1px solid #8bcf7a;
+  border-radius: 0.5rem;
+}
+
+#inhaltsNav.sidebar-sticky {
+  top: 4.5rem; /* Platz für sticky Navbar */
+}
+
+#inhaltsNav .nav-link {
+  color: #014425;
+  border-radius: 0.4rem;
+}
+
+#inhaltsNav .nav-link.active {
+  background-color: #014425;
+  color: #ffffff;
+}
+
+#inhaltsNav .border-bottom {
+  border-bottom-color: #8bcf7a !important;
+  border-bottom-width: 2px !important;
 }
 
 [dir="rtl"] header {
@@ -71,25 +90,6 @@ h2 {
   margin-bottom: 20px;
 }
 
-/* Beispielt für Gesamte Seite! 
-[dir="rtl"] #localMenu 
-{ /* Rechts-nach-Links Schriftkultur Wählt das #localMenu-Element aus, wenn die Schriftrichtung rtl (Right-to-Left) ist */
-/* justify-content: flex-end; /* justify-content: flex-end; richtet die Inhalte am Ende aus (rechtsbündig für RTL-Sprachen wie Arabisch oder Hebräisch)*/
-/*}
-[dir="ltr"] #localMenu {
-        justify-content: flex-start;
-} 
-      /*
-      1. Automatisches Setzen durch den Browser
-Der Browser setzt dir automatisch basierend auf das lang-Attribut:
-
-lang="de" (Deutsch) → Browser setzt automatisch dir="ltr" (Left-to-Right)
-lang="ar" (Arabisch) → Browser würde dir="rtl" setzen (Right-to-Left)
-2. Manuelles Setzen möglich
-Du könntest es aber auch explizit hinzufügen:
-  <html lang="de" dir="ltr">
-      */
-
 .navbar .btn {
   /* Stil für die Navigations-Buttons **NICHT IN NUTZUNG**/
   margin-right: 10px;
@@ -100,9 +100,41 @@ Du könntest es aber auch explizit hinzufügen:
   /* background-color: #02a5e0; */
 }
 
+.navbar-sticky {
+  background-color: #014425 !important;
+  background: radial-gradient(
+    circle,
+    rgba(1, 68, 37, 1) 0%,
+    rgba(31, 106, 75, 1) 55%,
+    rgba(139, 207, 122, 1) 100%
+  ) !important;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-sticky .navbar-collapse {
+    background-color: #1f6a4b;
+    padding: 0.5rem 0;
+  }
+}
+
+/* Hauptnavigation: zentriert (Desktop) und rechtsbündig (mobil) */
+@media (min-width: 992px) {
+  #mainNav .navbar-nav {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 991.98px) {
+  #mainNav .navbar-nav {
+    align-items: flex-end;
+    text-align: right;
+  }
+}
+
 /* Nur Links werden gehövert */
 .navbar a:hover {
-  color: #ffffff; /* Dunkelgrüner Text bei Hover */
+  color: #ffffff; /* weißer Text bei Hover */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Leichter Schatteneffekt */
   font-size: 1.2rem; /* Leicht vergrößerter Text bei Hover */
 }
@@ -130,14 +162,15 @@ caption {
 }
 
 footer {
-  background: #014425;
+  background-color: #014425;
   background: radial-gradient(
     circle,
     rgba(1, 68, 37, 1) 0%,
+    rgba(31, 106, 75, 1) 55%,
     rgba(139, 207, 122, 1) 100%
   );
   color: #ffffff;
-  padding: 1em;
+  padding: 0.3em;
 }
 
 hr {
@@ -146,16 +179,16 @@ hr {
   margin: 20px 0; /* Abstand oben und unten */
 }
 
-/* Tests */
-.box {
-  margin: 30px;
-  width: 100px;
-  height: 100px;
-  background-color: rebeccapurple;
-  transform: rotate(0.6turn); /* Start-Drehung */
-}
-.box:hover {
-  /* Lässt den Kasten drehen, per Maus-Hover */
-  transform: rotate(1turn);
-  transition: transform 1s; /* Animationsdauer 1 Sekunde */
+.section-separator { /* Alternative zu hr, falls benötigt */
+  height: 3px;
+  margin: 24px 0;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(14, 145, 4, 0) 0%,
+    rgba(14, 145, 4, 0.5) 20%,
+    rgba(14, 145, 4, 1) 50%,
+    rgba(14, 145, 4, 0.5) 80%,
+    rgba(14, 145, 4, 0) 100%
+  );
 }
