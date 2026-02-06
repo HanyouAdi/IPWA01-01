@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CO₂ Tabelle (Vue 3 + Bootstrap)</title>
+    <link rel="icon" type="image/x-icon" href="../img/favicon/favicon.ico">
+  <meta name="description" content="CO₂ Fußabdruck von Firmen"> <!--Description of the webpage for search engines-->
+  <meta name="keywords" content="Fußabdruck, CO2, CO₂, Umwelt, CCF, PCF, Emissionen">
+  <!--Keywords for search engines-->
+
+    <!-- Bootstrap JS (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+        crossorigin="anonymous">
+  <!-- Bootstrap JS (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous">
+  </script>
+
+  <!--Link to an external CSS file-->
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <header id="top" class="container-fluid py-2"> <!-- Bootstrap Container-fluid für volle Breite, py-3 für vertikales Padding, mb-3 für unteren Margin -->
+        <div class="container"> <!-- Container, damit header am Rest der Seite links anliegt -->
+            <!-- Bootstrap d-flex mit align-items-center für Logo & Überschrift in einer Zeile -->
+            <div class="d-flex align-items-center gap-3">
+                <img 
+                class="img-fluid" 
+                src="../img/Logo_ohne_background-kleiner.PNG" 
+                alt="NPO Logo"
+                style="max-width: 180px;"> 
+                <!-- Bootstrap img-fluid Klasse für responsive Bilder -->
+            
+                <h1>
+                Earth's Breath <br>
+                Company Carbon Footprint-Tabelle
+                </h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-4">
+        <!--
+        Vue Mount-Point
+        Alles innerhalb dieses DIVs wird von Vue verwaltet
+        -->
+        <section id="app" class="container py-4">
+
+            <!-- Kopfbereich -->
+            <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-3">
+                <div>
+                    <h2 class="mb-1">CO₂-Emissionen - Tabelle</h2>
+                    <!--
+                    Anzeige des aktuellen Sortierzustands
+                    -> kommt aus computed property "sortLabel"
+                    -->
+                    <div class="text-muted">
+                        Sortierung:
+                        <strong>{{ sortLabel }}</strong>
+                        · Treffer:
+                        <strong>{{ filteredAndSorted.length }}</strong>
+                    </div>
+                </div>
+
+                <!-- Button zum Zurücksetzen der Filter -->
+                <button
+                    type="button"
+                    class="btn btn-outline-secondary"
+                    @click="resetFilters"
+                    >Filter zurücksetzen
+                </button>
+            </div>
+
+    <!-- ================= FILTER ================= -->
+
+    <section class="row g-3 mb-3">
+      <!-- Filter nach Land -->
+      <div class="col-12 col-md-6">
+        <label class="form-label">Filter Land</label>
+
+        <!--
+          v-model:
+          - Bindet den Input-Wert an "filterLand"
+          - Zwei-Wege-Datenbindung
+        -->
+        <input
+          class="form-control"
+          v-model="filterLand"
+          placeholder="z.B. Deutschland"
+        />
+      </div>
+
+      <!-- Filter nach Unternehmen -->
+      <div class="col-12 col-md-6">
+        <label class="form-label">Filter Unternehmen</label>
+
+        <input
+          class="form-control"
+          v-model="filterCompany"
+          placeholder="z.B. Green"
+        />
+      </div>
+    </section>
+
+    <!-- ================= TABELLE ================= -->
+
+    <section class="table-responsive">
+      <table class="table table-striped table-hover align-middle">
+        <thead class="table-light">
+          <tr>
+            <!--
+              Klick auf TH triggert Sortierung
+              role="button" verbessert Accessibility
+            -->
+            <th role="button" @click="toggleSort('land')">
+              Land
+              <span class="ms-1">{{ sortIndicator('land') }}</span>
+            </th>
+
+            <th role="button" @click="toggleSort('unternehmen')">
+              Unternehmen
+              <span class="ms-1">{{ sortIndicator('unternehmen') }}</span>
+            </th>
+
+            <th
+              role="button"
+              class="text-end"
+              @click="toggleSort('co2')"
+              >CO2-Emissionen
+              <span class="ms-1">{{ sortIndicator('co2') }}</span>
+            </th>
+          </tr>
+                </thead>
+                <tbody>
+                    <!--
+                        v-for:
+                        - Iteriert über das bereits gefilterte & sortierte Array
+                        - key ist wichtig für Vue-Performance
+                    -->
+                    <tr v-for="row in filteredAndSorted" :key="row.id">
+                        <td>{{ row.land }}</td>
+                        <td>{{ row.unternehmen }}</td>
+                        <td class="text-end">{{ formatCo2(row.co2) }}</td>
+                    </tr>
+
+                    <!-- Anzeige wenn keine Ergebnisse existieren -->
+                    <tr v-if="filteredAndSorted.length === 0">
+                        <td colspan="3" class="text-muted">
+                            Keine Treffer – Filter anpassen.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+            <div class="small text-muted mt-2">
+                Hinweis: Klick auf eine Spaltenüberschrift zur Sortierung (ASC/DESC).
+            </div>
+        </div>
+    </main>
+    <footer class="container-fluid text-center py-3 mt-4">
+            <p>&copy; 2026 Earth's Breath Non-Profit Organisation</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="aboutUs.html">Über uns</a>
+            <a href="impressum.html">Impressum</a>
+            <a href="#top">Zurück nach oben</a>
+            <a href="../index.html">Zurück zur Hauptseite</a>
+        </div>
+    </footer>  
+  <!-- ================= SCRIPT-TEIL ================= -->
+
+  <!-- Vue 3 CDN -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+
+  <!-- Bootstrap JS (nicht zwingend nötig, aber Standard) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    /*
+      Vue App initialisieren
+      createApp erstellt eine neue Vue-Anwendung
+    */
+    const { createApp } = Vue;
+
+    createApp({
+
+      /* ================== STATE ================== */
+      data: function () {
+        return {
+          /*
+            Beispiel-Daten
+            -> In der Praxis später per API ladbar
+          */
+
+        rows: [
+            { id: 1, land: "Deutschland", unternehmen: "NordEastTech AG", co2: 8.1 },
+            { id: 2, land: "Deutschland", unternehmen: "Wels Energy GmbH", co2: 79850 },
+            { id: 3, land: "Frankreich", unternehmen: "EcoIndustrie SA", co2: 42950 },
+            { id: 4, land: "USA", unternehmen: "StripesCarbon Inc.", co2: 25.3 },
+            { id: 5, land: "USA", unternehmen: "MoonGrid LLC", co2: 18.9 },
+            { id: 6, land: "Japan", unternehmen: "Yokai Metals", co2: 14.2 },
+            { id: 7, land: "China", unternehmen: "RedSun Industrial Components", co2: 89300 },
+            { id: 8, land: "Österreich", unternehmen: "Green Systems AG", co2: 10630 },
+            { id: 9, land: "USA", unternehmen: "Frontier Data Centers LLC", co2: 44120 },
+            { id: 10, land: "Litauen", unternehmen: "Baltic Industrial Services SIA", co2: 12980 },
+            { id: 11, land: "Deutschland", unternehmen: "ElbeLogistik Industrie AG", co2: 22890 },
+            { id: 12, land: "Australien", unternehmen: "Pacific Renewable Infrastructure", co2: 26540 },
+            { id: 13, land: "Kanada", unternehmen: "Green Resource Group", co2: 39750 },
+            { id: 14, land: "Schweden", unternehmen: "Nordic Future AB", co2: 9650 },
+            { id: 15, land: "Frankreich", unternehmen: "Atlantique Transport Industriel", co2: 33640 },
+            { id: 16, land: "Vietnam", unternehmen: "Siam Industrial Dynamics", co2: 24860 },
+            { id: 17, land: "Luxemburg", unternehmen: "LuxGreen Financial Services SA", co2: 7880 },
+            { id: 18, land: "Deutschland", unternehmen: "Nordstahl Produktion GmbH", co2: 34900 },
+            { id: 19, land: "Chile", unternehmen: "Andes Copper Solutions", co2: 23980 },
+            { id: 20, land: "Kanada", unternehmen: "Evergreen Forest Products", co2: 22480 },
+            { id: 21, land: "China", unternehmen: "Golden River Electronics", co2: 72450 },
+            { id: 22, land: "Griechenland", unternehmen: "Feta Industrial Solutions", co2: 19680 },
+            { id: 23, land: "Norwegen", unternehmen: "FjordRenew", co2: 6980 },
+            { id: 24, land: "Deutschland", unternehmen: "Delta Circular", co2: 11200 },
+            { id: 25, land: "USA", unternehmen: "Sunbelt Logistics Group", co2: 38750 },
+            { id: 26, land: "Frankreich", unternehmen: "NordEst Matériaux Durables", co2: 18920 },
+            { id: 27, land: "Australien", unternehmen: "Southern Minerals Group", co2: 62980 },
+            { id: 28, land: "Indien", unternehmen: "Bharat Heavy Systems Ltd.", co2: 62300 },
+            { id: 29, land: "Estland", unternehmen: "Nordic Digital Manufacturing OÜ", co2: 8320 },
+            { id: 30, land: "Kanada", unternehmen: "Pacific Rail Logistics", co2: 31900 },
+            { id: 31, land: "Japan", unternehmen: "Sakura Energy Systems", co2: 22780 },
+            { id: 32, land: "Deutschland", unternehmen: "GreenGrid Systems GmbH", co2: 14620 },
+            { id: 33, land: "Australien", unternehmen: "BlueGum Industrial Logistics", co2: 41110 },
+            { id: 34, land: "Ungarn", unternehmen: "DanubeTech Kft.", co2: 20140 },
+            { id: 35, land: "China", unternehmen: "Eastern Horizon Logistics", co2: 64700 },
+            { id: 36, land: "Kanada", unternehmen: "MapleCore Resources Inc.", co2: 29840 },
+            { id: 37, land: "Brasilien", unternehmen: "Amazônia Processos Industriais", co2: 48200 },
+            { id: 38, land: "Frankreich", unternehmen: "HexaTech Production SA", co2: 29780 },
+            { id: 39, land: "USA", unternehmen: "IronPeak Industrial Systems Inc.", co2: 52400 },
+            { id: 40, land: "Türkei", unternehmen: "Anatolia Steel Works", co2: 33120 },
+            { id: 41, land: "Slowenien", unternehmen: "Alpine Circular Solutions d.o.o.", co2: 9450 },
+            { id: 42, land: "Kanada", unternehmen: "NorthStar Materials Corp.", co2: 28940 },
+            { id: 43, land: "Polen", unternehmen: "Vistula Manufacturing", co2: 27300 },
+            { id: 44, land: "Australien", unternehmen: "Outback Resource Engineering", co2: 58300 },
+            { id: 45, land: "Frankreich", unternehmen: "Lumière Industrie Énergie", co2: 24350 },
+            { id: 46, land: "China", unternehmen: "Pearl Delta Manufacturing Group", co2: 96880 },
+            { id: 47, land: "Finnland", unternehmen: "Arctic BioTech", co2: 7450 },
+            { id: 48, land: "USA", unternehmen: "Midwest Chemical Solutions", co2: 61300 },
+            { id: 49, land: "Irland", unternehmen: "Emerald Data Services Ltd.", co2: 25900 },
+            { id: 50, land: "Griechenland", unternehmen: "Hellas Energy Systems", co2: 14350 },
+            { id: 51, land: "Belgien", unternehmen: "EcoForge NV", co2: 16950 },
+            { id: 52, land: "USA", unternehmen: "Pacific Alloy Manufacturing", co2: 47980 },
+            { id: 53, land: "Vietnam", unternehmen: "Mekong Manufacturing Corp.", co2: 22300 },
+            { id: 54, land: "Deutschland", unternehmen: "Bavaria Precision Manufacturing", co2: 19750 },
+            { id: 55, land: "Ägypten", unternehmen: "NileTech Manufacturing", co2: 28560 },
+            { id: 56, land: "Dänemark", unternehmen: "WindCore Danmark", co2: 9120 },
+            { id: 57, land: "Kanada", unternehmen: "Great Lakes Steel Ltd.", co2: 41250 },
+            { id: 58, land: "China", unternehmen: "Jade Dragon Heavy Industries", co2: 128600 },
+            { id: 59, land: "Kroatien", unternehmen: "Adriatic EcoIndustries", co2: 11890 },
+            { id: 60, land: "Marokko", unternehmen: "Atlas Green Works", co2: 15890 },
+            { id: 61, land: "Litauen", unternehmen: "Baltic Future Systems", co2: 10540 },
+            { id: 62, land: "Deutschland", unternehmen: "GreenTech Solutions GmbH", co2: 12450 },
+            { id: 63, land: "Argentinien", unternehmen: "PampaAgro Industrial SA", co2: 26750 },
+            { id: 64, land: "Norwegen", unternehmen: "Atlantic Renewables", co2: 13770 },
+            { id: 65, land: "Südafrika", unternehmen: "Ubuntu Industrial Holdings", co2: 37400 },
+            { id: 66, land: "Spanien", unternehmen: "VerdeLogística SA", co2: 19430 },
+            { id: 67, land: "Österreich", unternehmen: "AlpenWert Energie GmbH", co2: 8740 },
+            { id: 68, land: "Tschechien", unternehmen: "Bohemia Industrial Group", co2: 21850 },
+            { id: 69, land: "Mexiko", unternehmen: "Azteca Manufacturing Group", co2: 31670 },
+            { id: 70, land: "Dänemark", unternehmen: "Kiwi Sustainable Industries", co2: 9980 },
+            { id: 71, land: "Vereinigtes Königreich", unternehmen: "CarbonEdge Industries PLC", co2: 34500 },
+            { id: 72, land: "Südkorea", unternehmen: "HanSeong Advanced Materials", co2: 41900 },
+            { id: 73, land: "Vereinigtes Königreich", unternehmen: "StraitTech Global", co2: 17420 }
+            ],
+
+          // Filter-Zustände
+          filterLand: "",
+          filterCompany: "",
+
+          // Sortier-Zustände
+          sortKey: "land", // aktuelles Sortierfeld
+          sortDir: "asc"   // asc oder desc
+        };
+      },
+
+      /* ================== COMPUTED ================== */
+      computed: {
+
+        /*
+          filteredAndSorted:
+          - Herzstück der Logik
+          - Reagiert automatisch auf Filter- & Sortieränderungen
+        */
+        filteredAndSorted: function () {
+          const landNeedle = this.filterLand.trim().toLowerCase(); // Suchbegriff für Land, bereinigt & in Kleinbuchstaben
+          const companyNeedle = this.filterCompany.trim().toLowerCase();
+
+          // 1) Filtern
+          let result = this.rows.filter(function (row) {
+            const landOk =
+              landNeedle === "" ||
+              row.land.toLowerCase().includes(landNeedle);
+
+            const companyOk =
+              companyNeedle === "" ||
+              row.unternehmen.toLowerCase().includes(companyNeedle);
+
+            return landOk && companyOk;
+          });
+
+          // 2) Sortieren
+          const key = this.sortKey;
+          const dir = this.sortDir;
+
+          return result.slice().sort(function (a, b) {
+            let av = a[key];
+            let bv = b[key];
+
+            // String-Vergleich case-insensitive
+            if (typeof av === "string") av = av.toLowerCase();
+            if (typeof bv === "string") bv = bv.toLowerCase();
+
+            if (av < bv) return dir === "asc" ? -1 : 1;
+            if (av > bv) return dir === "asc" ? 1 : -1;
+            return 0;
+          });
+        },
+
+        /*
+          Anzeige-Text für aktuelle Sortierung
+        */
+        sortLabel: function () {
+          const labels = {
+            land: "Land",
+            unternehmen: "Unternehmen",
+            co2: "CO2-Emissionen"
+          };
+
+          return labels[this.sortKey] + " (" + this.sortDir.toUpperCase() + ")";
+        }
+      },
+
+      /* ================== METHODS ================== */
+      methods: {
+
+        /*
+          Umschalten der Sortierung:
+          - gleiches Feld -> Richtung toggeln
+          - neues Feld -> ASC starten
+        */
+        toggleSort: function (key) {
+          if (this.sortKey === key) {
+            this.sortDir = this.sortDir === "asc" ? "desc" : "asc";
+          } else {
+            this.sortKey = key;
+            this.sortDir = "asc";
+          }
+        },
+
+        /*
+          Anzeige von Pfeilen in der Tabelle
+        */
+        sortIndicator: function (key) {
+          if (this.sortKey !== key) return "";
+          return this.sortDir === "asc" ? "▲" : "▼";
+        },
+
+        /*
+          Formatierung der CO2-Werte
+        */
+        formatCo2: function (value) {
+          return value.toLocaleString("de-DE", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          });
+        },
+
+        /*
+          Filter zurücksetzen
+        */
+        resetFilters: function () {
+          this.filterLand = "";
+          this.filterCompany = "";
+        }
+      }
+
+    }).mount("#app");
+  </script>
+
+</body>
+</html>

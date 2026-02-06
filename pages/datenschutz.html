@@ -13,11 +13,30 @@
     <!--Link to an external CSS file-->
     <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
 
-    <main>
+<body>
+    <header id="top" class="container-fluid py-2"> <!-- Bootstrap Container-fluid für volle Breite, py-3 für vertikales Padding, mb-3 für unteren Margin -->
+        <div class="container"> <!-- Container, damit header am Rest der Seite links anliegt -->
+            <!-- Bootstrap d-flex mit align-items-center für Logo & Überschrift in einer Zeile -->
+            <div class="d-flex align-items-center gap-3">
+                <img 
+                class="img-fluid" 
+                src="../img/Logo_ohne_background-kleiner.PNG" 
+                alt="NPO Logo"
+                style="max-width: 180px;"> 
+                <!-- Bootstrap img-fluid Klasse für responsive Bilder -->
+            
+                <h1>
+                Earth's Breath <br>
+                Datenschutzhinweise
+                </h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-4">
         <section>
-            <h1>Datenschutzhinweise</h1>
+            <h2>Datenschutzhinweise</h2>
 
             <p>
                 Der Schutz Ihrer personenbezogenen Daten ist uns ein wichtiges Anliegen.
@@ -106,6 +125,7 @@
             </p>
         </section>
     </main>
+
     <footer class="container-fluid text-center py-3 mt-4">
             <p>&copy; 2026 Earth's Breath Non-Profit Organisation</p>
         <div class="d-flex justify-content-center gap-3 flex-wrap">
