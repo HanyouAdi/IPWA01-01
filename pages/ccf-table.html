@@ -27,10 +27,10 @@
   <script src="../script.js" defer></script>
 </head>
 
-<body>
-    <header id="top" class="container-fluid py-2"> <!-- Bootstrap Container-fluid für volle Breite, py-3 für vertikales Padding, mb-3 für unteren Margin -->
-        <div class="container"> <!-- Container, damit header am Rest der Seite links anliegt -->
-            <!-- Bootstrap d-flex mit align-items-center für Logo & Überschrift in einer Zeile -->
+<body data-bs-spy="scroll" data-bs-target="#inhaltsNav" data-bs-offset="120">
+  <header id="top" class="container-fluid py-2"> <!-- Bootstrap Container-fluid für volle Breite, py-3 für vertikales Padding, mb-3 für unteren Margin -->
+    <div class="container"> <!-- Container, damit header am Rest der Seite links anliegt -->
+    <!-- Bootstrap d-flex mit align-items-center für Logo & Überschrift in einer Zeile -->
             <div class="d-flex align-items-center gap-3">
                 <img 
                 class="img-fluid" 
@@ -47,7 +47,38 @@
         </div>
     </header>
 
+  <!-- Navigation Bar: Ziel der Organisation / Was zeigt eine CO₂-Bilanz? /  Filter / CO₂-Tabelle / Ausblick PCF! / Weitere Infos-->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top navbar-sticky" aria-label="Hauptnavigation"> 
+  <!-- Bootstrap Navbar Klassen für responsive Navigation, sticky-top für klebende Navbar, aria-label gibt einem Element 
+   einen zugänglichen Namen für Screenreader -->
+
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">Earth's Breath</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+        aria-controls="mainNav" aria-expanded="false" aria-label="Navigation umschalten">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Startseite</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ccf-table.html" aria-current="page">CCF-Tabelle</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="aboutUs.html">Über uns</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="impressum.html#kontakt">Kontakt</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
     <main class="container my-4">
+      
         <!--
         Vue Mount-Point
         Alles innerhalb dieses DIVs wird von Vue verwaltet
@@ -94,7 +125,7 @@
         <input
           class="form-control"
           v-model="filterLand"
-          placeholder="z.B. Deutschland"
+          placeholder="z. B. Deutschland"
         />
       </div>
 
@@ -105,7 +136,7 @@
         <input
           class="form-control"
           v-model="filterCompany"
-          placeholder="z.B. Green"
+          placeholder="z. B. Green"
         />
       </div>
     </section>
@@ -172,7 +203,6 @@
             <a href="impressum.html">Impressum</a>
             <a href="datenschutz.html">Datenschutz</a>
             <a href="#top">Zurück nach oben</a>
-            <a href="../index.html">Zurück zur Hauptseite</a>
         </div>
     </footer>  
   <!-- ================= SCRIPT-TEIL ================= -->

@@ -6,7 +6,6 @@ html {
 
 body {
   background-color: rgb(255, 255, 255);
-  font-family: sans-serif;
   position: relative; /* Für Bootstrap ScrollSpy */
 }
 
@@ -37,20 +36,16 @@ header h1 {
 
 main {
   border: 3px solid #8bcf7a !important; /* Blattgrüner Rand (aus Ihrem Header-Grün) */
-  border-radius: 10px;
+  border-radius: 10px; /* Abgerundete Ecken für ein moderneres Aussehen */
 }
-
-/*::selection {
-  Markierter Text 
-  background-color: rgb(246, 250, 2);
-}*/
 
 #localMenu {
   /* Navbar Links abstand erhöhen (id="localMenu") */
   gap: 0.5rem;
 }
 
-#inhaltsNav .inhalts-nav { /* Stil für die Inhaltsnavigation (id="inhaltsNav", Nav-Rechts) */
+#inhaltsNav .inhalts-nav {
+  /* Stil für die Inhaltsnavigation (id="inhaltsNav", Nav-Rechts) */
   padding: 1rem;
   background-color: #f8f9fa;
   border: 1px solid #8bcf7a;
@@ -110,32 +105,9 @@ h2 {
   ) !important;
 }
 
-@media (max-width: 991.98px) {
-  .navbar-sticky .navbar-collapse {
-    background-color: #1f6a4b;
-    padding: 0.5rem 0;
-  }
-}
-
-/* Hauptnavigation: zentriert (Desktop) und rechtsbündig (mobil) */
-@media (min-width: 992px) {
-  #mainNav .navbar-nav {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-@media (max-width: 991.98px) {
-  #mainNav .navbar-nav {
-    align-items: flex-end;
-    text-align: right;
-  }
-}
-
 /* Nur Links werden gehövert */
 .navbar a:hover {
   color: #ffffff; /* weißer Text bei Hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Leichter Schatteneffekt */
   font-size: 1.2rem; /* Leicht vergrößerter Text bei Hover */
 }
 
@@ -154,7 +126,8 @@ thead.table-success th {
 tbody {
   font-size: 95%;
   font-style: italic;
-  table-hover-color: rgb(211, 211, 211);
+  /* VORSCHLAG (Bootstrap-kompatibel): Hover-Farbe per CSS-Variable setzen */
+  --bs-table-hover-bg: rgb(139, 207, 122, 1); /* Helles Grün für Hover mit SaaS?*/
 }
 
 caption {
@@ -173,13 +146,8 @@ footer {
   padding: 0.3em;
 }
 
-hr {
-  border: none; /* Entfernt Standard-Grenze */
-  border-top: 2px solid #0e9104; /* Dunkelgrüne Linie */
-  margin: 20px 0; /* Abstand oben und unten */
-}
-
-.section-separator { /* Alternative zu hr, falls benötigt */
+.section-separator {
+  /* Alternative zu hr, falls benötigt */
   height: 3px;
   margin: 24px 0;
   border-radius: 999px;

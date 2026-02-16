@@ -6,18 +6,74 @@
     <title>Impressum | Earth’s Breath´s NPO</title>
     <link rel="icon" type="image/x-icon" href="../img/favicon/favicon.ico">
         <!-- Bootstrap CSS (CDN) -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
-          rel="stylesheet"
-          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
-          crossorigin="anonymous">
+     <!-- Bootstrap JS (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+        crossorigin="anonymous">
+  <!-- Bootstrap JS (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous">
+  </script>
     <!--Link to an external CSS file-->
     <link rel="stylesheet" href="../styles.css">
+    <!--Link to an external JavaScript file; defer attribute makes sure the script is executed after the HTML is fully parsed-->
+  <script src="../script.js" defer></script>
 </head>
-<body>
-    <header id="top" class="container-fluid py-2">
-        <h1>asdf</h1>
+
+<body data-bs-spy="scroll" data-bs-target="#inhaltsNav" data-bs-offset="120">
+  <header id="top" class="container-fluid py-2"> <!-- Bootstrap Container-fluid für volle Breite, py-3 für vertikales Padding, mb-3 für unteren Margin -->
+    <div class="container"> <!-- Container, damit header am Rest der Seite links anliegt -->
+    <!-- Bootstrap d-flex mit align-items-center für Logo & Überschrift in einer Zeile -->
+            <div class="d-flex align-items-center gap-3">
+                <img 
+                class="img-fluid" 
+                src="../img/Logo_ohne_background-kleiner.PNG" 
+                alt="NPO Logo"
+                style="max-width: 180px;"> 
+                <!-- Bootstrap img-fluid Klasse für responsive Bilder -->
+            
+                <h1>
+                Earth's Breath <br>
+                Company Carbon Footprint-Tabelle
+                </h1>
+            </div>
+        </div>
     </header>
-    <main>
+
+ <!-- Navigation Bar: Ziel der Organisation / Was zeigt eine CO₂-Bilanz? /  Filter / CO₂-Tabelle / Ausblick PCF! / Weitere Infos-->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top navbar-sticky" aria-label="Hauptnavigation"> 
+  <!-- Bootstrap Navbar Klassen für responsive Navigation, sticky-top für klebende Navbar, aria-label gibt einem Element 
+   einen zugänglichen Namen für Screenreader -->
+
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">Earth’s Breath</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+        aria-controls="mainNav" aria-expanded="false" aria-label="Navigation umschalten">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Startseite</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ccf-table.html" >CCF-Tabelle</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="aboutUs.html">Über uns</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="impressum.html#kontakt">Kontakt</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav> 
+
+<main class="container my-4">
         <section>
             <h2>Impressum</h2>
             <address>
@@ -34,7 +90,7 @@
                 Maximilian Grün<br>
                 (Vorsitzender des Vorstands)
             </p>
-            <h2>Kontakt</h2>
+            <h2 id="kontakt">Kontakt</h2>
             <p>
                 Telefon: +49 (0)30 12345678<br>
                 E-Mail: <a href="mailto:kontakt@earths-breath.org">kontakt@earths-breath.org</a>
@@ -88,7 +144,6 @@
         <div class="d-flex justify-content-center gap-3 flex-wrap">
             <a href="datenschutz.html">Datenschutz</a>
             <a href="#top">Zurück nach oben</a>
-            <a href="../index.html">Zurück zur Hauptseite</a>
         </div>
     </footer>
 </body>
