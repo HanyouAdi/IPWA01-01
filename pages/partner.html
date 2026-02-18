@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unsere Partner</title>
+    <link rel="icon" type="image/x-icon" href="../img/favicon/favicon.ico">
+  <meta name="description" content="Partner von Earth's Breath NPO">
+  <meta name="keywords" content="Umwelt, Partner, Unternehmen, NPO, Non-Profit-Organisation">
+
+    <!-- Bootstrap JS (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+        crossorigin="anonymous">
+  <!-- Bootstrap JS (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous">
+  </script>
+
+  <!--Link to an external CSS file-->
+  <link rel="stylesheet" href="../styles.css">
+
+<!--Link to an external JavaScript file; defer attribute makes sure the script is executed after the HTML is fully parsed-->
+  <script src="../script.js" defer></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#inhaltsNav" data-bs-offset="120">
+  <header id="top" class="container-fluid py-2"> <!-- Bootstrap Container-fluid für volle Breite, py-3 für vertikales Padding, mb-3 für unteren Margin -->
+    <div class="container"> <!-- Container, damit header am Rest der Seite links anliegt -->
+    <!-- Bootstrap d-flex mit align-items-center für Logo & Überschrift in einer Zeile -->
+            <div class="d-flex align-items-center gap-3">
+                <img 
+                class="img-fluid" 
+                src="../img/Logo_ohne_background-kleiner.PNG" 
+                alt="NPO Logo"
+                style="max-width: 180px;"> 
+                <!-- Bootstrap img-fluid Klasse für responsive Bilder -->
+            
+                <h1>
+                    Earth's Breath <br> Partner
+                </h1>
+            </div>
+        </div>
+    </header>
+
+     <!-- Navigation Bar: Ziel der Organisation / Was zeigt eine CO₂-Bilanz? /  Filter / CO₂-Tabelle / Ausblick PCF! / Weitere Infos-->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top navbar-sticky" aria-label="Hauptnavigation"> 
+  <!-- Bootstrap Navbar Klassen für responsive Navigation, sticky-top für klebende Navbar, aria-label gibt einem Element 
+   einen zugänglichen Namen für Screenreader -->
+
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">Earth's Breath</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+        aria-controls="mainNav" aria-expanded="false" aria-label="Navigation umschalten">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav text-end text-lg-start"> <!-- text-end für rechtsbündige Links im Burger-Menü, text-lg-start für linksbündige Links ab lg (Desktop größe) -->
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Startseite</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ccf-table.html">CCF-Tabelle</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="aboutUs.html">Über uns</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="impressum.html#kontakt">Kontakt</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="partner.html" aria-current="page">Partner</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container my-4 px-4 px-sm-0">
+    <main id="main" class="col-12" aria-label="Hauptinhalt"> <!-- Hauptinhalt der Seite, col-12 für volle Breite -->
+    <section class="container"> <!-- Bootstrap Container für zentrierten Inhalt, my-5 für vertikales Margin -->
+        <h2>Entdecken Sie unsere Partner:</h2>
+
+    <div class="row g-3"> <!-- Bootstrap Row mit g-3 für Lücken zwischen den Karten -->
+
+    <!-- Card 1 -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card text-bg-success h-100"> <!-- h-100 Klasse sorgt dafür, dass die Karte die volle Höhe der Spalte einnimmt, damit alle Karten in einer Reihe gleich hoch sind -->
+        <div class="card-header">GreenGrid Alliance</div>
+        <div class="card-body d-flex flex-column"> <!-- d-flex flex-column sorgt dafür, dass der Inhalt der Karte vertikal angeordnet wird, mt-auto auf dem Button sorgt dafür, dass er immer am unteren Rand der Karte bleibt -->
+          <h5 class="card-title">Dekarbonisierung industrieller Energiesysteme</h5>
+          <p class="card-text">
+            Internationale Initiative zur Dekarbonisierung industrieller Stromnetze durch Smart-Grid-Technologien und Speicherlösungen.
+          </p>
+          <a href="https://www.greengrid-alliance.org" class="btn btn-primary mt-auto" target="_blank">Visit Website</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card text-bg-success h-100">
+        <div class="card-header">BlueCarbon Institute</div>
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Marine CO₂-Bindungsforschung</h5>
+          <p class="card-text">
+            Forschungsorganisation zur Wiederherstellung mariner Ökosysteme mit Schwerpunkt auf Mangroven- und Seegrasprojekten.
+          </p>
+          <a href="https://www.bluecarbon-institute.org" class="btn btn-primary mt-auto" target="_blank">Visit Website</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card text-bg-success h-100">
+        <div class="card-header">TerraCycle Solutions Europe</div>
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Zirkuläre Industriekreisläufe</h5>
+          <p class="card-text">
+            Entwicklung zirkulärer Materialkreisläufe für Industrieunternehmen mit Fokus auf Scope-3-Emissionen.
+          </p>
+          <a href="https://www.terracycle-solutions.eu" class="btn btn-primary mt-auto" target="_blank">Visit Website</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card text-bg-success h-100">
+        <div class="card-header">Nordic Climate Data Lab</div>
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Emissionsmonitoring & ESG-Reporting</h5>
+          <p class="card-text">
+            Datengetriebenes Forschungszentrum für Emissionsmonitoring und Life Cycle Assessments.
+          </p>
+          <a href="https://www.nordicclimatedatalab.com" class="btn btn-primary mt-auto" target="_blank">Visit Website</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card text-bg-success h-100">
+        <div class="card-header">SolarBridge Africa</div>
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Dezentrale Solar-Infrastruktur</h5>
+          <p class="card-text">
+            Förderung dezentraler Solarenergie in Regionen mit hoher Energiearmut.
+          </p>
+          <a href="https://www.solarbridge-africa.org" class="btn btn-primary mt-auto" target="_blank">Visit Website</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card text-bg-success h-100">
+        <div class="card-header">CarbonTrace Analytics</div>
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Digitale CO₂-Bilanzen</h5>
+          <p class="card-text">
+            Technologiepartner für digitale CO₂-Bilanzen und automatisiertes Nachhaltigkeitsreporting.
+          </p>
+          <a href="https://www.carbontrace-analytics.com" class="btn btn-primary mt-auto" target="_blank">Visit Website</a>
+        </div>
+      </div>
+    </div>
+       <!-- Card 7 -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card text-bg-success h-100">
+        <div class="card-header">Global Reforest Initiative</div>
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Internationale Aufforstungsprogramme</h5>
+          <p class="card-text">
+            Wissenschaftlich validierte Aufforstungsprojekte mit Biodiversitäts-Monitoring.
+          </p>
+          <a href="https://www.globalreforest.org" class="btn btn-primary mt-auto" target="_blank">Visit Website</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card text-bg-success h-100">
+        <div class="card-header">Circular Future Foundation</div>
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Regenerative Wirtschaftssysteme</h5>
+          <p class="card-text">
+            Think Tank für nachhaltige Lieferketten und strategische Transformation von Industrieunternehmen.
+          </p>
+          <a href="https://www.circularfuture-foundation.org" class="btn btn-primary mt-auto" target="_blank">Visit Website</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="col-12 col-md-6 col-lg-4">
+  <div class="card text-bg-success h-100">
+    <div class="card-header">EarthMetrics Research Group</div>
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Wissenschaftliche Klimawirkungsanalyse</h5>
+      <p class="card-text">
+        Unabhängige Forschungsorganisation zur Bewertung von Klimaschutzmaßnahmen,
+        CO₂-Reduktionspfaden und Wirkungsanalysen nachhaltiger Projekte auf regionaler
+        und globaler Ebene.
+      </p>
+      <a href="https://www.earthmetrics-research.org" class="btn btn-primary mt-auto" target="_blank">
+        Visit Website
+      </a>
+    </div>
+  </div>
+</div>
+    </div> <!-- Ende der Row -->
+    <div class="section-separator" aria-hidden="true"></div> <!-- Visuelle Trennung der Abschnitte, aria-hidden="true" damit Screenreader es ignorieren -->
+    <p>
+        Unsere Partner sind sorgfältig ausgewählt, um sicherzustellen, dass sie unsere Werte teilen und einen echten Beitrag zum Klimaschutz leisten. Gemeinsam arbeiten wir daran, innovative Lösungen zu entwickeln und umzusetzen, die einen messbaren Einfluss auf die Reduzierung von CO₂-Emissionen haben.
+    </p>
+    </section>
+    </main>
+
+    <footer class="container-fluid text-center py-3 mt-4">
+            <p>&copy; 2026 Earth's Breath Non-Profit Organisation</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="impressum.html">Impressum</a>
+            <a href="datenschutz.html">Datenschutz</a>
+            <a href="#top">Zurück nach oben</a>
+        </div>
+    </footer> 
+</body>
+</html>

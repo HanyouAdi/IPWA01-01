@@ -7,6 +7,8 @@ html {
 body {
   background-color: rgb(255, 255, 255);
   position: relative; /* Für Bootstrap ScrollSpy */
+  border-color:  #8bcf7a !important;
+  overflow-x: hidden; /* Verhindert horizontales Scrollen */
 }
 
 header {
@@ -26,6 +28,10 @@ header svg {
   max-height: 200px;
   height: auto;
   width: auto;
+}
+
+.header-logo {
+  max-width: 180px; /* Maximale Breite für das Header-Logo */
 }
 
 header h1 {

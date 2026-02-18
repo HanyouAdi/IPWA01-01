@@ -32,20 +32,30 @@
 
  <header id="top" class="container-fluid py-2"> <!-- Bootstrap Container-fluid für volle Breite, py-3 für vertikales Padding, mb-3 für unteren Margin -->
     <div class="container"> <!-- Container, damit header am Rest der Seite links anliegt -->
-      <!-- Bootstrap d-flex mit align-items-center für Logo & Überschrift in einer Zeile -->
-      <div class="d-flex align-items-center gap-3">
+      <!-- Bootstrap row mit flex-column auf kleinen Geräten, flex-row auf md+ -->
+      <div class="row flex-column flex-md-row align-items-center align-items-md-center gap-3">
+        <!-- HTML: Das div nutzt jetzt row flex-column flex-md-row:
+              flex-column = Logo und Überschrift untereinander auf kleinen Geräten (<768px)
+              flex-md-row = Logo und Überschrift nebeneinander ab md (≥768px)
+              Logo: col-12 col-md-auto (volle Breite auf klein, automatische Breite ab md)
+              Überschrift: col-12 col-md (volle Breite auf klein, nimmt restlichen Platz ab md)
+              text-center text-md-start = zentriert auf klein, linksbündig ab md
+              CSS: Inline-style max-width: 180px in die Klasse .header-logo ausgelagert
+
+              Jetzt ist der Header vollständig responsiv und das Logo erscheint über der Überschrift auf kleinen Bildschirmen!-->
         
-        <img 
-            class="img-fluid" 
-            src="img/Logo_ohne_background-kleiner.PNG" 
-            alt="NPO Logo"
-            style="max-width: 180px;"> 
-            <!-- Bootstrap img-fluid Klasse für responsive Bilder -->
-          <!-- Verbesserung: Inline-Style in CSS-Klasse auslagern -->
+        <div class="col-12 col-md-auto text-center text-md-start">
+          <img 
+              class="img-fluid header-logo" 
+              src="img/Logo_ohne_background-kleiner.PNG" 
+              alt="NPO Logo">
+        </div>
         
-        <h1>
-          Earth's Breath <br> Transparenzportal für den CO₂-Footprint
-        </h1>
+        <div class="col-12 col-md text-center text-md-start">
+          <h1>
+            Earth's Breath <br> Transparenzportal für den CO₂-Footprint
+          </h1>
+        </div>
       </div>
     </div>
   </header>
@@ -56,7 +66,7 @@
    einen zugänglichen Namen für Screenreader -->
 
     <div class="container">
-      <a class="navbar-brand" href="#top">Earth’s Breath</a>
+      <a class="navbar-brand" href="#top">Earth's Breath</a>
       <button class="navbar-toggler" 
               type="button" 
               data-bs-toggle="collapse" 
@@ -68,7 +78,7 @@
       </button>
 
       <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav ms-auto"> <!-- Bootstrap Klasse ms-auto für Navigation rechtsbündig -->
+        <ul class="navbar-nav text-end text-lg-start"> <!-- text-end für rechtsbündige Links im Burger-Menü, text-lg-start für linksbündige Links ab lg (Desktop größe) -->
           <li class="nav-item">
             <a class="nav-link" href="index.html" aria-current="page"></a> <!--Aktuellen Menüpunkt mit aria-current="page" kennzeichnen -->
           </li>
@@ -82,26 +92,38 @@
             <a class="nav-link" href="pages/impressum.html#kontakt">Kontakt</a>
             <!--Link auf Impressum mit #kontakt ergänzen, damit Nutzer direkt zum Kontaktbereich springen -->
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/partner.html">Partner</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
   <!-- Landing Page der Seite..."-->
-  <div class="container my-4">
+  <div class="container my-4 px-4 px-sm-0"> <!-- Bootstrap Container mit my-4 für vertikales Margin, px-4 für horizontales Padding auf kleineren Bildschirmen, px-sm-0 entfernt horizontales Padding ab sm (≥576px) 
+        px-3 → Horizontales Padding (1rem = 16px) auf extra kleinen Geräten (< 576px)
+        px-sm-0 → Entfernt das zusätzliche Padding ab sm (≥ 576px)
+        Jetzt haben kleine Geräte einen schönen Rand auf beiden Seiten, während größere Geräte das Standard-Container-Padding von Bootstrap behalten.
+        Alternative Größen:
+
+        px-2 für kleineren Rand (0.5rem = 8px)
+        px-4 für größeren Rand (1.5rem = 24px)
+        px-5 für noch größeren Rand (3rem = 48px)
+    -->
     <!-- Verbesserung: main ein id geben (z.B. id="main") für Skip-Link und bessere Semantik -->
-    <div class="row g-4">
-      <main id="main" class="col-12 col-md-10" aria-label="Hauptinhalt">
-    <section id="section1">
-      <h2 class="mt-3">Das Ziel von Earth's Breath Non-Profit Organisation</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat assumenda vero porro quaerat nisi laborum quam cumque molestias ipsum distinctio consectetur nobis, dolor cupiditate expedita odio quidem, soluta eligendi consequuntur et perferendis ipsam minima temporibus aperiam qui. Autem architecto ex libero, dolores numquam provident obcaecati error cum officia rem dignissimos in id ipsam quia nisi rerum veniam perspiciatis quas placeat. Sunt ea aspernatur accusamus beatae, doloremque quibusdam perspiciatis repellat. Blanditiis aspernatur illum vero, asperiores voluptatibus neque consectetur eveniet reiciendis explicabo pariatur rem, repellat quibusdam officia. Quas, quibusdam. Ut nisi asperiores adipisci, facilis tempora alias quisquam officiis voluptas vitae quaerat eaque id quo suscipit? Eius nemo, possimus perspiciatis animi repudiandae id sed ipsa voluptatibus saepe repellat corrupti, commodi architecto dolore eveniet harum fugiat nulla velit. Rerum aliquid iusto, consequuntur nisi eum dolorum sequi a ratione dignissimos. Temporibus itaque, doloribus doloremque esse corrupti qui consectetur enim eaque nobis sapiente obcaecati nulla? Nesciunt, esse eveniet provident, libero fugiat consequuntur delectus obcaecati sunt reiciendis soluta natus ipsa quisquam minima aut numquam tempore temporibus non veritatis. Ullam alias tenetur dolorum, et error temporibus reprehenderit esse explicabo suscipit molestiae nostrum accusantium! Illum maxime dolore quo magnam dignissimos provident repudiandae asperiores saepe et incidunt, animi tenetur earum commodi, quod expedita sequi necessitatibus beatae nisi aliquam voluptate nam nulla. Eum, obcaecati beatae nemo veniam pariatur illo dolorum itaque minima fugiat, similique quod repudiandae ab perspiciatis, aspernatur in laborum consequuntur. Deserunt architecto modi, pariatur et neque illum aliquid illo quibusdam ratione perferendis, fugiat unde dolorem distinctio quae accusamus? Voluptatibus nobis enim voluptates maiores eveniet molestias, placeat error atque temporibus! Perferendis assumenda dignissimos repudiandae laboriosam veritatis odio sit? Nisi dignissimos, voluptatem explicabo quas nostrum repellat sunt modi ex autem possimus dolore debitis, eius numquam, eaque distinctio adipisci nulla reprehenderit fugit vero. Ipsam veniam similique, delectus repellat enim facilis nulla eum cupiditate deleniti nihil sapiente, omnis iusto recusandae. Beatae neque in repellendus eum sed itaque corrupti facilis error. Itaque tenetur dolor velit quas adipisci error iste animi optio ex saepe ratione quasi sapiente quisquam voluptatum accusantium accusamus, suscipit nemo incidunt ut veniam pariatur cumque minus similique temporibus. Esse fuga expedita dicta perferendis similique quia veniam. Odit dolores sunt ratione. Consequuntur in fuga odit libero assumenda porro maxime, repellat aliquam quam recusandae ullam soluta, deleniti eius odio, dolore modi fugit. Suscipit ipsum aliquid reprehenderit unde fuga numquam illo enim natus. Quibusdam officia est laudantium quasi provident at sit, culpa, eum itaque sint dolorem praesentium hic facilis rerum soluta unde, magnam veritatis vel debitis! Quisquam explicabo nostrum at aut vel, maxime sed facilis veniam fugit praesentium neque tenetur libero consequatur amet suscipit ab! Libero illo, consequatur consequuntur quisquam consectetur rem ullam nobis tempora sequi sunt ipsa ab. Vel fugiat repellat id velit amet!
-      </p>
+    <div class="row g-lg-4"> <!-- Bootstrap row mit g-lg-4 für größeren Abstand zwischen den Spalten auf lg+ Bildschirmen -->
+      <main id="main" class="col-12 col-lg-10" aria-label="Hauptinhalt"> <!-- Hauptinhalt der Seite, col-12 für volle Breite auf klein, col-lg-10 für 10 von 12 Spalten auf lg+ Bildschirmen -->
+      <section id="section1">
+        <h2 class="mt-3">Das Ziel von Earth's Breath Non-Profit Organisation</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat assumenda vero porro quaerat nisi laborum quam cumque molestias ipsum distinctio consectetur nobis, dolor cupiditate expedita odio quidem, soluta eligendi consequuntur et perferendis ipsam minima temporibus aperiam qui. Autem architecto ex libero, dolores numquam provident obcaecati error cum officia rem dignissimos in id ipsam quia nisi rerum veniam perspiciatis quas placeat. Sunt ea aspernatur accusamus beatae, doloremque quibusdam perspiciatis repellat. Blanditiis aspernatur illum vero, asperiores voluptatibus neque consectetur eveniet reiciendis explicabo pariatur rem, repellat quibusdam officia. Quas, quibusdam. Ut nisi asperiores adipisci, facilis tempora alias quisquam officiis voluptas vitae quaerat eaque id quo suscipit? Eius nemo, possimus perspiciatis animi repudiandae id sed ipsa voluptatibus saepe repellat corrupti, commodi architecto dolore eveniet harum fugiat nulla velit. Rerum aliquid iusto, consequuntur nisi eum dolorum sequi a ratione dignissimos. Temporibus itaque, doloribus doloremque esse corrupti qui consectetur enim eaque nobis sapiente obcaecati nulla? Nesciunt, esse eveniet provident, libero fugiat consequuntur delectus obcaecati sunt reiciendis soluta natus ipsa quisquam minima aut numquam tempore temporibus non veritatis. Ullam alias tenetur dolorum, et error temporibus reprehenderit esse explicabo suscipit molestiae nostrum accusantium! Illum maxime dolore quo magnam dignissimos provident repudiandae asperiores saepe et incidunt, animi tenetur earum commodi, quod expedita sequi necessitatibus beatae nisi aliquam voluptate nam nulla. Eum, obcaecati beatae nemo veniam pariatur illo dolorum itaque minima fugiat, similique quod repudiandae ab perspiciatis, aspernatur in laborum consequuntur. Deserunt architecto modi, pariatur et neque illum aliquid illo quibusdam ratione perferendis, fugiat unde dolorem distinctio quae accusamus? Voluptatibus nobis enim voluptates maiores eveniet molestias, placeat error atque temporibus! Perferendis assumenda dignissimos repudiandae laboriosam veritatis odio sit? Nisi dignissimos, voluptatem explicabo quas nostrum repellat sunt modi ex autem possimus dolore debitis, eius numquam, eaque distinctio adipisci nulla reprehenderit fugit vero. Ipsam veniam similique, delectus repellat enim facilis nulla eum cupiditate deleniti nihil sapiente, omnis iusto recusandae. Beatae neque in repellendus eum sed itaque corrupti facilis error. Itaque tenetur dolor velit quas adipisci error iste animi optio ex saepe ratione quasi sapiente quisquam voluptatum accusantium accusamus, suscipit nemo incidunt ut veniam pariatur cumque minus similique temporibus. Esse fuga expedita dicta perferendis similique quia veniam. Odit dolores sunt ratione. Consequuntur in fuga odit libero assumenda porro maxime, repellat aliquam quam recusandae ullam soluta, deleniti eius odio, dolore modi fugit. Suscipit ipsum aliquid reprehenderit unde fuga numquam illo enim natus. Quibusdam officia est laudantium quasi provident at sit, culpa, eum itaque sint dolorem praesentium hic facilis rerum soluta unde, magnam veritatis vel debitis! Quisquam explicabo nostrum at aut vel, maxime sed facilis veniam fugit praesentium neque tenetur libero consequatur amet suscipit ab! Libero illo, consequatur consequuntur quisquam consectetur rem ullam nobis tempora sequi sunt ipsa ab. Vel fugiat repellat id velit amet!
+        </p>
     </section>
 
 <div class="section-separator" aria-hidden="true"></div>
 
     <section id="section2">
-      <h2>Was ist der Company Carbon Footprint?</h2>
+      <h2>Was ist der Company Carbon Footprint? (CCP)</h2>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quibusdam repellendus in unde pariatur quae placeat? Accusantium architecto laudantium labore voluptatum dolorem aspernatur unde culpa. Pariatur labore possimus commodi, est voluptas, sequi numquam expedita, impedit omnis repellendus quae voluptate laudantium excepturi ipsa. Impedit sed incidunt pariatur modi. Est culpa laborum sequi debitis voluptatem doloribus eaque veniam accusantium odio autem magni ipsam beatae ea quas eum delectus corporis consequuntur qui tempore, sint iure incidunt! Adipisci asperiores optio debitis molestiae rem nostrum repellat consequuntur excepturi id, eos eum, cupiditate laboriosam velit voluptates. Eaque doloribus, odio optio error, accusantium voluptas et maxime, illo fuga vero velit minima cupiditate enim hic! Tenetur ipsa voluptates, obcaecati animi corporis ea sunt laudantium ratione tempore possimus rem quae et amet temporibus ad non quam natus ipsam veritatis? Incidunt aliquid possimus expedita, officiis eos nostrum obcaecati asperiores nam numquam tempore. Quod dolores assumenda consectetur mollitia nam earum maiores quaerat ea quos. Suscipit illum, fugiat vel laborum blanditiis odit corrupti sit quae, numquam nisi rerum explicabo. Laudantium repellendus dolorum accusantium nesciunt perferendis rerum dicta cumque incidunt nobis minus ullam vero, iste autem fugiat amet vitae praesentium est nulla qui ad in! Illum, atque autem laborum natus animi veniam quisquam dolore aperiam maxime rerum quibusdam ratione! Perferendis non dolores commodi distinctio qui tempore doloremque ducimus aperiam sint vel ratione quam impedit veniam praesentium debitis recusandae fuga consequuntur alias quasi, delectus nesciunt ex numquam unde maiores! Dolorum placeat deleniti quibusdam neque eum pariatur, incidunt hic dolorem quod accusamus! Molestiae corporis recusandae eos quo explicabo deleniti sed impedit earum laudantium dignissimos excepturi blanditiis dicta reiciendis tenetur, et ab necessitatibus. Pariatur est dignissimos facilis possimus, expedita ea itaque tempore ipsam minus vero asperiores rem. Impedit reiciendis nemo laboriosam. Ullam nam exercitationem veniam nihil eum omnis consectetur. Pariatur quae quod neque nihil cupiditate consectetur?
       </p>
@@ -119,19 +141,27 @@
     <div class="section-separator" aria-hidden="true"></div>
 
     <!-- Ausblick / Nächste Ziele der Earth's Breath NPO: -->
-    <section id="section4">
-      <h2>Kommende Projekte:</h2>
-      <h3>Von CCP zum PCF - Der Fußabdruck der Gesamten Wertschöpfungskette!</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, ea. Voluptates optio nobis vitae facilis neque quibusdam iure nihil suscipit! Eligendi obcaecati iusto maiores neque harum beatae explicabo repudiandae impedit deserunt sequi atque amet eos perferendis molestiae ab, officia consequuntur, facilis quaerat illum alias. Repellendus perspiciatis debitis esse officia architecto sed, labore ratione ex voluptatum quod facilis laborum quae, autem eaque, eligendi ipsum nesciunt cupiditate eius ipsam! Atque perspiciatis doloribus eos possimus officiis tenetur quod neque repellat minus delectus aliquid recusandae repudiandae beatae doloremque perferendis, corrupti eveniet alias aut fuga ut quam debitis voluptate at odit! Harum animi modi fugiat eligendi? Placeat ipsam facere aut nulla delectus natus, cumque fuga deserunt aliquam dicta impedit, ducimus nobis veritatis doloremque doloribus eveniet nostrum ullam, reprehenderit libero consequatur ex laudantium quidem? Delectus illo, nemo voluptates recusandae voluptate eaque quaerat velit illum praesentium dolor accusantium culpa debitis consequuntur quod vitae commodi quisquam numquam voluptas unde aperiam dolorum vel eveniet quis corrupti. Mollitia perferendis, error animi dignissimos rerum voluptates deleniti quo atque nemo unde, maxime iusto eveniet molestias iste quas voluptas expedita at nesciunt, consequatur saepe id ratione in? Eum quidem temporibus facilis, cumque, nam explicabo eveniet illum cupiditate commodi iure ipsam incidunt ex, tenetur nisi veritatis porro voluptas. Odio veniam sequi ullam distinctio error obcaecati mollitia quia dolorem numquam veritatis. Sed atque consectetur rem commodi neque nostrum voluptate saepe voluptas, deserunt ipsum cum nesciunt incidunt sapiente aut temporibus dicta. Facere quas sed inventore dolorem saepe in praesentium, repudiandae iusto placeat! Id similique quibusdam nemo ratione minima cumque vitae error quia, magnam culpa ipsum doloribus praesentium nihil? Perspiciatis et optio quaerat assumenda consequatur consectetur excepturi incidunt molestiae in deleniti. Vel deserunt quod, est nesciunt facilis vitae minus dolor porro, quibusdam perferendis nisi nam? Natus repellendus, architecto quasi necessitatibus ipsa at aliquam iure recusandae nobis ipsam veritatis tempore, nulla dolorum. Aliquam doloremque eius quia temporibus pariatur ad aut dolor, recusandae fugiat illum, nam ut facere. Dicta molestias, at maxime nemo necessitatibus, voluptatem ipsum, suscipit nisi cupiditate quia dolor hic totam unde sapiente excepturi laboriosam assumenda. A, illum aut? Necessitatibus praesentium nemo minima quia delectus nihil non eveniet unde harum facere? Inventore dolorum alias, distinctio libero quis totam in eaque. Consequuntur distinctio minima aliquid, eos asperiores porro minus mollitia, quasi neque dolore, possimus quas esse ipsa eveniet culpa sit quae adipisci natus? Esse facere deserunt suscipit repudiandae velit mollitia voluptatibus. Modi beatae provident facilis tempora, molestias quaerat.
-      </p>
+    <section id="section4" class="row g-0"> <!-- Bootstrap row für die Aufteilung in 2 Spalten, g-0 entfernt gutter -->
+      <h2 class="col-12">Kommende Projekte:</h2>
+      <div class="col-md border-end"> <!-- Bootstrap col-md für 2 Spalten auf md+ Bildschirmen (ab Tablets), border-end für Trennlinie zwischen den Spalten -->
+        <h3>Vom CCP zum Product Carbon Footprint (PCF) -<br> Der Fußabdruck der Gesamten Wertschöpfungskette!</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa adipisci perferendis laborum deserunt, quisquam et hic error nostrum nobis sed tenetur ipsam illum eum inventore officiis, neque dicta saepe quis. Quas officiis voluptas maiores quam, voluptates officia ea consequuntur? Fuga non voluptatum nam maxime debitis dolor laudantium, iusto facilis praesentium iure, aliquid explicabo laborum, aspernatur quos accusamus impedit odio ipsa recusandae? Fuga, libero beatae suscipit impedit quia illum dolore adipisci natus, ex, culpa vitae ea numquam tempore maxime alias autem doloribus perspiciatis dolores fugit. Consectetur beatae modi perferendis! Provident quod quisquam odio ratione ipsa culpa assumenda doloremque, quidem eos sit? Sapiente quae quam eos nostrum repudiandae, delectus consequatur voluptates doloribus accusantium nesciunt veritatis sunt unde architecto consectetur quidem. Aliquam, expedita unde, corrupti id magni vero dolorem fuga beatae velit ducimus harum! Amet, natus. Modi quam magni nisi, totam dolores perferendis quod ipsam tenetur in voluptatem suscipit illum expedita atque aspernatur placeat saepe, numquam incidunt nobis dolore dolorem autem quidem dignissimos ea. Iure, ea error labore sapiente laudantium aliquid mollitia? Impedit fuga non nobis, aperiam magnam maiores doloribus beatae harum repudiandae voluptas voluptatem illum voluptate accusamus ipsam ullam iste recusandae accusantium reiciendis, quidem minus? Iste impedit obcaecati cumque! Vero expedita consequatur aut fugit nesciunt aperiam architecto, aliquam esse tempore nobis aliquid! Necessitatibus quis tempora itaque dolore, quaerat officia quisquam laboriosam sit?
+         </p>
+      </div>
+      <div class="col-md">
+        <h3>Implementierung von Auswertungsfunktionen des CCP und PCF</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero perspiciatis quos praesentium. Perspiciatis dicta, modi impedit cumque voluptatem cum excepturi repellendus doloremque aut? Ratione minus eveniet, voluptatibus quis voluptatum exercitationem ipsa magni? Vitae placeat expedita saepe quo necessitatibus, molestias, adipisci sed reprehenderit voluptas aliquam illo, dolores dignissimos esse maxime temporibus quae iusto? Reiciendis nihil exercitationem quidem maiores voluptas nesciunt inventore rerum ab nostrum repellat mollitia quod quaerat nisi corporis esse aspernatur, assumenda placeat dolore vel. Est, nesciunt ut. A asperiores tempore quidem! Maxime, quis quam aliquam sapiente dignissimos perferendis omnis consequuntur molestias velit cupiditate. Dolorem eveniet ipsam ullam, sit laudantium distinctio quo aperiam porro earum sed commodi neque odit blanditiis beatae natus nam dolor error sapiente numquam eos maiores. Exercitationem eius, aperiam similique aliquid cupiditate quibusdam aut sint, temporibus earum sequi placeat alias facere vel molestias rerum voluptate recusandae magnam est ipsa dolores quas mollitia dolor. Illo neque voluptates eum.
+        </p>
+      </div>
     </section>
 
 <div class="section-separator" aria-hidden="true"></div> <!-- Visuelle Trennung der Abschnitte, aria-hidden="true" damit Screenreader es ignorieren -->
 
       <!-- Weitere Infos: -->
       <section id="section5">
-        <h2>Weiter Informationen:</h2>
+        <h2>Weitere Informationen:</h2>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum suscipit, numquam aliquid veritatis
           similique saepe enim dolorem temporibus atque, assumenda animi. Sed quia, provident id dolore, blanditiis
           delectus asperiores iste optio voluptatum, rem vitae natus doloribus necessitatibus incidunt? Deleniti commodi
@@ -150,7 +180,7 @@
       </section>
       </main>
 
-      <aside class="col-md-2 d-none d-md-block" aria-label="Inhaltsverzeichnis"> 
+      <aside class="col-lg-2 d-none d-lg-block" aria-label="Inhaltsverzeichnis"> <!-- Bootstrap Klassen: col-lg-2 für 2 Spalten auf lg+ Bildschirmen, d-none d-lg-block um die Sidebar auf kleinen Bildschirmen auszublenden -->
       <!-- Bootstrap Klassen: col-md-3 für 3 Spalten auf md+ Bildschirmen, d-none d-md-block um die Sidebar auf kleinen Bildschirmen auszublenden -->
       <!-- Verbesserung: Auf kleinen Screens könnte ein Button/Accordion für die Inhaltsnavigation angeboten werden -->
         <nav id="inhaltsNav" class="position-sticky sidebar-sticky">
