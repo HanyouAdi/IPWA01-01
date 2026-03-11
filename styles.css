@@ -35,9 +35,8 @@ header svg {
 }
 
 header h1 {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Linksbündig */
+  display: block;
+  text-align: left; /* Linksbündig */
 }
 
 main {
@@ -91,15 +90,16 @@ h2 {
   margin-bottom: 20px;
 }
 
-.navbar .btn {
+
+/*.navbar .btn {
   /* Stil für die Navigations-Buttons **NICHT IN NUTZUNG**/
-  margin-right: 10px;
+  /* margin-right: 10px;
   border-radius: 5px;
   border-color: #ffffff;
   font-weight: 700; /* Etwas fetterer Text */
-  transition: all 0.3s ease; /* Sanfter Übergang bei Hover */
-  /* background-color: #02a5e0; */
-}
+  /*transition: all 0.3s ease; /* Sanfter Übergang bei Hover */
+  /* background-color: #02a5e0; 
+} */
 
 .navbar-sticky {
   background-color: #014425 !important;
@@ -112,9 +112,11 @@ h2 {
 }
 
 /* Nur Links werden gehövert */
-.navbar a:hover {
-  color: #ffffff; /* weißer Text bei Hover */
-  font-size: 1.2rem; /* Leicht vergrößerter Text bei Hover */
+.navbar .nav-item:hover .nav-link { /*Muss so spezifisch sein, weil sonst alles verändert wird beim hovern - 
+  Nur die Links innerhalb der nav-items werden gehövert, nicht die gesamte nav-item, damit der Hover-Effekt nur auf den Text und nicht auf den gesamten Bereich wirkt. */
+  color: #8bcf7a;  /* weißer Text bei Hover */
+  font-size: 1.1rem; /* Leicht vergrößerter Text bei Hover */
+  text-decoration: underline; /* Unterstreichung bei Hover für bessere Sichtbarkeit */
 }
 
 table {

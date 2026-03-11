@@ -1,18 +1,3 @@
-const btn = document.querySelector("#button1"); // Select the button element
-btn.addEventListener("click", () => { // Add click event listener
-  btn.textContent = "YOU CLICKED ME!! ❤️"; // Change button text on click
-  setTimeout(() => { // Set a timeout to revert text after 1 second
-    btn.textContent = "Press me"; // Revert button text
-  }, 1000); // 1000 milliseconds = 1 second
-});
-
-// Initialize Bootstrap tooltips
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl);
-});
-
-
 /*
   Ziel:
   - Wir haben fiktive Daten (Array von Objekten)

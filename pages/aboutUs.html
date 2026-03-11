@@ -26,22 +26,35 @@
   <script src="../script.js" defer></script>
 </head>
 
-<body data-bs-spy="scroll" data-bs-target="#inhaltsNav" data-bs-offset="120">
+<body>
      <header id="top" class="container-fluid py-2"> <!-- Bootstrap Container-fluid für volle Breite, py-3 für vertikales Padding, mb-3 für unteren Margin -->
     <div class="container"> <!-- Container, damit header am Rest der Seite links anliegt -->
     <!-- Bootstrap d-flex mit align-items-center für Logo & Überschrift in einer Zeile -->
-            <div class="d-flex align-items-center gap-3">
+       <div class="row flex-column flex-md-row align-items-center align-items-md-center gap-3">
+        <!-- HTML: Das div nutzt jetzt row flex-column flex-md-row:
+              flex-column = Logo und Überschrift untereinander auf kleinen Geräten (<768px)
+              flex-md-row = Logo und Überschrift nebeneinander ab md (≥768px)
+              Logo: col-12 col-md-auto (volle Breite auf klein, automatische Breite ab md)
+              Überschrift: col-12 col-md (volle Breite auf klein, nimmt restlichen Platz ab md)
+              text-center text-md-start = zentriert auf klein, linksbündig ab md
+              CSS: Inline-style max-width: 180px in die Klasse .header-logo ausgelagert
+
+              Jetzt ist der Header vollständig responsiv und das Logo erscheint über der Überschrift auf kleinen Bildschirmen!-->
+        
+        <div class="col-12 col-md-auto text-center text-md-start">
                 <img 
                 class="img-fluid" 
                 src="../img/Logo_ohne_background-kleiner.PNG" 
                 alt="NPO Logo"
-                style="max-width: 180px;"> 
+                style="max-width: 180px;"> <!-- Nötig???-->
                 <!-- Bootstrap img-fluid Klasse für responsive Bilder -->
-            
+        </div>
+        <div class="col-12 col-md text-center text-md-start">
                 <h1>
                 Earth's Breath <br>
                 Über uns
                 </h1>
+        </div>
             </div>
         </div>
     </header>
