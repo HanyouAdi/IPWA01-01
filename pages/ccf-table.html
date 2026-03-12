@@ -166,22 +166,23 @@
               Klick auf TH triggert Sortierung
               role="button" verbessert Accessibility
             -->
-            <th role="button" @click="toggleSort('land')">
+            <th role="button" class="align-top" @click="toggleSort('land')">
               Land
               <span class="ms-1">{{ sortIndicator('land') }}</span>
             </th>
 
-            <th role="button" @click="toggleSort('unternehmen')">
+            <th role="button" class="align-top" @click="toggleSort('unternehmen')">
+              <!-- align-top, weil durch den Zusatz (in Tonnen) sonst die Überschiften nach unten gezogen werden--> 
               Unternehmen
               <span class="ms-1">{{ sortIndicator('unternehmen') }}</span>
             </th>
 
             <th
               role="button"
-              class="text-end"
+              class="text-end align-top"
               @click="toggleSort('co2')"
-              >CO2-Emissionen
-              <span class="ms-1">{{ sortIndicator('co2') }}</span>
+              >CO₂-Emissionen <span class="ms-1">{{ sortIndicator('co2') }}</span><small class="d-block text-muted fw-normal">(in Tonnen)</small>
+              <!-- small: macht den Zusatz dezenter, fw-verhindert zu fette Schrift  in <th>, d-block: setzt ihn direkt in die nächste Zeile-->
             </th>
           </tr>
                 </thead>
@@ -247,10 +248,10 @@
           */
 
         rows: [
-            { id: 1, land: "Deutschland", unternehmen: "NordEastTech AG", co2: 8.1 },
+            { id: 1, land: "Deutschland", unternehmen: "NordEastTech AG", co2: 8150 },
             { id: 2, land: "Deutschland", unternehmen: "Wels Energy GmbH", co2: 79850 },
             { id: 3, land: "Frankreich", unternehmen: "EcoIndustrie SA", co2: 42950 },
-            { id: 4, land: "USA", unternehmen: "StripesCarbon Inc.", co2: 25.3 },
+            { id: 4, land: "USA", unternehmen: "StripesCarbon Inc.", co2: 25300 },
             { id: 5, land: "USA", unternehmen: "MoonGrid LLC", co2: 18.9 },
             { id: 6, land: "Japan", unternehmen: "Yokai Metals", co2: 14.2 },
             { id: 7, land: "China", unternehmen: "RedSun Industrial Components", co2: 89300 },

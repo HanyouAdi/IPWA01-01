@@ -12,13 +12,13 @@
    Länder dürfen mehrfach vorkommen.
 */
 const emissionsdaten = [
-  { country: "Deutschland", company: "NordEastTech AG", co2: 8.1 },
+  { country: "Deutschland", company: "NordEastTech AG", co2: 55580 },
   { country: "Deutschland", company: "Wels Energy GmbH", co2: 79850 },
   { country: "Frankreich", company: "EcoIndustrie SA", co2: 42950 },
-  { country: "USA", company: "StripesCarbon Inc.", co2: 25.3 },
+  { country: "USA", company: "StripesCarbon Inc.", co2: 25300 },
   { country: "USA", company: "MoonGrid LLC", co2: 18.9 },
   { country: "Japan", company: "Yokai Metals", co2: 14.2 },
-  { country: "China", company: "RedSun Industrial Components", co2: 89300 }, // 89.300 anpassen????
+  { country: "China", company: "RedSun Industrial Components", co2: 89300 },
   { country: "Österreich", company: "Green Systems AG", co2: 10630 },
   { country: "USA", company: "Frontier Data Centers LLC", co2: 44120 },
   { country: "Litauen", company: "Baltic Industrial Services SIA", co2: 12980 },

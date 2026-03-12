@@ -18,6 +18,8 @@
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous">
   </script>
+<!-- Bootstrap ICONS-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
   <!--Link to an external CSS file-->
   <link rel="stylesheet" href="../styles.css">
@@ -45,8 +47,7 @@
                 <img 
                 class="img-fluid" 
                 src="../img/Logo_ohne_background-kleiner.PNG" 
-                alt="NPO Logo"
-                style="max-width: 180px;"> 
+                alt="NPO Logo"> 
                 <!-- Bootstrap img-fluid Klasse für responsive Bilder -->
         </div>
         <div class="col-12 col-md text-center text-md-start">
@@ -96,19 +97,23 @@
     <main id="main" class="col-12" aria-label="Hauptinhalt"> <!-- Hauptinhalt der Seite, col-12 für volle Breite -->
     <section class="container"> <!-- Bootstrap Container für zentrierten Inhalt, my-5 für vertikales Margin -->
         <h2>Entdecken Sie unsere Partner:</h2>
-
     <div class="row g-3"> <!-- Bootstrap Row mit g-3 für Lücken zwischen den Karten -->
 
     <!-- Card 1 -->
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card text-bg-success h-100"> <!-- h-100 Klasse sorgt dafür, dass die Karte die volle Höhe der Spalte einnimmt, damit alle Karten in einer Reihe gleich hoch sind -->
-        <div class="card-header">GreenGrid Alliance</div>
+        <div class="card-header h3">GreenGrid Alliance</div> <!-- h3 Klasse für eine größere Schriftgröße -->
         <div class="card-body d-flex flex-column"> <!-- d-flex flex-column sorgt dafür, dass der Inhalt der Karte vertikal angeordnet wird, mt-auto auf dem Button sorgt dafür, dass er immer am unteren Rand der Karte bleibt -->
           <h5 class="card-title">Dekarbonisierung industrieller Energiesysteme</h5>
           <p class="card-text">
             Internationale Initiative zur Dekarbonisierung industrieller Stromnetze durch Smart-Grid-Technologien und Speicherlösungen.
           </p>
-          <a href="https://www.greengrid-alliance.org" class="btn btn-primary mt-auto" target="_blank">Visit Website</a>
+          <a href="https://www.greengrid-alliance.org" class="btn btn-primary mt-auto" target="_blank" rel="noopener noreferrer" title="Beispiel Link – diese Website existiert nicht!">Visit Website</a>
+          <!-- target:"_blank" = Link öffnet sich in einem neuen Tab; 
+               rel="noopener noreferrer" für Sicherheit, Tabnabbing verhindern (Das die neue Seite die ursprüngliche Seit manipuliert) noreferrer -> verhindert, dass Zielseite 
+               sieht von welcher Seite der Nutzer kommt (kein HTTP Referer Header) 
+              mit title-Attribut wird ein Tooltip angezeigt, wenn der Nutzer mit der Maus über den Link fährt
+               -->
         </div>
       </div>
     </div>
@@ -116,13 +121,13 @@
     <!-- Card 2 -->
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card text-bg-success h-100">
-        <div class="card-header">BlueCarbon Institute</div>
+        <div class="card-header h3">BlueCarbon Institute</div>
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Marine CO₂-Bindungsforschung</h5>
           <p class="card-text">
             Forschungsorganisation zur Wiederherstellung mariner Ökosysteme mit Schwerpunkt auf Mangroven- und Seegrasprojekten.
           </p>
-          <a href="https://www.bluecarbon-institute.org" class="btn btn-primary mt-auto" target="_blank">Visit Website</a>
+          <a href="https://www.bluecarbon-institute.org" class="btn btn-primary mt-auto" target="_blank" rel="noopener noreferrer" title="Beispiel Link – diese Website existiert nicht!">Visit Website</a>
         </div>
       </div>
     </div>
@@ -130,13 +135,13 @@
     <!-- Card 3 -->
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card text-bg-success h-100">
-        <div class="card-header">TerraCycle Solutions Europe</div>
+        <div class="card-header h3">TerraCycle Solutions Europe</div>
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Zirkuläre Industriekreisläufe</h5>
           <p class="card-text">
             Entwicklung zirkulärer Materialkreisläufe für Industrieunternehmen mit Fokus auf Scope-3-Emissionen.
           </p>
-          <a href="https://www.terracycle-solutions.eu" class="btn btn-primary mt-auto" target="_blank">Visit Website</a>
+          <a href="https://www.terracycle-solutions.eu" class="btn btn-primary mt-auto" target="_blank" rel="noopener noreferrer" title="Beispiel Link – diese Website existiert nicht!">Visit Website</a>
         </div>
       </div>
     </div>
@@ -144,13 +149,13 @@
     <!-- Card 4 -->
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card text-bg-success h-100">
-        <div class="card-header">Nordic Climate Data Lab</div>
+        <div class="card-header h3">Nordic Climate Data Lab</div>
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Emissionsmonitoring & ESG-Reporting</h5>
           <p class="card-text">
             Datengetriebenes Forschungszentrum für Emissionsmonitoring und Life Cycle Assessments.
           </p>
-          <a href="https://www.nordicclimatedatalab.com" class="btn btn-primary mt-auto" target="_blank">Visit Website</a>
+          <a href="https://www.nordicclimatedatalab.com" class="btn btn-primary mt-auto" target="_blank" rel="noopener noreferrer" title="Beispiel Link – diese Website existiert nicht!">Visit Website</a>
         </div>
       </div>
     </div>
@@ -158,13 +163,13 @@
     <!-- Card 5 -->
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card text-bg-success h-100">
-        <div class="card-header">SolarBridge Africa</div>
+        <div class="card-header h3">SolarBridge Africa</div>
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Dezentrale Solar-Infrastruktur</h5>
           <p class="card-text">
             Förderung dezentraler Solarenergie in Regionen mit hoher Energiearmut.
           </p>
-          <a href="https://www.solarbridge-africa.org" class="btn btn-primary mt-auto" target="_blank">Visit Website</a>
+          <a href="https://www.solarbridge-africa.org" class="btn btn-primary mt-auto" target="_blank" rel="noopener noreferrer" title="Beispiel Link – diese Website existiert nicht!">Visit Website</a>
         </div>
       </div>
     </div>
@@ -172,26 +177,26 @@
     <!-- Card 6 -->
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card text-bg-success h-100">
-        <div class="card-header">CarbonTrace Analytics</div>
+        <div class="card-header h3">CarbonTrace Analytics</div>
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Digitale CO₂-Bilanzen</h5>
           <p class="card-text">
             Technologiepartner für digitale CO₂-Bilanzen und automatisiertes Nachhaltigkeitsreporting.
           </p>
-          <a href="https://www.carbontrace-analytics.com" class="btn btn-primary mt-auto" target="_blank">Visit Website</a>
+          <a href="https://www.carbontrace-analytics.com" class="btn btn-primary mt-auto" target="_blank" rel="noopener noreferrer" title="Beispiel Link – diese Website existiert nicht!">Visit Website</a>
         </div>
       </div>
     </div>
        <!-- Card 7 -->
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card text-bg-success h-100">
-        <div class="card-header">Global Reforest Initiative</div>
+        <div class="card-header h3">Global Reforest Initiative</div>
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Internationale Aufforstungsprogramme</h5>
           <p class="card-text">
             Wissenschaftlich validierte Aufforstungsprojekte mit Biodiversitäts-Monitoring.
           </p>
-          <a href="https://www.globalreforest.org" class="btn btn-primary mt-auto" target="_blank">Visit Website</a>
+          <a href="https://www.globalreforest.org" class="btn btn-primary mt-auto" target="_blank" rel="noopener noreferrer" title="Beispiel Link – diese Website existiert nicht!">Visit Website</a>
         </div>
       </div>
     </div>
@@ -199,21 +204,21 @@
     <!-- Card 8 -->
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card text-bg-success h-100">
-        <div class="card-header">Circular Future Foundation</div>
+        <div class="card-header h3">Circular Future Foundation</div>
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Regenerative Wirtschaftssysteme</h5>
           <p class="card-text">
             Think Tank für nachhaltige Lieferketten und strategische Transformation von Industrieunternehmen.
           </p>
-          <a href="https://www.circularfuture-foundation.org" class="btn btn-primary mt-auto" target="_blank">Visit Website</a>
+          <a href="https://www.circularfuture-foundation.org" class="btn btn-primary mt-auto" target="_blank" rel="noopener noreferrer" title="Beispiel Link – diese Website existiert nicht!">Visit Website</a>
         </div>
       </div>
     </div>
 
     <!-- Card 9 -->
-    <div class="col-12 col-md-6 col-lg-4">
+  <div class="col-12 col-md-6 col-lg-4">
   <div class="card text-bg-success h-100">
-    <div class="card-header">EarthMetrics Research Group</div>
+    <div class="card-header h3">EarthMetrics Research Group</div>
     <div class="card-body d-flex flex-column">
       <h5 class="card-title">Wissenschaftliche Klimawirkungsanalyse</h5>
       <p class="card-text">
@@ -221,13 +226,18 @@
         CO₂-Reduktionspfaden und Wirkungsanalysen nachhaltiger Projekte auf regionaler
         und globaler Ebene.
       </p>
-      <a href="https://www.earthmetrics-research.org" class="btn btn-primary mt-auto" target="_blank">
-        Visit Website
+      <a href="https://www.earthmetrics-research.org" class="btn btn-primary mt-auto" target="_blank" rel="noopener noreferrer" title="Beispiel Link – diese Website existiert nicht!">
+        <!-- target:"_blank" = Link öffnet sich in einem neuen Tab; 
+             rel="noopener noreferrer" für Sicherheit, Tabnabbing verhindern (Das die neue Seite die ursprüngliche Seit manipuliert) noreferrer -> verhindert, dass Zielseite 
+             sieht von welcher Seite der Nutzer kommt (kein HTTP Referer Header)
+             -->
+      Visit Website <i class="bi bi-box-arrow-up-right"></i>
       </a>
     </div>
   </div>
-</div>
-    </div> <!-- Ende der Row -->
+  </div>
+ </div> <!-- Ende der Row -->
+ 
     <div class="section-separator" aria-hidden="true"></div> <!-- Visuelle Trennung der Abschnitte, aria-hidden="true" damit Screenreader es ignorieren -->
     <p>
         Unsere Partner sind sorgfältig ausgewählt, um sicherzustellen, dass sie unsere Werte teilen und einen echten Beitrag zum Klimaschutz leisten. Gemeinsam arbeiten wir daran, 
@@ -235,14 +245,15 @@
     </p>
     </section>
     </main>
+  </div>
 
     <footer class="container-fluid text-center py-3 mt-4">
-            <p>&copy; 2026 Earth's Breath Non-Profit Organisation</p>
-        <div class="d-flex justify-content-center gap-3 flex-wrap">
-            <a href="impressum.html">Impressum</a>
-            <a href="datenschutz.html">Datenschutz</a>
-            <a href="#top">Zurück nach oben</a>
-        </div>
+      <p>&copy; 2026 Earth's Breath Non-Profit Organisation</p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="#top">Zurück nach oben</a>
+      </div>
     </footer> 
 </body>
 </html>
