@@ -7,7 +7,6 @@ html {
 body {
   background-color: rgb(255, 255, 255);
   position: relative; /* Für Bootstrap ScrollSpy */
-  border-color:  #8bcf7a !important;
   overflow-x: hidden; /* Verhindert horizontales Scrollen */
 }
 
@@ -44,11 +43,6 @@ main {
   border-radius: 10px; /* Abgerundete Ecken für ein moderneres Aussehen */
 }
 
-#localMenu {
-  /* Navbar Links abstand erhöhen (id="localMenu") */
-  gap: 0.5rem;
-}
-
 #inhaltsNav .inhalts-nav {
   /* Stil für die Inhaltsnavigation (id="inhaltsNav", Nav-Rechts) */
   padding: 1rem;
@@ -76,6 +70,7 @@ main {
   border-bottom-width: 2px !important;
 }
 
+/* Alt:
 [dir="rtl"] header {
   direction: rtl;
 }
@@ -84,7 +79,17 @@ main {
   margin-left: 0;
   margin-right: auto;
 }
+*/
 
+/*Wenn ein übergeordnetes Element dir="ltr" hat, greift die erste Regel.
+[dir="ltr"] #inhaltsNav {
+  border-left: 4px solid green;
+}
+
+[dir="rtl"] #inhaltsNav {
+  border-right: 4px solid green;
+}
+*/
 h2 {
   margin-top: 30px; /* Einheitlicher Abstand nach oben für alle h2-Überschriften */
   margin-bottom: 20px;
@@ -125,7 +130,8 @@ table {
   letter-spacing: 1px; /* Etwas mehr Abstand zwischen den Buchstaben */
 }
 
-/* Überschreibe die Bootstrap table-success Klasse für ein helleres Grün, "thead.table-success th" war nötig, damit das Überschreiben funktionierte */
+/* Derzeit nicht funktional????Überschreibe die Bootstrap table-success Klasse für ein helleres Grün, 
+"thead.table-success th" war nötig, damit das Überschreiben funktionierte */
 thead.table-success th {
   background-color: #037841 !important; /* Eigene Farbe */
   color: #ffffff !important; /* Optional: Textfarbe anpassen, falls nötig */
@@ -133,9 +139,8 @@ thead.table-success th {
 
 tbody {
   font-size: 95%;
-  font-style: italic;
   /* VORSCHLAG (Bootstrap-kompatibel): Hover-Farbe per CSS-Variable setzen */
-  --bs-table-hover-bg: rgb(139, 207, 122, 1); /* Helles Grün für Hover mit SaaS?*/
+  --bs-table-hover-bg: rgb(139, 207, 122, 1); /* Helles Grün für Hover mit Sass?*/
 }
 
 caption {
@@ -151,7 +156,6 @@ footer {
     rgba(139, 207, 122, 1) 100%
   );
   color: #ffffff;
-  padding: 0.3em;
 }
 
 .section-separator {

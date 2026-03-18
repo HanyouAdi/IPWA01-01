@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Über uns Earth’s Breath</title>
+    <title>Über uns - Earth’s Breath</title>
     <link rel="icon" type="image/x-icon" href="../img/favicon/favicon.ico">
 
     <meta name="description" content="Informationen über das Team und die Mission von Earth's Breath NPO"> <!--Description of the webpage for search engines-->
-    <meta name="keywords" content="aboutUs, Über Uns">
+    <meta name="keywords" content="aboutUs, about us, Über Uns, Wer sind wir?">
   <!--Keywords for search engines-->
 
   <!-- Bootstrap JS (CDN) -->
@@ -45,11 +45,11 @@
                 <img 
                 class="img-fluid" 
                 src="../img/Logo_ohne_background-kleiner.PNG" 
-                alt="NPO Logo">
+                alt="Logo der NPO Earth's Breath">
                 <!-- Bootstrap img-fluid Klasse für responsive Bilder -->
         </div>
-        <div class="col-12 col-md text-center text-md-start">
-                <h1>
+        <div class="col-12 col-md">
+                <h1 class="text-center text-md-start">
                 Earth's Breath <br>
                 Über uns
                 </h1>
@@ -106,13 +106,16 @@
         </section>
     </main>
 
-    <footer class="container-fluid text-center py-3 mt-4">
-            <p>&copy; 2026 Earth's Breath Non-Profit Organisation</p>
-        <div class="d-flex justify-content-center gap-3 flex-wrap">
+    <footer class="container-fluid text-center mt-4 py-2"> 
+        <!-- Bootstrap Container-fluid für volle Breite, text-center für zentrierten Text, mt-4 für oberen Margin, py-4 für vertikales Padding -->
+             <p class="mb-1">Hinweis: Diese Website ist ein Studienprojekt. Alle dargestellten Emissionsdaten und Organisationsangaben sind fiktiv und dienen ausschließlich Demonstrationszwecken.</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap mt-1 mb-2"> 
+            <!-- Bootstrap d-flex für flexibles Box-Layout, justify-content-center für zentrierte Links, gap-3 für Abstand zwischen den Links, flex-wrap für Zeilenumbruch bei kleinen Bildschirmen, mb-2 für unteren Margin -->
             <a href="impressum.html">Impressum</a>
             <a href="datenschutz.html">Datenschutz</a>
             <a href="#top">Zurück nach oben</a>
         </div>
-    </footer>
+            <p class="mb-0 small">&copy; 2026 Earth's Breath Non-Profit Organisation</p>
+        </footer>
 </body>
 </html>

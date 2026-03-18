@@ -41,11 +41,11 @@
                 <img 
                 class="img-fluid" 
                 src="../img/Logo_ohne_background-kleiner.PNG" 
-                alt="NPO Logo"> 
+                alt="Logo der NPO Earth's Breath"> 
                 <!-- Bootstrap img-fluid Klasse für responsive Bilder -->
             </div>
             <div class="col-12 col-md text-center text-md-start">
-                 <h1>
+                 <h1 class="text-center text-md-start">
                  Earth's Breath <br> Datenschutzhinweise
                  </h1>
             </div>
@@ -89,7 +89,8 @@
 
     <main class="container my-4">
         <section>
-            <h2>Datenschutzhinweise</h2>
+            <h2 class="mt-0 mb-3">Datenschutzhinweise</h2> 
+            <!-- mt-2 für oberen Margin m:margin t:top 3: Spacing-Stufe, mb-3 für unteren Margin -->
 
             <p>
                 Der Schutz Ihrer personenbezogenen Daten ist uns ein wichtiges Anliegen.
@@ -179,12 +180,15 @@
         </section>
     </main>
 
-    <footer class="container-fluid text-center py-3 mt-4">
-            <p>&copy; 2026 Earth's Breath Non-Profit Organisation</p>
-        <div class="d-flex justify-content-center gap-3 flex-wrap">
+    <footer class="container-fluid text-center mt-4 py-2"> 
+        <!-- Bootstrap Container-fluid für volle Breite, text-center für zentrierten Text, mt-4 für oberen Margin, py-4 für vertikales Padding -->
+             <p class="mb-1">Hinweis: Diese Website ist ein Studienprojekt. Alle dargestellten Emissionsdaten und Organisationsangaben sind fiktiv und dienen ausschließlich Demonstrationszwecken.</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap mt-1 mb-2"> 
+            <!-- Bootstrap d-flex für flexibles Box-Layout, justify-content-center für zentrierte Links, gap-3 für Abstand zwischen den Links, flex-wrap für Zeilenumbruch bei kleinen Bildschirmen, mb-2 für unteren Margin -->
             <a href="impressum.html">Impressum</a>
             <a href="#top">Zurück nach oben</a>
         </div>
-    </footer>
+            <p class="mb-0 small">&copy; 2026 Earth's Breath Non-Profit Organisation</p>
+        </footer>
 </body>
 </html>

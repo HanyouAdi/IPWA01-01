@@ -1,0 +1,19 @@
+Earth´s Breath Website
+|   index.html
+|   README.md
+|   script.js
+|   styles.css
+|   
++---img
+|   |   Logo_ohne_background-kleiner.PNG
+|   |   
+|   \---favicon
+|           favicon.ico
+|           
+\---pages
+        aboutUs.html
+        ccf-table.html
+        datenschutz.html
+        impressum.html
+        partner.html
+        

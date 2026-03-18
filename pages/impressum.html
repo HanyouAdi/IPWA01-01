@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum Earth’s Breath´s</title>
+    <title>Impressum - Earth’s Breath</title>
     <link rel="icon" type="image/x-icon" href="../img/favicon/favicon.ico">
         <!-- Bootstrap CSS (CDN) -->
      <!-- Bootstrap JS (CDN) -->
@@ -41,11 +41,11 @@
                 <img 
                 class="img-fluid" 
                 src="../img/Logo_ohne_background-kleiner.PNG" 
-                alt="NPO Logo">
+                alt="Logo der NPO Earth's Breath">
         </div>
 
-        <div class="col-12 col-md text-center text-md-start">
-          <h1>Earth's Breath <br> Non-Profit Organisation</h1>
+        <div class="col-12 col-md">
+          <h1 class="text-center text-md-start">Earth's Breath <br> Non-Profit Organisation</h1>
         </div>
       </div>
     </div>
@@ -87,7 +87,14 @@
 
 <main class="container my-4">
         <section>
-            <h2>Impressum</h2>
+          <h2 class="mt-0 mb-3">Wichtiger Hinweis zur Webseite</h2>
+            <p>
+                Bei dieser Website handelt es sich um ein im Rahmen eines Studiums entwickeltes Demonstrationsprojekt. 
+                Die dargestellten CO₂-Emissionsdaten, Organisationsangaben und sonstigen Inhalte dienen ausschließlich 
+                der Veranschaulichung technischer und gestalterischer Funktionen und erheben keinen Anspruch auf reale oder 
+                aktuelle Sachverhalte.
+            </p>
+            <h2 class="mt-0 mb-3">Impressum</h2>
             <address>
                 <strong>Earth’s Breath e. V.</strong><br>
                 Non-Profit-Organisation für Umwelt- und Klimaschutz<br><br>
@@ -151,12 +158,15 @@
             </p>
         </section>
     </main>
-    <footer class="container-fluid text-center py-3 mt-4">
-            <p>&copy; 2026 Earth's Breath Non-Profit Organisation</p>
-        <div class="d-flex justify-content-center gap-3 flex-wrap">
+    <footer class="container-fluid text-center mt-4 py-2"> 
+        <!-- Bootstrap Container-fluid für volle Breite, text-center für zentrierten Text, mt-4 für oberen Margin, py-4 für vertikales Padding -->
+             <p class="mb-1">Hinweis: Diese Website ist ein Studienprojekt. Alle dargestellten Emissionsdaten und Organisationsangaben sind fiktiv und dienen ausschließlich Demonstrationszwecken.</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap mt-1 mb-2"> 
+            <!-- Bootstrap d-flex für flexibles Box-Layout, justify-content-center für zentrierte Links, gap-3 für Abstand zwischen den Links, flex-wrap für Zeilenumbruch bei kleinen Bildschirmen, mb-2 für unteren Margin -->
             <a href="datenschutz.html">Datenschutz</a>
             <a href="#top">Zurück nach oben</a>
         </div>
-    </footer>
+            <p class="mb-0 small">&copy; 2026 Earth's Breath Non-Profit Organisation</p>
+        </footer>
 </body>
 </html>

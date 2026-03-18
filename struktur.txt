@@ -1,0 +1,24 @@
+Auflistung der Ordnerpfade für Volume Windows
+Volumeseriennummer : 8292-3D7D
+C:.
+¦   index.html
+¦   README.md
+¦   script.js
+¦   struktur.txt
+¦   styles.css
+¦   
++---img
+¦   ¦   Logo2.png
+¦   ¦   Logo_ohne_background-kleiner.PNG
+¦   ¦   Logo_ohne_background.PNG
+¦   ¦   
+¦   +---favicon
+¦           favicon.ico
+¦           
++---pages
+        aboutUs.html
+        ccf-table.html
+        datenschutz.html
+        impressum.html
+        partner.html
+        

@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Earth's Breath Transparenzportal für den CO₂-Footprint</title>
   <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
-  <meta name="description" content="CO₂ Fußabdruck von Firmen"> <!--Description of the webpage for search engines-->
+  <meta name="description" content="Öffentliches Transparenzportal für den CO₂-Fußabdruck (CCP) von Firmen und Ländern"> 
+  <!--Description of the webpage for search engines-->
   <meta name="keywords" content="Fußabdruck, CO2, CO₂, Umwelt, CCF, PCF, Emissionen">
   <!--Keywords for search engines-->
 
@@ -19,6 +20,9 @@
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous">
   </script>
+
+  <!-- Bootstrap ICONS-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
   <!--Link to an external CSS file-->
   <link rel="stylesheet" href="styles.css">
@@ -46,11 +50,12 @@
           <img 
               class="img-fluid header-logo" 
               src="img/Logo_ohne_background-kleiner.PNG" 
-              alt="NPO-Logo">
+              alt="Logo der NPO Earth's Breath">
         </div>
         
-        <div class="col-12 col-md text-center text-md-start">
-          <h1>
+        <div class="col-12 col-md "> 
+          <!-- col-12 für volle Breite auf klein, col-md für restlichen Platz auf Breakpoint md+ == Mobil = zentriert & ab Tablet linksbündig-->
+          <h1 class="text-center text-md-start"> <!-- Breakpoint: text-center für zentriert auf klein, text-md-start für linksbündig ab md -->
             Earth's Breath <br> Transparenzportal für den CO₂-Footprint
           </h1>
         </div>
@@ -116,9 +121,10 @@
         px-4 für größeren Rand (1.5rem = 24px)
         px-5 für noch größeren Rand (3rem = 48px) -->
     <div class="row g-lg-4"> <!-- Bootstrap row mit g-lg-4 für größeren Abstand zwischen den Spalten auf lg+ Bildschirmen -->
-      <main id="main" class="col-12 col-lg-10" aria-label="Hauptinhalt"> <!-- Hauptinhalt der Seite, col-12 für volle Breite auf klein, col-lg-10 für 10 von 12 Spalten auf lg+ Bildschirmen -->
+      <main id="mainContent" class="col-12 col-lg-10" aria-label="Hauptinhalt"> 
+        <!-- Hauptinhalt der Seite, col-12 für volle Breite auf klein, col-lg-10 für 10 von 12 Spalten auf lg+ Bildschirmen -->
       <section id="section1">
-        <h2 class="mt-3">Das Ziel von Earth's Breath Non-Profit Organisation</h2>
+        <h2 class="mt-1">Das Ziel von Earth's Breath Non-Profit Organisation</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat assumenda vero porro quaerat nisi laborum quam cumque molestias ipsum distinctio consectetur nobis, dolor cupiditate 
           expedita odio quidem, soluta eligendi consequuntur et perferendis ipsam minima temporibus aperiam qui. Autem architecto ex libero, dolores numquam provident obcaecati error cum officia 
@@ -146,7 +152,7 @@
 <div class="section-separator" aria-hidden="true"></div>
 
     <section id="section2">
-      <h2>Was ist der Corporate Carbon Footprint? (CCP)</h2>
+      <h2 class="mt-1">Was ist der Corporate Carbon Footprint? (CCP)</h2>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quibusdam repellendus in unde pariatur quae placeat? Accusantium architecto laudantium labore voluptatum dolorem 
         aspernatur unde culpa. Pariatur labore possimus commodi, est voluptas, sequi numquam expedita, impedit omnis repellendus quae voluptate laudantium excepturi ipsa. Impedit sed incidunt 
@@ -167,7 +173,7 @@
     <div class="section-separator" aria-hidden="true"></div>
 
     <section id="section3">
-      <h2>Was zeigt eine CO₂-Bilanz?</h2>
+      <h2 class="mt-1">Was zeigt eine CO₂-Bilanz?</h2>
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem nam quod corporis, sunt cupiditate in pariatur tempore a temporibus aspernatur vero iste ullam quisquam ab sit sapiente 
         labore facere vitae culpa atque consectetur veniam laboriosam suscipit quos! Vitae, a. Tempora ab minus ullam excepturi explicabo iste ipsa qui commodi! Consectetur veniam provident 
@@ -242,11 +248,9 @@
       </section>
       </main>
 
-      <aside class="col-lg-2 d-none d-lg-block" aria-label="Inhaltsverzeichnis"> <!-- Bootstrap Klassen: col-lg-2 für 2 Spalten auf lg+ Bildschirmen, d-none d-lg-block um die Sidebar 
+      <aside id="localMenuWrapper" class="col-lg-2 d-none d-lg-block" aria-label="Inhaltsverzeichnis"> <!-- Bootstrap Klassen: col-lg-2 für 2 Spalten auf lg+ Bildschirmen, d-none d-lg-block um die Sidebar 
         auf kleinen Bildschirmen auszublenden -->
-
       <!-- Verbesserung: Auf kleinen Screens könnte ein Button/Accordion für die Inhaltsnavigation angeboten werden -->
-
         <nav id="inhaltsNav" class="position-sticky sidebar-sticky">
           <div class="inhalts-nav">
             <h6 class="text-uppercase border-bottom text-muted mb-3">Inhalt</h6> 
@@ -254,6 +258,7 @@
             <ul id="inhaltsNavList" class="nav nav-pills flex-column"> <!-- Bootstrap Klassen: nav-pills für Pillen-Style, flex-column für immer gleich große Pille -->
               <li class="nav-item">
                 <a class="nav-link" href="#section1">Unser Ziel</a>
+                <!-- Anker-link (innerhalb einer Seite)-->
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#section2">Was ist der CCP?</a>
@@ -267,6 +272,11 @@
               <li class="nav-item">
                 <a class="nav-link" href="#section5">Weitere Infos</a>
               </li>
+              <li class="nav-item">
+                  <button id="ButtonMenuToggle" type="button" class="btn btn-outline-success btn-sm">
+                    <i class="bi bi-arrow-left-right"></i> Menü nach Schriftkultur anpassen
+                  </button>
+              </li>
             </ul>
           </div>
         </nav>
@@ -274,13 +284,16 @@
     </div>
   </div>
  
-  <footer class="container-fluid text-center mt-4">
-      <p>&copy; 2026 Earth's Breath Non-Profit Organisation</p>
-    <div class="d-flex justify-content-center gap-3 flex-wrap">
-      <a href="pages/impressum.html">Impressum</a>
-      <a href="pages/datenschutz.html">Datenschutz</a>
-      <a href="#top">Zurück nach oben</a>
+<footer class="container-fluid text-center mt-4 py-2"> 
+        <!-- Bootstrap Container-fluid für volle Breite, text-center für zentrierten Text, mt-4 für oberen Margin, py-4 für vertikales Padding -->
+             <p class="mb-1">Hinweis: Diese Website ist ein Studienprojekt. Alle dargestellten Emissionsdaten und Organisationsangaben sind fiktiv und dienen ausschließlich Demonstrationszwecken.</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap mt-1 mb-2"> 
+            <!-- Bootstrap d-flex für flexibles Box-Layout, justify-content-center für zentrierte Links, gap-3 für Abstand zwischen den Links, flex-wrap für Zeilenumbruch bei kleinen Bildschirmen, mb-2 für unteren Margin -->
+          <a href="pages/impressum.html">Impressum</a>
+          <a href="pages/datenschutz.html">Datenschutz</a>
+          <a href="#top">Zurück nach oben</a> <!-- Link zurück zum Seitenanfang, bewusst redundant (Logo), um die Nutzerfreundlichkeit zu verbessern -->
     </div>
+            <p class="mb-0 small">&copy; 2026 Earth's Breath Non-Profit Organisation</p>
       <!-- 
             Button "Back-to-Top /  
             Hinweis Fallstudie für den Kurs "IPWA01-01":

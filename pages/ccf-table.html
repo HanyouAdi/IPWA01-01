@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CCF-Tabelle</title>
     <link rel="icon" type="image/x-icon" href="../img/favicon/favicon.ico">
-  <meta name="description" content="CO₂ Fußabdruck von Firmen"> <!--Description of the webpage for search engines-->
-  <meta name="keywords" content="Fußabdruck, CO2, CO₂, Umwelt, CCF, PCF, Emissionen">
+  <meta name="description" content="CO₂-Emissionen von Firmen und Ländern - CCF-Tabelle"> <!--Description of the webpage for search engines-->
+  <meta name="keywords" content="Fußabdruck, CO2, CO₂, Umwelt, CCF, Emissionen">
   <!--Keywords for search engines-->
 
     <!-- Bootstrap JS (CDN) -->
@@ -46,11 +46,11 @@
                 <img 
                 class="img-fluid header-logo" 
                 src="../img/Logo_ohne_background-kleiner.PNG" 
-                alt="NPO Logo"> 
+                alt="Logo der NPO Earth's Breath"> 
                 <!-- Bootstrap img-fluid Klasse für responsive Bilder -->
         </div>
-            <div class="col-12 col-md text-center text-md-start">
-                <h1>
+            <div class="col-12 col-md">
+                <h1 class="text-center text-md-start">
                 Earth's Breath <br>
                 Corporate Carbon Footprint-Tabelle
                 </h1>
@@ -98,12 +98,12 @@
         Vue Mount-Point
         Alles innerhalb dieses DIVs wird von Vue verwaltet
         -->
-        <section id="app" class="container py-4">
+        <div id="app" class="container py-4">
 
             <!-- Kopfbereich -->
             <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-3">
                 <div>
-                    <h2 class="mb-1">CO₂-Emissionen - Tabelle</h2>
+                    <h2 class="mt-0 mb-3">CO₂-Emissionen - Tabelle</h2>
                     <!--
                     Anzeige des aktuellen Sortierzustands
                     -> kommt aus computed property "sortLabel"
@@ -140,7 +140,7 @@
         <input
           class="form-control"
           v-model="filterLand"
-          placeholder="z. B. Deutschland"
+          placeholder="z.B. Deutschland"
         />
       </div>
 
@@ -151,7 +151,7 @@
         <input
           class="form-control"
           v-model="filterCompany"
-          placeholder="z. B. Green"
+          placeholder="z.B. Green"
         />
       </div>
     </section>
@@ -166,12 +166,12 @@
               Klick auf TH triggert Sortierung
               role="button" verbessert Accessibility
             -->
-            <th role="button" class="align-top" @click="toggleSort('land')">
+            <th role="button" class="align-top" @click="toggleSort('land')" scope="col">
               Land
               <span class="ms-1">{{ sortIndicator('land') }}</span>
             </th>
 
-            <th role="button" class="align-top" @click="toggleSort('unternehmen')">
+            <th role="button" class="align-top" @click="toggleSort('unternehmen')" scope="col">
               <!-- align-top, weil durch den Zusatz (in Tonnen) sonst die Überschiften nach unten gezogen werden--> 
               Unternehmen
               <span class="ms-1">{{ sortIndicator('unternehmen') }}</span>
@@ -181,6 +181,7 @@
               role="button"
               class="text-end align-top"
               @click="toggleSort('co2')"
+              scope="col"
               >CO₂-Emissionen <span class="ms-1">{{ sortIndicator('co2') }}</span><small class="d-block text-muted fw-normal">(in Tonnen)</small>
               <!-- small: macht den Zusatz dezenter, fw-verhindert zu fette Schrift  in <th>, d-block: setzt ihn direkt in die nächste Zeile-->
             </th>
@@ -195,7 +196,7 @@
                     <tr v-for="row in filteredAndSorted" :key="row.id">
                         <td>{{ row.land }}</td>
                         <td>{{ row.unternehmen }}</td>
-                        <td class="text-end">{{ formatCo2(row.co2) }}</td>
+      <td class="text-end">{{ formatCo2(row.co2) }}</td>
                     </tr>
 
                     <!-- Anzeige wenn keine Ergebnisse existieren -->
@@ -211,17 +212,20 @@
             <div class="small text-muted mt-2">
                 Hinweis: Klick auf eine Spaltenüberschrift zur Sortierung (ASC/DESC).
             </div>
-          </section>
+          </div>
     </main>
 
-    <footer class="container-fluid text-center py-3 mt-4">
-            <p>&copy; 2026 Earth's Breath Non-Profit Organisation</p>
-        <div class="d-flex justify-content-center gap-3 flex-wrap">
+    <footer class="container-fluid text-center mt-4 py-2"> 
+        <!-- Bootstrap Container-fluid für volle Breite, text-center für zentrierten Text, mt-4 für oberen Margin, py-4 für vertikales Padding -->
+             <p class="mb-1">Hinweis: Diese Website ist ein Studienprojekt. Alle dargestellten Emissionsdaten und Organisationsangaben sind fiktiv und dienen ausschließlich Demonstrationszwecken.</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap mt-1 mb-2"> 
+            <!-- Bootstrap d-flex für flexibles Box-Layout, justify-content-center für zentrierte Links, gap-3 für Abstand zwischen den Links, flex-wrap für Zeilenumbruch bei kleinen Bildschirmen, mb-2 für unteren Margin -->
             <a href="impressum.html">Impressum</a>
             <a href="datenschutz.html">Datenschutz</a>
             <a href="#top">Zurück nach oben</a>
         </div>
-    </footer>  
+            <p class="mb-0 small">&copy; 2026 Earth's Breath Non-Profit Organisation</p>
+        </footer>
   <!-- ================= SCRIPT-TEIL ================= -->
 
   <!-- Vue 3 CDN -->
