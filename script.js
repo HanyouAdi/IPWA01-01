@@ -65,17 +65,23 @@ Niedrigere Priorität
 Kommentare im Code überarbeiten und professionalisieren
 Wichtig für die Endfassung, aber erst nach Abschluss der funktionalen Änderungen sinnvoll.
 
-Optional: Hover-Effekt der Navbar ohne Schriftgrößenänderung umsetzen
-Nur als gestalterische Optimierung, um mögliche Layout-Verschiebungen beim Hover zu vermeiden.
 
 */
 
 document.addEventListener("DOMContentLoaded", function () {
-  const ButtonMenuToggle = document.getElementById("ButtonMenuToggle");
+  const buttonMenuToggle = document.getElementById("ButtonMenuToggle"); /* Holt das Button-Element mit der ID "ButtonMenuToggle" aus dem DOM und speichert es in der Variable buttonMenuToggle. */
+  const buttonMenuToggleText = document.getElementById("ButtonMenuToggleText");
+  const buttonMenuToggleIcon = document.getElementById("ButtonMenuToggleIcon");
   const mainContent = document.getElementById("mainContent");
-  const localMenuWrapper = document.getElementById("localMenuWrapper");
+  const localMenu = document.getElementById("localMenu");
 
-  if (ButtonMenuToggle === null || mainContent === null || localMenuWrapper === null) { 
+  if (
+    buttonMenuToggle === null ||
+    buttonMenuToggleText === null ||
+    buttonMenuToggleIcon === null || 
+    mainContent === null || 
+    localMenu === null
+  ) { 
     /* Überprüft, ob die benötigten Elemente im DOM vorhanden sind. 
     Wenn eines der Elemente nicht gefunden wird, wird eine Fehlermeldung in der Konsole ausgegeben und die Funktion wird mit return verlassen. */
     console.error("Eines oder mehrere benötigte Elemente wurden nicht gefunden. Bitte überprüfen Sie die IDs der Elemente.");
@@ -91,12 +97,16 @@ document.addEventListener("DOMContentLoaded", function () {
   */
   function placeLocalMenuOnLeftSide() {
     mainContent.classList.remove("order-lg-1"); /* Entfernt die Klasse, die den Hauptinhalt auf der linken Seite positioniert */
-    localMenuWrapper.classList.remove("order-lg-2"); /* Entfernt die Klasse, die das lokale Menü auf der rechten Seite positioniert */
+    localMenu.classList.remove("order-lg-2"); /* Entfernt die Klasse, die das lokale Menü auf der rechten Seite positioniert */
 
     mainContent.classList.add("order-lg-2"); /* Fügt die Klasse hinzu, die den Hauptinhalt auf der rechten Seite positioniert */
-    localMenuWrapper.classList.add("order-lg-1"); /* Fügt die Klasse hinzu, die das lokale Menü auf der linken Seite positioniert */
+    localMenu.classList.add("order-lg-1"); /* Fügt die Klasse hinzu, die das lokale Menü auf der linken Seite positioniert */
 
-    ButtonMenuToggle.innerHTML = '<i class="bi bi-arrow-left-right"></i> Lokales Menü nach rechts verschieben'; /* Aktualisiert den Button-Text, um die neue Funktionalität widerzuspiegeln */
+    buttonMenuToggleText.textContent = "Menü nach rechts verschieben"; /* Aktualisiert den Button-Text, um die neue Funktionalität widerzuspiegeln */
+    
+    buttonMenuToggleIcon.classList.remove("bi-arrow-bar-left"); /* Entfernt die Klasse, die das Icon für die linke Position darstellt */
+    buttonMenuToggleIcon.classList.add("bi-arrow-bar-right"); /* Fügt die Klasse hinzu, die das Icon für die rechte Position darstellt */
+
     localMenuIsOnLeftSide = true; /* Setzt die Variable, um anzuzeigen, dass das lokale Menü jetzt auf der linken Seite ist */
   }
 
@@ -107,12 +117,16 @@ document.addEventListener("DOMContentLoaded", function () {
   */
   function placeLocalMenuOnRightSide() {
     mainContent.classList.remove("order-lg-2");
-    localMenuWrapper.classList.remove("order-lg-1");
+    localMenu.classList.remove("order-lg-1");
 
     mainContent.classList.add("order-lg-1");
-    localMenuWrapper.classList.add("order-lg-2");
+    localMenu.classList.add("order-lg-2");
 
-    ButtonMenuToggle.innerHTML = '<i class="bi bi-arrow-left-right"></i> Lokales Menü nach links verschieben';
+    buttonMenuToggleText.textContent = "Menü nach links verschieben"; 
+
+    buttonMenuToggleIcon.classList.remove("bi-arrow-bar-right");
+    buttonMenuToggleIcon.classList.add("bi-arrow-bar-left"); 
+
     localMenuIsOnLeftSide = false;
   }
 
@@ -128,5 +142,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  ButtonMenuToggle.addEventListener("click", changeLocalMenuPosition); /* Fügt dem Button ein Click-Event hinzu, das die Funktion changeLocalMenuPosition aufruft, wenn der Button geklickt wird. */
+  placeLocalMenuOnRightSide(); /* Initiale Positionierung des lokalen Menüs auf der rechten Seite, damit die Seite mit der erwarteten Standardanordnung startet. */
+  buttonMenuToggle.addEventListener("click", changeLocalMenuPosition); /* Fügt dem Button ein Click-Event hinzu, das die Funktion changeLocalMenuPosition aufruft, wenn der Button geklickt wird. */
 });
