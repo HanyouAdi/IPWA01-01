@@ -10,21 +10,23 @@
   <!--Keywords for search engines-->
 
     <!-- Bootstrap JS (CDN) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
-        rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
-        crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+      crossorigin="anonymous"
+      onerror="this.onerror=null;this.href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css';"> 
+      <!-- Fallback für Bootstrap CSS -->
   <!-- Bootstrap JS (CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous">
+    crossorigin="anonymous"
+    onerror="this.onerror=null;this.src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.min.js';">
   </script>
 
   <!--Link to an external CSS file-->
   <link rel="stylesheet" href="../styles.css">
 
-<!--Link to an external JavaScript file; defer attribute makes sure the script is executed after the HTML is fully parsed-->
-  <script src="../script.js" defer></script>
+<!-- Globales script.js ist hier nicht erforderlich; diese Seite wird unten von Vue gesteuert. -->
 </head>
 
 <body>
@@ -108,10 +110,10 @@
                     Anzeige des aktuellen Sortierzustands
                     -> kommt aus computed property "sortLabel"
                     -->
-                    <div class="text-muted">
+                    <div class="text-muted"> <!-- text-muted für dezente Schrift -->
                         Sortierung:
                         <strong>{{ sortLabel }}</strong>
-                        · Treffer:
+                        Treffer:
                         <strong>{{ filteredAndSorted.length }}</strong>
                     </div>
                 </div>
@@ -235,6 +237,7 @@
   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> Ist doppelt in der Seite, da es auch im Header eingebunden ist. -->
 
   <script>
+    function initVueApp() {
     /*
       Vue App initialisieren
       createApp erstellt eine neue Vue-Anwendung
@@ -256,8 +259,8 @@
             { id: 2, land: "Deutschland", unternehmen: "Wels Energy GmbH", co2: 79850 },
             { id: 3, land: "Frankreich", unternehmen: "EcoIndustrie SA", co2: 42950 },
             { id: 4, land: "USA", unternehmen: "StripesCarbon Inc.", co2: 25300 },
-            { id: 5, land: "USA", unternehmen: "MoonGrid LLC", co2: 18.9 },
-            { id: 6, land: "Japan", unternehmen: "Yokai Metals", co2: 14.2 },
+            { id: 5, land: "USA", unternehmen: "MoonGrid LLC", co2: 18789 },
+            { id: 6, land: "Japan", unternehmen: "Yokai Metals", co2: 14289 },
             { id: 7, land: "China", unternehmen: "RedSun Industrial Components", co2: 89300 },
             { id: 8, land: "Österreich", unternehmen: "Green Systems AG", co2: 10630 },
             { id: 9, land: "USA", unternehmen: "Frontier Data Centers LLC", co2: 44120 },
@@ -324,7 +327,9 @@
             { id: 70, land: "Dänemark", unternehmen: "Kiwi Sustainable Industries", co2: 9980 },
             { id: 71, land: "Vereinigtes Königreich", unternehmen: "CarbonEdge Industries PLC", co2: 34500 },
             { id: 72, land: "Südkorea", unternehmen: "HanSeong Advanced Materials", co2: 41900 },
-            { id: 73, land: "Vereinigtes Königreich", unternehmen: "StraitTech Global", co2: 17420 }
+            { id: 73, land: "Vereinigtes Königreich", unternehmen: "StraitTech Global", co2: 17420 },
+            { id: 74, land: "Schweden", unternehmen: "Nordic Carbon Systems", co2: 12850 },
+            { id: 75, land: "Kanada", unternehmen: "MapleGreen Industries", co2: 15230 }
             ],
 
           // Filter-Zustände
@@ -396,7 +401,6 @@
 
       /* ================== METHODS ================== */
       methods: {
-
         /*
           Umschalten der Sortierung:
           - gleiches Feld -> Richtung toggeln
@@ -404,7 +408,8 @@
         */
         toggleSort: function (key) {
           if (this.sortKey === key) {
-            this.sortDir = this.sortDir === "asc" ? "desc" : "asc"; /* Verkürzung der Bedingung erklären oder Ändern! */
+            this.sortDir = this.sortDir === "asc" ? "desc" : "asc"; 
+            /* Verkürzung der Bedingung erklären oder Ändern! */
           } else {
             this.sortKey = key;
             this.sortDir = "asc";
@@ -420,7 +425,7 @@
         },
 
         /*
-          Formatierung der CO2-Werte
+          Formatierung der CO2-Werte #### Weg?
         */
         formatCo2: function (value) { /* Formatierung von Zahlen mit 2 Nachkommastellen und deutschem Tausender-Trennzeichen */
           return value.toLocaleString("de-DE", { 
@@ -439,6 +444,20 @@
       }
 
     }).mount("#app");
+    }
+
+    if (window.Vue) {
+      initVueApp();
+    } else {
+      // Fallback nur dann laden, wenn das erste CDN nicht erreichbar war.
+      const fallbackVue = document.createElement("script");
+      fallbackVue.src = "https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js";
+      fallbackVue.onload = initVueApp;
+      fallbackVue.onerror = function () {
+        console.error("Vue konnte von beiden CDNs nicht geladen werden.");
+      };
+      document.head.appendChild(fallbackVue);
+    }
   </script>
 
 </body>
