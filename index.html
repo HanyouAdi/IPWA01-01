@@ -1,14 +1,15 @@
 <!doctype html>
-<html lang="de" dir="ltr"> <!-- lang Attribut für Sprache der Seite; dir Attribut für Schreibrichtung (ltr = left-to-right) -->
+<!-- lang Attribut für Sprache der Seite; dir Attribut für Schreibrichtung (ltr = left-to-right) -->
+<html lang="de" dir="ltr"> 
 <head>
   <meta charset="UTF-8">
+  <!-- viewport Meta Tag ist Vorraussetzung für Responsives Design mit Bootstrap -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Earth's Breath Transparenzportal für den CO₂-Footprint</title>
+  <!-- Link zum Favicon, dass im Browser-Tab angezeigt wird-->
   <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
   <meta name="description" content="Öffentliches Transparenzportal für den CO₂-Fußabdruck (CCP) von Firmen und Ländern"> 
-  <!--Description of the webpage for search engines-->
   <meta name="keywords" content="Fußabdruck, CO2, CO₂, Umwelt, CCF, PCF, Emissionen">
-  <!--Keywords for search engines-->
 
   <!-- Bootstrap JS (CDN) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
@@ -21,41 +22,41 @@
     crossorigin="anonymous">
   </script>
 
-  <!-- Bootstrap ICONS-->
+  <!-- Bootstrap Icons (CDN) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
-  <!--Link to an external CSS file-->
+  <!--Link zu externer CSS Datei -->
   <link rel="stylesheet" href="styles.css">
 
-  <!--Link to an external JavaScript file; defer attribute makes sure the script is executed after the HTML is fully parsed-->
+  <!--Link zu externer JavaScript Datei; defer-Attribut, damit Script erst geladen wird, nach dem dem Parsen des HTML-Dokuments -->
   <script src="script.js" defer></script>
 </head>
 
 <body>
- <header id="top" class="container-fluid py-2"> <!-- Bootstrap Container-fluid für volle Breite, py-2 für vertikales Padding -->
-    <div class="container"> <!-- Container, damit header am Rest der Seite links anliegt -->
-      <!-- Bootstrap row mit flex-column auf kleinen Geräten, flex-row auf md+ -->
+  <!-- header-Tag für Semantik; Bootstrap Container-fluid für volle Breite; py-2 für vertikales Padding -->
+  <header id="top" class="container-fluid py-2">
+    <!-- div-Layout Container, damit header-Inhalt dieselben Seitlichen Abstände haben wie der Content-Bereich -->
+    <div class="container"> 
+      <!-- Bootstrap row mit flex-column auf kleinen Geräten, flex-row ab md+ -->
       <div class="row flex-column flex-md-row align-items-center align-items-md-center gap-3">
-        <!-- HTML: Das div nutzt jetzt row flex-column flex-md-row:
-              flex-column = Logo und Überschrift untereinander auf kleinen Geräten (<768px)
-              flex-md-row = Logo und Überschrift nebeneinander ab md (≥768px)
-              Logo: col-12 col-md-auto (volle Breite auf klein, automatische Breite ab md)
-              Überschrift: col-12 col-md (volle Breite auf klein, nimmt restlichen Platz ab md)
-              text-center text-md-start = zentriert auf klein, linksbündig ab md
-              CSS: Inline-style max-width: 180px in die Klasse .header-logo ausgelagert
-
-              Jetzt ist der Header vollständig responsiv und das Logo erscheint über der Überschrift auf kleinen Bildschirmen!-->
-        
+      <!-- flex-column = Logo und Überschrift untereinander auf kleinen Geräten (<768px)
+           flex-md-row = Logo und Überschrift nebeneinander ab md (≥768px)
+  
+        Logo: col-12 col-md-auto (volle Breite auf klein, automatische Breite ab md)
+        Jetzt ist der Header vollständig responsiv und das Logo erscheint über der Überschrift auf kleinen Bildschirmen!-->
         <div class="col-12 col-md-auto text-center text-md-start">
           <img 
               class="img-fluid header-logo" 
-              src="img/Logo_ohne_background-kleiner.PNG" 
+              src="img/Logo-NPO.PNG" 
               alt="Logo der NPO Earth's Breath">
         </div>
-        
+        <!-- col-12 für volle Breite auf kleinen Displays, 
+             col-md für restlichen Platz auf Breakpoint md+ == Mobil = zentriert & ab Tablet linksbündig-->
         <div class="col-12 col-md "> 
-          <!-- col-12 für volle Breite auf klein, col-md für restlichen Platz auf Breakpoint md+ == Mobil = zentriert & ab Tablet linksbündig-->
-          <h1 class="text-center text-md-start"> <!-- Breakpoint: text-center für zentriert auf klein, text-md-start für linksbündig ab md -->
+
+          <!-- Bootstrap Breakpoint: text-center für zentriert auf kleinen Displays, 
+               text-md-start für linksbündige Schrift ab Diesplaygröße md / ab Tabletdisplays -->
+          <h1 class="text-center text-md-start"> 
             Earth's Breath <br> Transparenzportal für den CO₂-Footprint
           </h1>
         </div>
@@ -65,26 +66,31 @@
 
   <!-- Navigation Bar: -->
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top navbar-sticky" aria-label="Hauptnavigation"> 
-  <!-- Bootstrap Navbar Klassen für responsive Navigation, sticky-top für klebende Navbar, aria-label gibt einem Element 
-   einen zugänglichen Namen für Screenreader -->
+  <!-- Bootstrap Navbar Klassen für responsive Navigation, sticky-top für klebende Navbar, 
+       aria-label gibt einem Element 
+       einen zugänglichen Namen für Screenreader -->
 
     <div class="container">
-      <a class="navbar-brand" href="#top">Earth's Breath</a>
-      <button class="navbar-toggler" 
+      <a class="navbar-brand" href="#top"> Earth's Breath</a> 
+      <button class="navbar-toggler"
               type="button" 
               data-bs-toggle="collapse" 
               data-bs-target="#mainNav"
               aria-controls="mainNav" 
               aria-expanded="false" 
-              aria-label="Navigation umschalten">
-        <span class="navbar-toggler-icon"></span>
+              aria-label="Navigation umschalten"> 
+<!--  Bootstrap Button Klassen für den Burger-Button, 
+      data-bs-toggle und data-bs-target für die Funktionalität des Buttons, 
+      aria-Attribute für Barrierefreiheit -->
+        <span class="navbar-toggler-icon"></span> <!-- Bootstrap Klasse für das Burger-Icon -->
       </button>
 
       <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav text-end text-lg-start"> <!-- text-end für rechtsbündige Links im Burger-Menü, text-lg-start für linksbündige Links ab lg (Desktop größe) -->
+        <ul class="navbar-nav text-end text-lg-start"> 
+        <!-- text-end für rechtsbündige Links im Burger-Menü, text-lg-start für linksbündige Links ab lg (Desktop größe) -->
           <li class="nav-item">
-            <a class="nav-link" href="index.html" aria-current="page">Home</a> <!--Aktuellen Menüpunkt mit aria-current="page" kennzeichnen -->
-            <!-- ist Home nun doppelt? -->
+            <!-- Aktuellen Menüpunkt mit aria-current="page" kennzeichnen -->
+            <a class="nav-link" href="index.html" aria-current="page">Home</a> 
           </li>
           <li class="nav-item">
             <a class="nav-link" href="pages/ccf-table.html">CCF-Tabelle</a>
@@ -93,16 +99,17 @@
             <a class="nav-link" href="pages/aboutUs.html">Über uns</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/impressum.html#kontakt">Kontakt</a>
-            <!--Link auf Impressum mit #kontakt ergänzen, damit Nutzer direkt zum Kontaktbereich springen -->
+            <a class="nav-link" href="pages/legalNotice.html#kontakt">Kontakt</a>
+            <!--Link auf Impressum/legalNotice mit #kontakt ergänzen, damit Nutzer direkt zum Kontaktbereich springen -->
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/partner.html">Partner</a>
+            <a class="nav-link" href="pages/partners.html">Partner</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
   <!-- Landing Page der Seite..."-->
   <div class="container my-4 px-4 px-sm-0 " data-bs-spy="scroll" data-bs-target="#inhaltsNavList" data-bs-offset="120" tabindex="0"> 
     <!-- ScrollSpy-Container: hier werden die aktiven Pills berechnet 
@@ -154,7 +161,7 @@
 <div class="section-separator" aria-hidden="true"></div>
 
     <section id="section2">
-      <h2 class="mt-1">Was ist der Corporate Carbon Footprint? (CCP)</h2>
+      <h2 class="mt-1">Was ist der Corporate Carbon Footprint? (CCF)</h2>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quibusdam repellendus in unde pariatur quae placeat? Accusantium architecto laudantium labore voluptatum dolorem 
         aspernatur unde culpa. Pariatur labore possimus commodi, est voluptas, sequi numquam expedita, impedit omnis repellendus quae voluptate laudantium excepturi ipsa. Impedit sed incidunt 
@@ -252,21 +259,22 @@
 
       <aside id="localMenu" class="col-lg-2 d-none d-lg-block order-lg-2" aria-label="Inhaltsverzeichnis"> 
         <!-- Bootstrap Klassen: col-lg-2 für 2 Spalten auf lg+ Bildschirmen, d-none d-lg-block um die Sidebar 
-        auf kleinen Bildschirmen auszublenden, order-lg-2 für Reihenfolge auf lg+ Bildschirmen & greifen der CSS-Regel zu border-right/left: 4px -->
-
-      <!-- Verbesserung: Auf kleinen Screens könnte ein Button/Accordion für die Inhaltsnavigation angeboten werden -->
+        auf kleinen Bildschirmen auszublenden, 
+        order-lg-2 für Reihenfolge auf lg+ Bildschirmen & greifen der CSS-Regel zu border-right/left -->
 
         <nav id="inhaltsNav" class="position-sticky sidebar-sticky">
           <div class="inhalts-nav">
             <h6 class="text-uppercase border-bottom text-muted mb-3">Inhalt</h6> 
-            <!-- text-uppercase für Großbuchstaben, border-bottom für Unterstreichung, text-muted für hellere Farbe, mb-3 für unteren Margin -->
-            <ul id="inhaltsNavList" class="nav nav-pills flex-column"> <!-- Bootstrap Klassen: nav-pills für Pillen-Style, flex-column für immer gleich große Pille -->
+            <!-- text-uppercase für Großbuchstaben, border-bottom für Unterstreichung, 
+                 text-muted für hellere Farbe, mb-3 für unteren Margin -->
+            <ul id="inhaltsNavList" class="nav nav-pills flex-column"> 
+              <!-- Bootstrap Klassen: nav-pills für Pillen-Style, flex-column für immer gleich große Pille -->
               <li class="nav-item">
                 <a class="nav-link" href="#section1">Unser Ziel</a>
                 <!-- Anker-link (innerhalb einer Seite)-->
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#section2">Was ist der CCP?</a>
+                <a class="nav-link" href="#section2">Was ist der CCF?</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#section3">Was zeigt eine CO₂-Bilanz?</a>
@@ -278,14 +286,15 @@
                 <a class="nav-link" href="#section5">Weitere Infos</a>
               </li>
               <li class="nav-item">
-                  <button id="ButtonMenuToggle" type="button" class="btn btn-outline-success btn-sm w-100 d-flex align-items-center justify-content-center"> 
-                    <!-- 
-                    Bootstrap Klassen: btn für Button, btn-outline-success für grünen Umriss, btn-sm für kleinere Größe, w-100 für volle Breite, 
-                    d-flex für aktive Flexbox, align-items-center zentriert Icon und Text vertikal, justify-content-center zentriert Icon und Text horizontal 
-                    -->
+                <button id="ButtonMenuToggle" 
+                        type="button" 
+                        class="btn btn-outline-success btn-sm w-100 d-flex align-items-center justify-content-center"> 
+                  <!-- Bootstrap Klassen: btn für Button, btn-outline-success für grünen Umriss, btn-sm für kleinere Größe, 
+                       w-100 für volle Breite, d-flex für aktive Flexbox, align-items-center zentriert Icon und Text vertikal, 
+                       justify-content-center zentriert Icon und Text horizontal -->
                     <i id="ButtonMenuToggleIcon" class="bi bi-arrow-bar-left fs-3"></i>
                     <!-- fs-3 macht das icon größer-->
-                    <span id="ButtonMenuToggleText"> Menü nach links verschieben</span>
+                    <span id="ButtonMenuToggleText">Menü nach links verschieben</span>
                   </button>
               </li>
             </ul>
@@ -300,8 +309,8 @@
              <p class="mb-1">Hinweis: Diese Website ist ein Studienprojekt. Alle dargestellten Emissionsdaten und Organisationsangaben sind fiktiv und dienen ausschließlich Demonstrationszwecken.</p>
         <div class="d-flex justify-content-center gap-3 flex-wrap mt-1 mb-2"> 
             <!-- Bootstrap d-flex für flexibles Box-Layout, justify-content-center für zentrierte Links, gap-3 für Abstand zwischen den Links, flex-wrap für Zeilenumbruch bei kleinen Bildschirmen, mb-2 für unteren Margin -->
-          <a href="pages/impressum.html">Impressum</a>
-          <a href="pages/datenschutz.html">Datenschutz</a>
+          <a href="pages/legalNotice.html">Impressum</a>
+          <a href="pages/privacyPolicy.html">Datenschutz</a>
           <a href="#top">Zurück nach oben</a> <!-- Link zurück zum Seitenanfang, bewusst redundant (Logo), um die Nutzerfreundlichkeit zu verbessern -->
     </div>
             <p class="mb-0 small">&copy; 2026 Earth's Breath Non-Profit Organisation</p>

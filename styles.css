@@ -22,7 +22,6 @@ header {
 
 header img,
 header svg {
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4)); /* Schatteneffekt */
   max-width: 200px;
   max-height: 200px;
   height: auto;
@@ -84,8 +83,7 @@ main {
 }
 
 h2 {
-  margin-top: 30px; /* Einheitlicher Abstand nach oben für alle h2-Überschriften */
-  margin-bottom: 20px;
+  margin-bottom: 20px; /* Einheitlicher Abstand nach unten für alle h2-Überschriften */
 }
 
 .navbar-sticky {
@@ -98,35 +96,20 @@ h2 {
   ) !important;
 }
 
-/* Nur Links werden gehövert */
-.navbar .nav-item:hover .nav-link { /*Muss so spezifisch sein, weil sonst alles verändert wird beim hovern - 
-  Nur die Links innerhalb der nav-items werden gehövert, nicht die gesamte nav-item, damit der Hover-Effekt nur auf den Text und nicht auf den gesamten Bereich wirkt. */
-  color: #8bcf7a;  /* weißer Text bei Hover */
-  font-weight: bold;
-  text-decoration: underline; /* Unterstreichung bei Hover für bessere Sichtbarkeit */
+/* Links in navbar verändern sich beim Hovern für eine bessere Sichtbarkeit */
+.navbar .nav-item:hover .nav-link { /* Muss so spezifisch sein, damit sich nur die Links verändern */
+  color: #ffffff;  /* weißer Text bei Hover */
+  text-decoration: underline; /* Unterstreichung bei Hover */
 }
 
 table {
-  /* width: 70% !important; Tabellenbreite auf 70% setzen */
   margin: auto; /* Zentriert die Tabelle horizontal */
   letter-spacing: 1px; /* Etwas mehr Abstand zwischen den Buchstaben */
 }
 
-/* Derzeit nicht funktional????Überschreibe die Bootstrap table-success Klasse für ein helleres Grün, 
-"thead.table-success th" war nötig, damit das Überschreiben funktionierte */
-thead.table-success th {
-  background-color: #037841 !important; /* Eigene Farbe */
-  color: #ffffff !important; /* Optional: Textfarbe anpassen, falls nötig */
-}
-
+/* Sass-Variable für Hover-Farbe in Tabellenzeilen */
 tbody {
-  font-size: 95%;
-  /* VORSCHLAG (Bootstrap-kompatibel): Hover-Farbe per CSS-Variable setzen */
-  --bs-table-hover-bg: rgb(139, 207, 122, 1); /* Helles Grün für Hover mit Sass?*/
-}
-
-caption {
-  padding: 10px;
+  --bs-table-hover-bg: rgb(139, 207, 122, 1); /* Helles Grün für Hover mit Sass*/
 }
 
 footer {
@@ -140,8 +123,8 @@ footer {
   color: #ffffff;
 }
 
+/* Alternative zu hr */
 .section-separator {
-  /* Alternative zu hr, falls benötigt */
   height: 3px;
   margin: 24px 0;
   border-radius: 999px;
