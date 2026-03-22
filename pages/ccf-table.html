@@ -376,7 +376,7 @@
             let bv = b[key];
 
             // String-Vergleich case-insensitive
-            if (typeof av === "string") av = av.toLowerCase();
+            if (typeof av === "string") av = av.toLowerCase(); /* Vereinfachen */
             if (typeof bv === "string") bv = bv.toLowerCase();
 
             if (av < bv) return dir === "asc" ? -1 : 1;
