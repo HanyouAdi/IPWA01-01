@@ -1,0 +1,144 @@
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  scroll-padding-top: 80px; /* Abstand zur sticky navbar */
+  scroll-behavior: smooth; /* Sanftes Scrollen bei Anker-Links */
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+  position: relative; /* Für Bootstrap ScrollSpy */
+  overflow-x: hidden; /* Verhindert horizontales Scrollen */
+}
+
+header {
+  background: #014425;
+  background: radial-gradient(
+    circle,
+    rgba(1, 68, 37, 1) 0%,
+    rgba(139, 207, 122, 1) 100%
+  );
+  color: #ffffff;
+}
+
+header img,
+header svg {
+  max-width: 200px;
+  max-height: 200px;
+  height: auto;
+  width: auto;
+}
+
+.header-logo {
+  max-width: 180px; /* Maximale Breite für das Header-Logo */
+}
+
+header h1 {
+  display: block;
+  text-align: left; /* Linksbündig */
+}
+
+main {
+  border: 3px solid #8bcf7a !important; /* Blattgrüner Rand (aus Ihrem Header-Grün) */
+  border-radius: 10px; /* Abgerundete Ecken für ein moderneres Aussehen */
+}
+
+#inhaltsNav .inhalts-nav {
+  /* Stil für die Inhaltsnavigation (id="inhaltsNav", Nav-Rechts) */
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border: 1px solid #8bcf7a;
+  border-radius: 0.5rem;
+}
+
+#inhaltsNav.sidebar-sticky {
+  top: 4.5rem; /* Platz für sticky Navbar */
+}
+
+#inhaltsNav .nav-link {
+  color: #014425;
+  border-radius: 0.4rem;
+}
+
+#inhaltsNav .nav-link.active {
+  background-color: #014425;
+  color: #ffffff;
+}
+
+#inhaltsNav .border-bottom {
+  border-bottom-color: #8bcf7a !important;
+  border-bottom-width: 2px !important;
+}
+
+/* Optische Anpassung des lokalen Menüs */
+#mainContent.order-lg-1 ~ #localMenu #inhaltsNav .inhalts-nav {
+  text-align: left;
+  border-left: 4px solid #8bcf7a;
+  border-right: 1px solid #8bcf7a;
+}
+
+#mainContent.order-lg-2 ~ #localMenu #inhaltsNav .inhalts-nav {
+  text-align: left;
+  border-right: 4px solid #8bcf7a;
+  border-left: 1px solid #8bcf7a;
+}
+
+h2 {
+  margin-bottom: 20px; /* Einheitlicher Abstand nach unten für alle h2-Überschriften */
+}
+
+.navbar-sticky {
+  background-color: #014425 !important;
+  background: radial-gradient(
+    circle,
+    rgba(1, 68, 37, 1) 0%,
+    rgba(31, 106, 75, 1) 55%,
+    rgba(139, 207, 122, 1) 100%
+  ) !important;
+}
+
+/* Links in navbar verändern sich beim Hovern für eine bessere Sichtbarkeit */
+.navbar .nav-item:hover .nav-link {
+  /* Muss so spezifisch sein, damit sich nur die Links verändern */
+  color: #ffffff; /* weißer Text bei Hover */
+  text-decoration: underline; /* Unterstreichung bei Hover */
+}
+
+table {
+  margin: auto; /* Zentriert die Tabelle horizontal */
+  letter-spacing: 1px; /* Etwas mehr Abstand zwischen den Buchstaben */
+}
+
+/* Sass-Variable für Hover-Farbe in Tabellenzeilen */
+tbody {
+  --bs-table-hover-bg: rgb(
+    139,
+    207,
+    122,
+    1
+  ); /* Helles Grün für Hover mit Sass*/
+}
+
+footer {
+  background-color: #014425;
+  background: radial-gradient(
+    circle,
+    rgba(1, 68, 37, 1) 0%,
+    rgba(31, 106, 75, 1) 55%,
+    rgba(139, 207, 122, 1) 100%
+  );
+  color: #ffffff;
+}
+
+.section-separator {
+  height: 3px;
+  margin: 24px 0;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(14, 145, 4, 0) 0%,
+    rgba(14, 145, 4, 0.5) 20%,
+    rgba(14, 145, 4, 1) 50%,
+    rgba(14, 145, 4, 0.5) 80%,
+    rgba(14, 145, 4, 0) 100%
+  );
+}
