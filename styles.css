@@ -32,11 +32,6 @@ header svg {
   max-width: 180px; /* Maximale Breite für das Header-Logo */
 }
 
-header h1 {
-  display: block;
-  text-align: left; /* Linksbündig */
-}
-
 main {
   border: 3px solid #8bcf7a !important; /* Blattgrüner Rand (aus Ihrem Header-Grün) */
   border-radius: 10px; /* Abgerundete Ecken für ein moderneres Aussehen */
@@ -69,7 +64,7 @@ main {
   border-bottom-width: 2px !important;
 }
 
-/* Optische Anpassung des lokalen Menüs */
+/* Optische Anpassung des lokalen Menüs je nach Position*/
 #mainContent.order-lg-1 ~ #localMenu #inhaltsNav .inhalts-nav {
   text-align: left;
   border-left: 4px solid #8bcf7a;
@@ -108,14 +103,9 @@ table {
   letter-spacing: 1px; /* Etwas mehr Abstand zwischen den Buchstaben */
 }
 
-/* Sass-Variable für Hover-Farbe in Tabellenzeilen */
+/*  Bootstrap-CSS-Variable für die Hover-Farbe in Tabellenzeilen */
 tbody {
-  --bs-table-hover-bg: rgb(
-    139,
-    207,
-    122,
-    1
-  ); /* Helles Grün für Hover mit Sass*/
+  --bs-table-hover-bg: rgb(139, 207, 122, 1); /* Helles Grün für Hover mit Sass*/
 }
 
 footer {

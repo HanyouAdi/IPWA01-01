@@ -10,7 +10,7 @@
     <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico" />
     <meta
       name="description"
-      content="Öffentliches Transparenzportal für den CO₂-Fußabdruck (CCP) von Firmen und Ländern"
+      content="Öffentliches Transparenzportal für den CO₂-Fußabdruck (CCF) von Firmen und Ländern"
     />
     <meta
       name="keywords"
@@ -44,29 +44,20 @@
   </head>
 
   <body>
-    <!-- header-Tag für Semantik; Bootstrap Container-fluid für volle Breite; py-2 für vertikales Padding -->
+    <!-- Sematischer header-Tag; Bootstrap Container-fluid für volle Breite; py-2 für vertikales Padding -->
     <header id="top" class="container-fluid py-2">
       <!-- div-Layout Container, damit header-Inhalt dieselben Seitlichen Abstände haben wie der Content-Bereich -->
       <div class="container">
-        <!-- Bootstrap row mit flex-column (= Logo und Überschrift untereinander auf kleinen Geräten (<768px), 
-           flex-row (= Logo und Überschrift nebeneinander ab Displaygröße md+ (≥768px) -->
-        <div
-          class="row flex-column flex-md-row align-items-center align-items-md-center gap-3"
-        >
-          <!-- Logo: col-12 col-md-auto (volle Breite auf klein, automatische Breite ab md)
-            Jetzt ist der Header vollständig responsiv und das Logo erscheint über der Überschrift auf kleinen Bildschirmen-->
+        <!-- Responsive Header-Anordnung: auf kleinen Displays (<768px) untereinander, ab md nebeneinander: -->
+        <!-- row mit flex-column (vertikale Anordnung auf sm Displays), flex-md-row (Logo und Überschrift nebeneinander ab md) -->
+        <div class="row flex-column flex-md-row align-items-center align-items-md-center gap-3">
+          <!-- Logo: col-12 col-md-auto (volle Breite auf klein, automatische Breite ab md)-->
           <div class="col-12 col-md-auto text-center text-md-start">
-            <img
-              class="img-fluid header-logo"
-              src="img/Logo-NPO.PNG"
-              alt="Logo der NPO Earth's Breath"
-            />
+            <img class="img-fluid header-logo" src="img/Logo-NPO.PNG" alt="Logo der NPO Earth's Breath"/>
           </div>
-          <!-- col-12 für volle Breite auf kleinen Displays, 
-             col-md für restlichen Platz auf Breakpoint md+ (≥768px) = zentriert & ab Tablet linksbündig-->
+          <!-- col-12 für volle Breite auf kleinen Displays, col-md für restlichen Platz ab Breakpoint md (≥768px) -->
           <div class="col-12 col-md">
-            <!-- Bootstrap Breakpoint: text-center für zentriert auf kleinen Displays, 
-               text-md-start für linksbündige Schrift ab Diesplaygröße md / ab Tabletdisplays -->
+            <!-- text-center für zentriert auf kleinen Displays, text-md-start für linksbündige Schrift ab Displaygröße md -->
             <h1 class="text-center text-md-start">
               Earth's Breath <br />
               Transparenzportal für den CO₂-Footprint
@@ -76,13 +67,14 @@
       </div>
     </header>
 
-    <!-- Navigations Leiste: Startseite / CCF-Tabelle / Über uns / Kontakt / Partner 
-     Es wurde sich aktiv dazu entschieden den NPO-Namen und die Startseite als Link zu verwenden, da oft beides erwartet wird von Nutzer-->
+    <!-- Globales Navigationsmenü: Startseite / CCF-Tabelle / Über uns / Kontakt / Partner 
+     Es wurde sich aktiv dazu entschieden den NPO-Namen und die Startseite als Link zu verwenden, 
+     da oft beides erwartet wird von Nutzer-->
     <nav
-      class="navbar navbar-expand-lg navbar-dark sticky-top navbar-sticky"
-      aria-label="Hauptnavigation"
-    >
+      class="navbar navbar-expand-lg navbar-dark sticky-top navbar-sticky" 
+      aria-label="Hauptnavigation">
       <!-- Bootstrap Navbar Klassen für responsive Navigation, sticky-top für klebende Navbar, 
+       navbar-expand-lg damit die Navbar ab lg (Desktopgröße) sichtbar ist (<lg wird das Burgermenü angezeigt),
        aria-label gibt einem Element einen zugänglichen Namen für Screenreader -->
 
       <div class="container">
@@ -144,7 +136,7 @@
         Jetzt haben kleine Geräte einen  Rand auf beiden Seiten, während größere Geräte das Standard-Container-Padding von Bootstrap behalten. -->
 
       <div class="row g-lg-4">
-        <!-- Bootstrap row mit g-lg-4 für größeren Abstand zwischen den Spalten auf lg+ Bildschirmen -->
+        <!-- Bootstrap row mit g-lg-4 für größeren Abstand zwischen den Spalten ab lg Bildschirmen -->
         <main
           id="mainContent"
           class="col-12 col-lg-10 order-lg-1"
@@ -307,9 +299,9 @@
 
           <!-- Ausblick / Nächste Ziele: -->
           <section id="section4" class="row g-3">
-            <!-- Bootstrap row für die Aufteilung in 2 Spalten, g-0 entfernt gutter -->
+            <!-- Bootstrap row für die Aufteilung in 2 Spalten -->
             <h2 class="col-12">Kommende Projekte:</h2>
-            <div class="col-md">
+            <div class="col-md mt-0">
               <!-- Bootstrap col-md für 2 Spalten auf md+ Bildschirmen (ab Tablets), border-end für Trennlinie zwischen den Spalten -->
               <h4>
                 Vom CCP zum Product Carbon Footprint (PCF) -<br />
@@ -346,7 +338,7 @@
                 sit?
               </p>
             </div>
-            <div class="col-md">
+            <div class="col-md mt-0">
               <h4>Implementierung von Auswertungsfunktionen des CCP und PCF</h4>
               <p>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero
@@ -407,15 +399,10 @@
           </section>
         </main>
 
-        <aside
-          id="localMenu"
-          class="col-lg-2 d-none d-lg-block order-lg-2"
-          aria-label="Inhaltsverzeichnis"
-        >
-          <!-- Bootstrap Klassen: col-lg-2 für 2 Spalten auf lg+ Bildschirmen, 
-        d-none d-lg-block um die Sidebar auf kleinen Bildschirmen auszublenden, 
-        order-lg-2 für Reihenfolge auf lg+ Bildschirmen & greifen der CSS-Regel zu border-right/left -->
-
+        <aside id="localMenu" class="col-lg-2 d-none d-lg-block order-lg-2" aria-label="Inhaltsverzeichnis">
+        <!-- Bootstrap Klassen: col-lg-2 für 2 Spalten ab lg Bildschirmen, 
+             d-none d-lg-block um die Sidebar auf kleineren Bildschirmen auszublenden, 
+             order-lg-2 für Reihenfolge in der row -->
           <nav id="inhaltsNav" class="position-sticky sidebar-sticky">
             <div class="inhalts-nav">
               <h6 class="text-uppercase border-bottom text-muted mb-3">

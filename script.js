@@ -1,13 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const buttonMenuToggle =
-    document.getElementById(
-      "ButtonMenuToggle",
-    ); /* Holt das Button-Element mit der ID "ButtonMenuToggle" aus dem DOM und speichert es in der Variable buttonMenuToggle. */
+  const buttonMenuToggle = document.getElementById( "ButtonMenuToggle"); /* Holt das Button-Element mit der ID "ButtonMenuToggle" aus dem DOM und speichert es in der Variable buttonMenuToggle. */
   const buttonMenuToggleText = document.getElementById("ButtonMenuToggleText");
   const buttonMenuToggleIcon = document.getElementById("ButtonMenuToggleIcon");
   const mainContent = document.getElementById("mainContent");
   const localMenu = document.getElementById("localMenu");
-  let localMenuIsOnLeftSide = false; /* Initialisiert eine Variable, die den aktuellen Zustand der Position des lokalen Menüs speichert. Anfangs wird angenommen, dass das lokale Menü nicht auf der linken Seite ist. */
+  let isLocalMenuOnLeftSide = false; /* Initialisiert eine Variable, die den aktuellen Zustand der Position des lokalen Menüs speichert. Anfangs wird angenommen, dass das lokale Menü nicht auf der linken Seite ist. */
 
   if (
     buttonMenuToggle === null ||
@@ -54,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "bi-arrow-bar-right",
     ); /* Fügt die Klasse hinzu, die das Icon für die rechte Position darstellt */
 
-    localMenuIsOnLeftSide = true; /* Setzt die Variable, um anzuzeigen, dass das lokale Menü jetzt auf der linken Seite ist */
+    isLocalMenuOnLeftSide = true; /* Setzt die Variable, um anzuzeigen, dass das lokale Menü jetzt auf der linken Seite ist */
   }
 
   /*
@@ -74,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
     buttonMenuToggleIcon.classList.remove("bi-arrow-bar-right");
     buttonMenuToggleIcon.classList.add("bi-arrow-bar-left");
 
-    localMenuIsOnLeftSide = false;
+    isLocalMenuOnLeftSide = false;
   }
 
   /*
@@ -82,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
     Danach wird das Menü auf die jeweils andere Seite verschoben.
   */
   function changeLocalMenuPosition() {
-    if (localMenuIsOnLeftSide === true) {
+    if (isLocalMenuOnLeftSide === true) {
       /* Wenn das lokale Menü aktuell auf der linken Seite ist, wird es auf die rechte Seite verschoben. */
       placeLocalMenuOnRightSide(); /* Ruft die Funktion auf, die das lokale Menü auf die rechte Seite verschiebt. */
     } else {

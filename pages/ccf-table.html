@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,15 +35,6 @@
     <div class="container"> <!-- Container, damit header am Rest der Seite links anliegt -->
     <!-- Bootstrap d-flex mit align-items-center für Logo & Überschrift in einer Zeile -->
     <div class="row flex-column flex-md-row align-items-center align-items-md-center gap-3">
-        <!-- HTML: Das div nutzt jetzt row flex-column flex-md-row:
-              flex-column = Logo und Überschrift untereinander auf kleinen Geräten (<768px)
-              flex-md-row = Logo und Überschrift nebeneinander ab md (≥768px)
-              Logo: col-12 col-md-auto (volle Breite auf klein, automatische Breite ab md)
-              Überschrift: col-12 col-md (volle Breite auf klein, nimmt restlichen Platz ab md)
-              text-center text-md-start = zentriert auf klein, linksbündig ab md
-              CSS: Inline-style max-width: 180px in die Klasse .header-logo ausgelagert
-
-              Jetzt ist der Header vollständig responsiv und das Logo erscheint über der Überschrift auf kleinen Bildschirmen!-->
         
         <div class="col-12 col-md-auto text-center text-md-start">
                 <img 
@@ -97,10 +88,7 @@
   </nav>
     <main class="container my-4">
       
-        <!--
-        Vue Mount-Point
-        Alles innerhalb dieses DIVs wird von Vue verwaltet
-        -->
+        <!-- Vue Mount-Point: Alles innerhalb dieses div´s wird von Vue verwaltet -->
         <div id="app" class="px-2 px-md-3">
             <!-- Kopfbereich -->
             <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-2">
@@ -132,32 +120,20 @@
       <!-- Filter nach Land -->
       <div class="col-12 col-md-6">
         <label class="form-label">Filter Land</label>
-        <!--
-          v-model:
-          - Bindet den Input-Wert an "filterLand"
-          - Zwei-Wege-Datenbindung
-        -->
-        <input
-          class="form-control"
-          v-model="filterLand"
-          placeholder="z.B. Deutschland"
-        />
+        <!-- v-model:
+           - Bindet den Input-Wert an "filterLand"
+           - Zwei-Wege-Datenbindung -->
+        <input class="form-control" v-model="filterLand" placeholder="z.B. Deutschland"/>
       </div>
 
       <!-- Filter nach Unternehmen -->
       <div class="col-12 col-md-6">
         <label class="form-label">Filter Unternehmen</label>
-
-        <input
-          class="form-control"
-          v-model="filterCompany"
-          placeholder="z.B. Green"
-        />
+          <input class="form-control" v-model="filterCompany" placeholder="z.B. Green"/>
       </div>
     </section>
 
-    <!-- ================= TABELLE ================= -->
-
+    <!-- Tabelle:  -->
     <section class="table-responsive">
       <table class="table table-striped table-hover align-middle">
         <thead class="table-light"> 
@@ -198,7 +174,7 @@
                        erzeugt für jedes Element eine Tabellenzeile.-->
                         <td>{{ row.land }}</td>
                         <td>{{ row.unternehmen }}</td>
-      <td class="text-end">{{ formatCo2(row.co2) }}</td>
+                      <td class="text-end">{{ formatCo2Value(row.co2) }}</td>
                     </tr>
 
                     <!-- Anzeige wenn keine Ergebnisse existieren -->
@@ -228,8 +204,8 @@
         </div>
             <p class="mb-0 small">&copy; 2026 Earth's Breath Non-Profit Organisation</p>
         </footer>
-  <!-- ================= SCRIPT-TEIL ================= -->
 
+  <!-- Vue.js mit Options API -->
   <!-- Vue 3 CDN -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
 
@@ -246,14 +222,16 @@
 
     createApp({
 
-      /* ================== STATE ================== */
+      /* Zeilen/ rows, sowie Wertzustände*/
       data: function () {
         return {
           /*
             Beispiel-Daten
-            -> In der Praxis später per API ladbar
+              - id: eindeutige ID für Vue's v-for key
+              - land: Land des Unternehmens
+              - unternehmen: Name des Unternehmens
+              - co2: CO₂-Emissionen in Tonnen
           */
-
         rows: [
             { id: 1, land: "Deutschland", unternehmen: "NordEastTech AG", co2: 8150 },
             { id: 2, land: "Deutschland", unternehmen: "Wels Energy GmbH", co2: 79850 },
@@ -335,21 +313,17 @@
           // Filter-Zustände
           filterLand: "",
           filterCompany: "",
-
           // Sortier-Zustände
           sortKey: "land", // aktuelles Sortierfeld
           sortDir: "asc"   // asc oder desc
         };
       },
 
-      /* ================== COMPUTED ================== */
+      /* computed: */
       computed: {
-
-        /*
-          filteredAndSorted:
+        /*  filteredAndSorted:
           - Herzstück der Logik
-          - Reagiert automatisch auf Filter- & Sortieränderungen
-        */
+          - Reagiert automatisch auf Filter- & Sortieränderungen */
         filteredAndSorted: function () {
           const landNeedle = this.filterLand.trim().toLowerCase(); // Suchbegriff für Land, bereinigt & in Kleinbuchstaben
           const companyNeedle = this.filterCompany.trim().toLowerCase();
@@ -394,12 +368,11 @@
             unternehmen: "Unternehmen",
             co2: "CO2-Emissionen"
           };
-
           return labels[this.sortKey] + " (" + this.sortDir.toUpperCase() + ")";
         }
       },
 
-      /* ================== METHODS ================== */
+      /* methods: */
       methods: {
         /*
           Umschalten der Sortierung:
@@ -407,9 +380,12 @@
           - neues Feld -> ASC starten
         */
         toggleSort: function (key) {
-          if (this.sortKey === key) {
-            this.sortDir = this.sortDir === "asc" ? "desc" : "asc"; 
-            /* Verkürzung der Bedingung erklären oder Ändern! */
+         if (this.sortKey === key) {
+            if (this.sortDir === "asc") {
+              this.sortDir = "desc";
+            } else {
+              this.sortDir = "asc";
+            }
           } else {
             this.sortKey = key;
             this.sortDir = "asc";
@@ -417,26 +393,27 @@
         },
 
         /*
-          Anzeige von Pfeilen in der Tabelle
+          Anzeige von Pfeilen in der Tabelle, je nach aktueller Sortierung:
         */
         sortIndicator: function (key) {
           if (this.sortKey !== key) return "";
-          return this.sortDir === "asc" ? "▲" : "▼"; /* Verkürzung der Bedingung erklären oder Ändern! */
+         if (this.sortKey !== key) {
+            return "";
+          }
+
+          if (this.sortDir === "asc") {
+            return "▲";
+          } else {
+            return "▼";
+          }
         },
 
-        /*
-          Formatierung der CO2-Werte #### Weg?
-        */
-        formatCo2: function (value) { /* Formatierung von Zahlen mit 2 Nachkommastellen und deutschem Tausender-Trennzeichen */
+        formatCo2Value: function (value) { /* Formatierung von von Zahlen mit Tausender-Trennzeichen */
           return value.toLocaleString("de-DE", { 
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
           });
         },
 
-        /*
-          Filter zurücksetzen
-        */
+        /* Filter zurücksetzen */
         resetFilters: function () {
           this.filterLand = "";
           this.filterCompany = "";
