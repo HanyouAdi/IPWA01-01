@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- lang Attribut für Sprache der Seite; dir Attribut für Schreibrichtung (ltr = left-to-right) -->
+<!-- lang: Attribut für Leserichtung der Seite (ltr = left-to-right) -->
 <html lang="de" dir="ltr">
   <head>
     <meta charset="UTF-8" />
@@ -50,16 +50,22 @@
       <div class="container">
         <!-- Responsive Header-Anordnung: auf kleinen Displays (<768px) untereinander, ab md nebeneinander: -->
         <!-- row mit flex-column (vertikale Anordnung auf sm Displays), flex-md-row (Logo und Überschrift nebeneinander ab md) -->
-        <div class="row flex-column flex-md-row align-items-center align-items-md-center gap-3">
+        <div
+          class="row flex-column flex-md-row align-items-center align-items-md-center gap-3"
+        >
           <!-- Logo: col-12 col-md-auto (volle Breite auf klein, automatische Breite ab md)-->
           <div class="col-12 col-md-auto text-center text-md-start">
-            <img class="img-fluid header-logo" src="img/Logo-NPO.PNG" alt="Logo der NPO Earth's Breath"/>
+            <img
+              class="img-fluid header-logo"
+              src="img/Logo-NPO.PNG"
+              alt="Logo der NPO Earth's Breath"
+            />
           </div>
           <!-- col-12 für volle Breite auf kleinen Displays, col-md für restlichen Platz ab Breakpoint md (≥768px) -->
           <div class="col-12 col-md">
             <!-- text-center für zentriert auf kleinen Displays, text-md-start für linksbündige Schrift ab Displaygröße md -->
             <h1 class="text-center text-md-start">
-              Earth's Breath <br />
+              Earth's Breath <br/>
               Transparenzportal für den CO₂-Footprint
             </h1>
           </div>
@@ -69,10 +75,11 @@
 
     <!-- Globales Navigationsmenü: Startseite / CCF-Tabelle / Über uns / Kontakt / Partner 
      Es wurde sich aktiv dazu entschieden den NPO-Namen und die Startseite als Link zu verwenden, 
-     da oft beides erwartet wird von Nutzer-->
+     da oft beides erwartet wird von Nutzer -->
     <nav
-      class="navbar navbar-expand-lg navbar-dark sticky-top navbar-sticky" 
-      aria-label="Hauptnavigation">
+      class="navbar navbar-expand-lg navbar-dark sticky-top navbar-sticky"
+      aria-label="Globale Navigation"
+    >
       <!-- Bootstrap Navbar Klassen für responsive Navigation, sticky-top für klebende Navbar, 
        navbar-expand-lg damit die Navbar ab lg (Desktopgröße) sichtbar ist (<lg wird das Burgermenü angezeigt),
        aria-label gibt einem Element einen zugänglichen Namen für Screenreader -->
@@ -122,7 +129,7 @@
       </div>
     </nav>
 
-    <!-- Landing Page der Webseite-->
+    <!-- Landing Page der Webseite -->
     <div
       class="container my-4 px-4 px-sm-0"
       data-bs-spy="scroll"
@@ -399,8 +406,12 @@
           </section>
         </main>
 
-        <aside id="localMenu" class="col-lg-2 d-none d-lg-block order-lg-2" aria-label="Inhaltsverzeichnis">
-        <!-- Bootstrap Klassen: col-lg-2 für 2 Spalten ab lg Bildschirmen, 
+        <aside
+          id="localMenu"
+          class="col-lg-2 d-none d-lg-block order-lg-2"
+          aria-label="Inhaltsverzeichnis"
+        >
+          <!-- Bootstrap Klassen: col-lg-2 für 2 Spalten ab lg Bildschirmen, 
              d-none d-lg-block um die Sidebar auf kleineren Bildschirmen auszublenden, 
              order-lg-2 für Reihenfolge in der row -->
           <nav id="inhaltsNav" class="position-sticky sidebar-sticky">
@@ -443,7 +454,7 @@
                       id="ButtonMenuToggleIcon"
                       class="bi bi-arrow-bar-left fs-3"
                     ></i>
-                    <!-- fs-3 macht das icon größer-->
+                    <!-- fs-3 macht das Icon größer-->
                     <span id="ButtonMenuToggleText"
                       >Menü nach links verschieben</span
                     >
