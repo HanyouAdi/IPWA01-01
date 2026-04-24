@@ -103,9 +103,14 @@ table {
   letter-spacing: 1px; /* Etwas mehr Abstand zwischen den Buchstaben */
 }
 
-/*  Bootstrap-CSS-Variable für die Hover-Farbe in Tabellenzeilen */
+/* Bootstrap-CSS-Variable für die Hover-Farbe in Tabellenzeilen */
 tbody {
-  --bs-table-hover-bg: rgb(139, 207, 122, 1); /* Helles Grün für Hover mit Sass*/
+  --bs-table-hover-bg: rgb(
+    139,
+    207,
+    122,
+    1
+  ); /* Helles Grün für Hover mit Sass*/
 }
 
 footer {
